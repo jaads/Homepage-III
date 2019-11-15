@@ -1,0 +1,3 @@
+Hello World! I'm content from file A.
+This is the second line of file A.
+Here, you see the third line of file A.

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Jan Arends">
+
+    <title>IPv4 and IPv6</title>
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="../../index.html">
+            <button class="fancy-button">
+                <i class="fas fa-home fa-3x"></i>Home
+            </button>
+        </a>
+        <h1>IPv4 und IPv6 - Analyse und Vergleich</h1>
+
+    </header>
+<div>
+<main>
+    <h1>1 Einleitung</h1>
+
+    <h2>1.1 Motivation</h2> „Die IP Version, welche wir heute alle in unseren Netzwerken und im Internet einsetzen, ist
+    die IP Version 4, kurz IPv4 genannt. IPv4 wurde in den früheren 70er-Jahren von einer Gruppe Pionieren entwickelt,
+    deren Ziel es war, ein paar staatliche und
+    universitäre Netzwerke in den USA miteinander zu verbinden. Zu jener Zeit war ein Internet, wie wir es heute kennen,
+    jenseits jeder Vorstellung. Es ging damals darum, ein Protokoll zu entwickeln, welches Tausende von Hosts verbinden
+    würde. Entsprechend
+    war es auch kein Design-Ziel des Protokolls, ein globales Netzwerk mit Milliarden von Hosts zu unterstützen. Umso
+    faszinierender ist es, dass es diesen Pionieren gelang, ein Protokoll zu entwickeln, welches so skalierbar und
+    stabil ist, dass es heute
+    – 30 Jahre später – als Grundlage fürs Internet dienen kann. Heute ist es jedoch eindeutig in die Jahre gekommen, wo
+    es Zeit für eine neue Generation ist. IPv6 ist eine Evolution von IPv4 und wurde aufgrund der reichen Erfahrung mit
+    IPv4 entwickelt.
+    Bewährtes wurde beibehalten, bekannte Einschränkungen wurden behoben, Skalierbarkeit und Flexibilität wurden
+    erweitert. IPv6 ist das Protokoll, das in der Lage sein wird, der Wachstumsrate des Internet und den Anforderungen
+    zukünftiger Dienste gewachsen
+    zu sein“ [Hag09, S. 1].
+
+
+    <h2>1.2 Ziel der Arbeit</h2> Es werden wohl noch einige Jahre vergehen, bis IPv6 das gegenwärtig genutzte IPv4
+    vollständig ablöst. Es ist jedoch von Bedeutung sich heute schon konkret mit der Einführung von IPv6 zu
+    beschäftigen, da sie mittelfristig unumgänglich ist. „Bezieht
+    man IPv6 frühzeitig in die strategische Planung mit ein, befasst man sich frühzeitig mit möglichen
+    Einführungsszenarien und berücksichtigt man die bevorstehende Einführung beim Tätigen von Investitionen in die
+    Infrastruktur, so lassen sich teilweise
+    beträchtliche Kosten vermeiden“ [Hag09, S. 2] Ziel der Arbeit ist es, den Lesern die technischen Details der Header
+    von IPv4 und IPv6 zu erläutern.
+
+    <h2>1.3 Aufbau der Arbeit</h2> 
+    Nach der Einleitung beschäftigt sich Kapitel 2 mit der Analyse der beiden Header
+    anhand eines Beispiels. In Kapitel 3 werden die beiden Header verglichen und die Gemeinsamkeiten und Unterschiede
+    verdeutlicht. Der Umgang mit Optionen wird während dessen
+    explizit erläutert. Abschließend erfolgt eine Zusammenfassung, die wesentliche Vor- und Nachteile beinhaltet.
+
+    <h1>2 Analyse</h1>
+    In diesem Kapitel werden die Header von IPv4 und IPv6 analysiert. Um Ihnen den Inhalt der einzelnen Felder zu
+    veranschaulichen und Sie auf künftige Analysen eines Headers auf Bit-Ebene gefasst zu machen, stützt sich die
+    Analyse auf einem konkreten Beispiel.
+    Dazu betrachten wir jeweils einen Ping-Request zu der Homepage von Heise. Durch einen Ping lässt sich die
+    Erreichbarkeit eines bestimmten Host in einem IP-Netzwerk prüfen. Zur Analyse der IP-Header wurde das Programm
+    Wireshark benutzt.
+
+    <h2>2.1 IPv4 Header</h2> 
+    Abbildung 1 zeigt den kompletten IPv4 Header des Ping-Requests in einem Trace File, welches
+    im folgenden Abschnitt als Beispiel dient.
+
+    <figure class="center">
+        <img src="images/sceenipv4.JPG" alt="IPv4_Packet_Trace">
+        <figcaption>Abbildung 1: Der IPv4 Header im Trace File</figcaption>
+    </figure>
+    <br>
+    Die ersten 4 Bits des IPv4 Headers beschreiben die eingesetzte Version des Internetprotokolls. Dementsprechend
+    wurden diese Bits in unserem Beispiel auf 1000 2 gesetzt, was dem Wert 4 entspricht.
+
+    <h4>Internet Header Length (IHL)</h4>
+    Dieses Datenfeld ist ebenfalls 4 Bit lang und gibt mittels 32 Bit Einheiten die Gesamtlänge des IP-Headers an. Durch
+    den Wert dieses Feldes weiß der Empfänger, an welcher Stelle die Nutzdaten beginnen. Warum der IPv4 Header eine
+    flexible Größe hat, wird
+    später genauer erklärt. In unserem Beispiel ist das IHL-Feld mit 0101 2 belegt. Es entspricht also dem Wert 5. Durch
+    die 32 Bit Einheiten lässt sich mit folgender Rechnung die Größe des Headers zeigen: 5* 32 Bit = 160 Bit ⇒ 20 Byte.
+    Diese Größe entspricht
+    der minimalen Größe eines IPv4 Headers. Die maximale Größe des Headersbeträgt, durch die 4 Bits dieses Feldes, 60
+    Byte.
+
+
+    <h4>Differentiated Services (DS)</h4>
+    Ursprünglich befand sich an dieser Stelle das Type of Service (ToS) Feld. Da dieses Feld nicht einheitlich definiert
+    war und die Gefahr bestand, dass sein Gebrauch letztendlich eher zu Verzögerungen aufgrund von erhöhtem
+    Verarbeitungsaufwand auf Routern
+    führen würde, wurde das Feld jedoch nie wirklich benutzt. Das Redesign von IP für IPv6 stellte zusammen mit den
+    absehbaren steigenden Anforderungen an Quality of Service (QoS) eine gute Gelegenheit dar, dieses Thema in Angriff
+    zu nehmen. Um QoS Optimierung
+    zu ermöglichen, gibt es z.Z. zwei Architekturen: Integrated Service (IntServ) und Differentiated Services
+    (DiffServ). Ohne näher auf die Architekturen eingehen zu wollen, kann man sagen, dass IntServ aufwendig in der
+    Implementation und aufgrund der limitierten
+    Skalierbarkeit keine generelle QoS-Lösung für das globale Internet darstellt. DiffServ verbessert die Skalierbarkeit
+    in großen Netzwerken und im Internet. Aus diesem Grund wurde DiffServ in den IPv4 Header implementiert. [vgl. Hag09,
+    S471f.] „Das DS-Feld
+    enthält die QoS- Anforderungen eines Paketes und wird von jedem DiffServ Router benutzt, um die Art und Weise zu
+    bestimmen, wie er dieses Paket weiterleitet. Damit können kommunizierende Knoten ihren Datenaustausch in
+    verschiedene Kategorien einteilen,
+    welche durch ein sogenanntes Per-Hop-Behaviour (PHB) identifiziert sind. Aufgrund des PHB erhalten die Pakete auf
+    DiffServ Routern eine entsprechende Behandlung“ [Hag09, S. 474]. Die ersten 6 Bits des DS-Feldes beschreiben den
+    sog. Codepoint (DSCP), mit
+    dem ein Pool von Per-Hop-Behavoirs (PHB) angegeben wird. „Ziel dieser Spezifikation ist es, dass die Router, welche
+    DiffServ unterstützen, einen bekannten Satz von DS Routinen kenne, die aufgrund der Werte im DS-Feld angezeigt
+    werden [Hag09, S476]. Mit
+    dem DSCP-Feld lassen sich 64 verschiedene Codepoints darstellen. Um die Zuweisung von PHBs zu kontrollieren, wurde
+    dieser Pool in drei Bereiche eingeteilt. Abbildung 2 zeigt diese Bereiche.
+
+    <table class="center">
+        <thead>
+        <tr>
+            <th>Pool</th>
+            <th>Codepoint</th>
+            <th>Zuweisung</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>1</th>
+            <td>xxxxx0</td>
+            <td>Standardbenutzung</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>xxxx11</td>
+            <td>Experimentelle/ lokale Benutzung</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>xxxx01</td>
+            <td>Experimentelle/ lokale Benutzung</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>Pool 1 stellt 32 empfohlene Standard-Codepoints zu Verfügung. Pool 2 dient zu experimentellen Zwecken und findet
+    interne Verwendung. Pool 3 hat dieselbe Zuweisung wie Pool 2, jedoch mit dem Unterschied, dass dieser für
+    Standardbenutzung freigegeben werden kann, wenn Pool 1 ausgeschöpft ist. Die PHBs definieren, wie ein Paket
+    weitergeleitet wird. [vgl. Hag09, S. 471f.]. Der Default Wert des DSCP entspricht 0, welcher sich auch in unserem
+    Beispiel wiederfinden lässt. „Dieser Default PHB entspricht dem normalen, best-effort Routingverhalten, wie es jeder
+    Router unterstützt, d.h. es werden so viele Pakete wie möglich so schnell wie möglich weitergeleitet, je
+    nachKapazität und Auslastung“ [Hag09, S. 477].</p>
+
+    <h4>Explicit Congestion Notification (ECN)</h4>
+    ECN ist ein Teil des DS-Felds und beinhaltet die letzten 2 Bits dieses Feldes. Es dient zur Überlastkontrolle und
+    wird von Routern verwendet, welche durch eine einfache Markierung eines Bits, eine drohende Überlast den
+    nachfolgenden Routern mitteilen können [vgl. Hag09, S. 478]. In unserem Beispiel wurde keins der beiden Bits
+    gesetzt. Dies bedeutet, dass dieses Paket kein ECN benutzt. Ist der Wert des ECN Felds 01/10 bedeutet dies, dass
+    Absender und Empfänger ECN aktiviert haben, es aber keine Überlast
+    besteht. Sind beide Bits gesetzt, so signalisiert der Router eine bevorstehendeÜberlast [vgl. Ram01].
+
+    <h4>Total Lenght</h4>
+    In diesem Feld wird die Gesamtlänge des IP-Pakets (Header + Nutzdaten) in Byte angegeben. Dieses Feld nutzt 16 Bit,
+    woraus sich die maximale Größe eines kompletten IP-Pakets ergibt: 2 16 ⇒ 65.536 Byte ⇒ 64 KiB [vgl. Inf81]. Das
+    Paket aus unserem Beispiel hat eine Größe von 60 Bytes. Auf Bit-Ebene betrachtet steht hier also <code>0000000000111100</code>_2.
+
+    <h4>Identification</h4>
+    Die nächsten 3 Felder „Identification“, „Flags“ und „Fragment Offset“ spielen bei der Fragmentierung von IP-Paketen
+    eine wichtige Rolle. Eine Fragmentierung bedeutet das Aufteilen eines Datenpaketes in mehrere Datenblöcke, falls die
+    Gesamtlänge des Datenpakets
+    die maximal zulässige Paketlänge der Vermittlungsschicht (Maximum Trasmission Unit, kurz MTU) überschreitet. Das
+    Feld „Identification“ dient zur Identifikation von fragmentierten Paketen durch eine eindeutige Kennung. D.h. alle
+    Fragmente eines einzelnen Datagramms sind mit demselben Wert markiert. Dieser dient dem Empfänger dazu, die
+    Zusammengehörigkeit von Fragmenten erkennen zu können, um diese nachher wieder zusammen zu setzen. Bei dem Ping aus
+    unserem Beispiel war keine Fragmentierung von Nöten. Um das Prinzip der Fragmentierung und dem Sinn des
+    Identifikationsfeldes zu verdeutlichen, nehmen wir jedoch an, dass eine Fragmentierung vorgenommen wurde. In unserem
+    Beispiel hat das Feld den Wert 19941 (01001101 11100101 2 ) bekommen. Bei einer Fragmentierung des Pakets, würde
+    jedes Fragment ebenfalls diese Nummer zugewiesen bekommen. Abbildung 3 veranschaulicht dieses Prinzip.
+
+    <figure class="center">
+        <img src="images/fragmentierung.jpg" alt="IPv4_Packet_Trace">
+        <figcaption>Abbildung 3: Beispiel einer Fragmentierung</figcaption>
+    </figure>
+
+    <h4>Flags</h4> Dieses Feld ist 3 Bit Groß und gibt Auskunft über die Fragmentierung des einzelnen Fragments. Das
+    erste Bit ist reserviert und wird immer mit 0 belegt. Falls das zweite Bit gesetzt ist, also den Wert 1 hat, liegt
+    Fragmentierung vor und das Fragment ist nur ein Teil eines Datagramms. Mit einem gesetzten dritten Bit wird
+    angegeben, dass noch weitere Fragmente folgen [vgl. Inf81]. In unserem Beispiel hat das Flags-Feld den Wert 000 2
+    und zeigt somit an, dass es kein fragmentiertes Paket ist und dass auch dementsprechend keine weiteren
+    fragmentiertenPakete folgen. Zumindest nicht von den gleichen Datagramm.
+
+    <h4>Fragment Offset</h4> 
+    Enthält ein IP-Paket fragmentierte Nutzdaten, steht in diesem Feld die Position der Daten
+    im ursprünglichen IP-Paket. Anhand
+    dieser Position kann das Paket beim Empfänger wieder in die ursprüngliche Reihenfolge defragmentiert werden [vgl.
+    Inf81]. Da in unserem Beispiel keine Fragmentierung von Nöten war, wurde auch kein Bit in diesemFeld gesetzt.
+
+    <h4> Time To Live (TTL)</h4> 
+    Der IP-Header wurde weiterhin mit den 8 Bits großen Time To Live Feld ausgestattet, um zu
+    verhindern, dass ein Paket unkontrolliert im Internet verweilt. Diese kann z.B. dann geschehen, wenn der Router die
+    Zieladresse nicht findet. Um den unnötigen Trafficzu vermeiden, legt der Sender eine Lebensdauer für das Paket fest.
+    Jede Station, die ein Paket weiterleiten muss, verringert den Wert um 1. Solch eine Station wird auch Hop genannt.
+    Hat das TTL-Feld den Wert 0 erreicht, wird das IP-Paket verworfen und eine entsprechende Meldung an die Quelladresse
+    gesendet [vgl. Inf81]. In unserem Beispielwurde der Start-/ Initialwert auf 128 (1000 0000 2 ) festgelegt.
+
+    <h4> Protocol</h4> Die nächsten 8 Bits werden als Protocol-Feld bezeichnet und geben Auskunft über das übergeordnete
+    Protokoll (engl.: Upper Layer Protocol), zu dem die transportierten Nutzdaten gehören [vgl Inf81]. Das Feld
+    repräsentiert eine Protokoll-Nummer, die vonder Abteilung „Internet Assigned Numbers Authority“ (kurz IANA) der
+    Organisation „Internet Corporation for Assigned Names and Numerbs“ definiert wurde. Die Protokoll- Nummern lassen
+    sich in einer Online-Datenbank nachschlagen. Der Ping aus unserem Beispiel benutzt das Protokoll ICMP. Dafür legte
+    die IANA den Wert 1 fest, der auch inunserem Beispiel zu finden ist [IAN13].
+
+    <h4>Header Checksum</h4> Anhand der Checksumme des Headers wird die Korrektheit des IP-Headers sichergestellt. Für
+    die Richtigkeit der Nutzdaten ist ein
+    übergeordnetes Protokoll mit eigener Checksumme zuständig. Dadurch, dass sich der Header ständig ändert (z.B. durch
+    das TTL-Feld), muss jeder Hop die Checksumme neu berechnen. Bekommt ein Router ein IP-Paket mit inkorrekter Header
+    Checksumme, wird das Paket verworfen. DerHeader unseres Beispiels wurde mit der Checksumme 42952 (10100111 11001000
+    2) versehen.
+
+    <h4>Source IP Address</h4> In diesem Feld wird die IP-Adresse eingetragen, die das Paket abgeschickt
+    hat (Quelladresse). Da eine IPv4 Adresse 32 Bit lang ist, ist dieses Feld auch genauso groß.
+   
+    <h4>Destination IP Address</h4> Analog zu der Source-IP Adresse wird in diesen Feld die IP-Adresse geschrieben, für die das Paket
+    bestimmt ist (Zieladresse). Dafür wurden ebenfalls 32 Bit im IP-Headerreserviert.
+
+    <h4>Options und Padding</h4> 
+    Dieses Feld kann bei Bedarf genutzt werden. Es dient zum Anfügen von Zusatzoptionen wie z.B. Security-Optionen, Source
+    Routing oder Timestamp-Informationen. Die Zusatzinformationen müssen ein vielfaches von 32 Bit lang sein. Die
+    Wahrscheinlichkeit, dass die Informationen die Länge eines Vielfachen von 32 Bit hat, ist gering. Um dies jedoch
+    trotzdem erreichen zu können wurde das Padding hinzugefügt. Es füllt dieOptionen mit 0-Bits, solange ein Vielfaches
+    von 32 erreicht ist [vgl. Inf81].
+    
+    <h2>Version</h2> Genau wie bei IPv4 stehen bei IPv6 die ersten 4 Bit für die
+    IP-Versionsnummer. Anhand der Belegung 0110 2 in unserem Beispiel kann man erkennen, dass die Version 6eingesetzt
+    wurde
+
+    <h2>Traffic Class</h2> Das 1 Byte große Feld dient dazu, verschiedene Klassen oder Prioritäten von Paketen zu
+    unterscheiden und dementsprechend zu behandeln. Das Feld befasst sich mit Real- Time Daten und anderen Daten, die
+    eine besondere Behandlung benötigen [vgl. Hag09, S. 22]. Das Feld benutzt wie der IPv4 Header das DS-Feld mit einem
+    6 Bit langem DSCP und eine 2 Bit lange Kennung für ECN (siehe Unterpunkte Differentiated Services und Explicit
+    Congestion Notification in Kapitel 2.1). Wie im vorigen Beispiel bei IPv4 wurdehier ebenfalls kein Codepoint gesetzt
+    und ECN nicht benutzt (0000 0000 2 ).
+    
+    <h2>Flow Label</h2> Das Flow Label Feld dient ebenfalls zur Unterstützung von
+    QoS. Es ist zu der erleichterten Verarbeitung von Real-Time Paketen behilflich, indem es Pakete, welche gleichartig
+    behandelt werden müssen, mit einem sogenannten Label kennzeichnet. Das Flow Label wird vom Absender der Pakete
+    zugewiesen und ist eine Zufallszahl aus dem Bereich von 00001 16 bis FFFFF 16 , die in Kombination mit der
+    Absenderadresse eindeutig identifizierbar ist. Ein Paket ohne QoS-Anforderungen hat alle Bits des Feldes auf 0
+    gesetzt. Pakete die demselben Flow angehören, müssen sowohl identische Absender- und Empfängeradressen sowie
+    identische Absender- und Empfänger Ports haben. Ein Router kann daraufhin den Flow speichern und alle Pakete mit
+    demselben Label auf die gleiche Weise verarbeiten, ohne weitere Informationen über das Paket zu kennen. Das Paket
+    aus unserem Beispiel wurde mit keinem Label versehen, da keine erhöhte Prioritätvorgesehen war.
+    
+    <h2>Payload Length</h2> Dieses 2 Byte Große Feld gibt die Länge des sogenannten Payloads in Byte an. Dabei handelt es sich
+    sowohl um Nutzdaten, als auch um sogenannte Extension Headers, welche zum Ende dieses Abschnittes beschrieben
+    werden. Die Payload Länge in unserem Beispiel beträgt 40 Bytes. Die maximale Größe des Payloads ist durch die
+    verfügbaren 2 Byte auf 64 KiB beschränkt.
+    
+    <h2>Next Header</h2> In diesem Feld wird der nachfolgende Header
+    beschrieben. Dieser kann ein Protokoll des nächst höheren Layers oder ein Extension Header sein. Wurde kein
+    Extension Header angefügt und der Next Header ist dementsprechend ein Protokoll wie z.B. TCP oder UDP ist, enthält
+    dieses Feld dieselben Werte wie das Protocol Feld im IPv4 Header. Wenn der nächste Header ein Extension Header ist,
+    beschreibt dieses Feld den Typ des nächsten Extension Headers. Extension Header befinden sich immer zwischen dem
+    IPv6 Header und den nachfolgenden Protokoll-Header [vgl. Hag09, S.23]. Abbildung 5verdeutlicht, mit welchem Wert das
+    Next Header Feld versehen wird. BILD Das Programm Ping aus unserem Beispiel, verwendet das Protokoll ICMPv6. In der
+    bereits genannten Datenbank für Protokoll-Nummern wurde für ICMPv6 die Protokoll Nummer 58 festgelegt. Dem
+    entsprechend wurde das Next Header Feld in unseremBeispiel auf 0011 1010 2 gesetzt.
+    
+    <figure>
+        <img src="images/ipv5_eh.jpg" alt="IPv6_NextHeader">
+        <figcaption>Abbildung 5: Funktionsweise des Next Header Felds [Cis06]</figcaption>
+    </figure>
+
+    <h2>Hop Limit</h2> Dieses Feld entspricht dem TTL Feld im IPv4 Header und gibt die Anzahl der Hops an, die das IP
+    Paket noch passieren darf. Jeder Hop zieht beim Weiterleiten den Wert 1 ab. Ist der Wert in diesem Feld auf 0
+    reduziert worden, verwirft der letzte Hop das Paket und schickt dem Absender des Pakets eine entsprechende
+    ICMPv6-Meldung. In unserem Beispiel wurde der das Hop Limit auf 128 festgelegt [vgl. Hag09, S. 25].
+    
+    <h2>Source Address</h2> In diesem Feld wird die IPv6-Adresse des Absenders eingetragen. Folglich werden dafür 128 Bit in
+    Anspruch genommen.
+    
+    <h2>Destination Address</h2> Hier ist die IPv6-Adresse des Empfängers vermerkt. Anders als bei
+    IPv4 muss hier nicht zwingend die endgültige Ziel-Adresse stehen, sondern ist z.B. auch die Adresse desnächsten Hops
+    möglich. Diese wird gesetzt, wenn ein Routing Header vorhanden ist.
+    
+    <h2>Extension Header</h2> IPv6 transportiert die
+    Optionen in zusätzlichen Headers, den Extension Headers. Diese Extension Header enthalten Optionen und
+    Informationen, die für die Netzwerkschicht (IP Layer) von Bedeutung sind. Extension Header werden nur eingefügt,
+    wenn Optionen vorhanden sind [vgl. Hag09, S. 27]. Die aktuelle IPv6 Spezifikation definiert 11 Extension Header,
+    wovon zwei für experimentelle Zwecke benutzt werden [IAN13].
+    
+    <h1>3 Vergleich</h1> In folgenden Abschnitt möchte ich
+    auf die Unterschiede und die Gemeinsamkeiten der beiden Header eingehen. Der IPv6 Header wurde durch die Erneuerung
+    stark vereinfacht. Von den 14 Feldern bei IPv4 blieben nur noch 7 Felder in IPv6 übrig. Diese Vereinfachung
+    ermöglicht Routern, Pakete schneller verarbeiten zu können. Darüber hinaus werden nun Erweiterungen und Optionen
+    durch die Extension Header besser unterstützt.
+
+    <h2>3.1 Felder</h2>
+    <p>
+        Das Version Feld hat sich bei der Erneuerung nicht verändert. In beiden Versionen steht es mit 4 Bits am Anfang
+        des Headers. Das Feld Header Length ist, durch das Auslagern der Optionen außerhalb des Headers, überflüssig
+        geworden. Im Gegensatz zum IPv4 Header hat der IPv6 Header eine feste Länge von 40 Bytes. Aus diesem Grund kann
+        auf die Berechnung der IP-Header-Größe verzichtet werden. Das in IPv4 genannte ToS-Feld wurde durch das Feld
+        Traffic Class bei IPv6 ersetzt. Trotz der unterschiedlichen Bezeichnungen erfüllen jedoch beide Felder die
+        gleichen Aufgaben, und zwar bestimmen sie die Beförderungspriorität des Pakets, mittels des DSCP. Das Feld „Flow
+        Label“ wurde in IPv6 neu eingeführt. Dieses Feld dient zur Fluss- Kennzeichnung von Paketen. Anhand des
+        eingetragenen Werts in diesem Feld, kann der Router erkennen, ob eine spezielle Behandlung gewünscht ist. Das
+        Feld Total Length ist vergleichbar mit dem Payload Length Feld in IPv6. Beide Felder geben Auskunft über die
+        Größe des gesamten IP-Pakets an. Die Berechnung der Größe ist zwischen den Versionen jedoch unterschiedlich. Das
+        Total Length Feld bezieht Header- und Nutzdaten in die Berechnung mit ein. IPv6 hingegen verzichtet auf die
+        Berechnung des Headerbereichs, da dieser sowieso immer die gleiche Größe besitzt und eine ständige Berechnung
+        dementsprechend überflüssig wäre. Dafür müssen die Extension Header bei IPv6 berücksichtigen werden. Die Länge
+        der Nutzdaten werden in jeder Version in die Berechnung mit einbezogen. Des Weiteren wurden die drei Felder
+        Identification, Flags und Fragment Offset bei der Erneuerung aus dem eigentlichen Header gestrichen. Die
+        genannten Felder werden bei IPv4 zur Realisierung und Verarbeitung von fragmentierten Paketen genutzt. Insgesamt
+        werden dazu 32 Bit im IPv4 Header reserviert, die auch übertragen werden, wenn keine Fragmentierung vorgenommen
+        wurde. Dies bedeutet unnötigen Header Overhead. Bei IPv6 wird die Fragmentierung mittels Extension Header
+        realisiert, welcher nur dann eingefügt wird, wenn Fragmentierung notwendig ist. Das Feld Time To Live aus dem
+        IPv4 Header wurde bei IPv6 in „Hop Limit“ umbenannt. Sowohl die Funktion, als auch die Länge der Felder sind
+        jedoch gleich geblieben. In beiden Fällen wird hier ein Wert angegeben, der Aussage darüber macht, wie viele
+        Stationen ein Paket noch passieren darf. Jede Vermittlungsstation senkt diesen Wert um 1. Erreicht das Paket
+        innerhalb dieses Limits nicht sein Ziel, wird es verworfen und der Empfänger wird dementsprechend
+        benachrichtigt. Das Gleiche gilt auch bei den Feldern Protocol und Next Header. Hier sind ebenfalls die Funktion
+        und die Länge des Feldes identisch geblieben. Lediglich ein kleiner Unterschied ist vorhanden: Wird bei IPv6 ein
+        Extension Header eingesetzt, so gibt das Feld nicht das Folgeprotokoll an sondern einen Wert zur Identifizierung
+        des nachfolgenden Extension Headers. In unserem Beispielen wurde der Wert bei IPv4 auf 1 (0000 0001 2 ) für ICMP
+        und bei IPv6 auf 58 (00111010 2 ) für ICMPv6 gesetzt. Um die Verarbeitungsgeschwindigkeit von IP weiter zu
+        erhöhen, wurde das Header Checksum Feld im IPv6 Header entfernt. Durch die Nutzung von Checksummen auf der
+        Sicherungssicht, ist die Gefahr von nicht erkannten Fehler und fehlgeleiteten Paketen minimal. Das Bilden und
+        Überprüfen von Checksummen auf dieser Schicht war jedoch zurzeit als IPv4 entwickelt wurde nicht üblich. So
+        entschloss man sich, eine Checksumme in den IP Header zu implementieren [vgl. Hag09, S.20]. Die Quell- und
+        Zieladressfeldern wurden auf die 128 Bit IPv6 Adressen angepasst und erhalten somit eine Länge von 128 Bit für
+        die jeweilige Adresse. Abbildung 6 fasst die Gemeinsamkeiten und Unterschiede zusammen.
+    </p>
+
+    <figure>
+        <img src="images/summary.jpg" alt="Header Summary">
+        <figcaption>Abbildung 6: IPv4- und IPv6 Header im Vergleich [Cis06]</figcaption>
+    </figure>
+
+    <h2>3.2 Optionen</h2> Das Options Feld in IPv4 wurde aufgrund starker Performance Beeinträchtigung eher weniger
+    genutzt. Diese Einbußen lassen sich z.B. anhand von Hardware-Forwarding- Geräten zeigen. Diese müssen alle Pakete
+    mit Optionen an den Haupt-Prozessor übergeben und auf Software-Ebene verarbeiten, was eine langsamere Verarbeitung
+    zur Folge hat. So kann man sagen, dass die Struktur des IPv4 Headers für heutige Ansprüche eher Ineffizient geworden
+    ist. Denn desto einfacher ein Header strukturiert ist, desto schneller kann er verarbeitet werden. Aus diesem Grund
+    werden bei IPv6 die Zusatzinformationen nicht mehr innerhalb des eigentlichen IP-Headers verarbeitet, sondern in
+    zusätzlichen Extension Headers ausgelagert. Die Extension Headers werden, genau wie die Optionen im IPv4 Header, nur
+    eingefügt, wenn Optionen vorhanden sind. [vgl. Hag09, S. 27].
+
+
+    <h1>4 Zusammenfassung</h1> Die Umgestaltung des
+    IP-Headers ist eine wesentliche Neuerung bei IPv6. Die Schlankheit des Headers und eine bessere Unterstützung für
+    zusätzlichen Optionen erlauben eine schnelle Verarbeitung von IP Paketen. Des Weitern wurde unnötiger Header
+    Overhead vermieden, indem Felder, die zuvor Optional genutzt werden konnten, durch Extension Header ersetzt wurden.
+    Neue Extension Header lassen sich jederzeit definieren und einführen, ohne die Grundstruktur des IPv6-Headers
+    verändern zu müssen. So kann künftig schnell auf neue Anforderungen reagiert werden.
+
+    <h1>Literaturverzeichnis</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Kürzel</th>
+            <th>Quelle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>[Cis06]</th>
+            <td>Cisco: “IPv6 Extension Headers Review and Considerations”, Oktober 2006,
+                http://www.cisco.com/en/US/technologies/tk648/tk872/technologies_white_ paper0900aecd8054d37d.html,
+                Stand 27 Dezember 2013
+            </td>
+        </tr>
+        <tr>
+            <th>[Dee98]</th>
+            <td>S. Deering, Cisco, R. Hinden, Nokia, “Internet Protocol, Version 6 (IPv6) Specification” RFC 2460,
+                Dezember 1998, http://www.ietf.org/rfc/rfc2460.txt, Stand 13.Dezember 2013
+            </td>
+        </tr>
+        <tr>
+            <th>[Hag09]</th>
+            <td>Hagen, Silvia: „IPv6: Grundlagen - Funktionalität – Integration“, Sunny Edition, 2. Auflage, Dezember
+                2009
+            </td>
+        </tr>
+        <tr>
+            <th>[IAN13]</th>
+            <td>Internet Assigned Numbers Authority: “Assigned Internet Protocol Numbers”, Dezember 2013,
+                http://www.iana.org/assignments/protocol- numbers/protocol-numbers.xhtml#protocol-numbers-1, Stand 09
+                Januar 2014
+            </td>
+        </tr>
+        <tr>
+            <th>[Inf81]</th>
+            <td>Information Sciences Institute, University of Southern California “Internet Protocol” RFC 791, September
+                1981, http://tools.ietf.org/html/rfc791, Stand 14. Dezember 2013
+            </td>
+        </tr>
+        <tr>
+            <th>[Nic98]</th>
+            <td>K. Nichols, Cisco Systems, S. Blaker, Torrent Networking Technologies, F. Baker, D. Black, EMC
+                Corporation, “Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers”
+                RFC 2474, Dezember 1998, http://www.ietf.org/rfc/rfc2474.txt,
+                Stand 14. Dezember 2013
+            </td>
+        </tr>
+        <tr>
+            <th>[Ram01]</th>
+            <td>K. Ramakrishnan, TeraOptic Networks, S. Floyd, ACIRI, D. Black, EMC, “The Addition of Explicit
+                Congestion Notification (ECN) to IP” RFC 3168, September 2001, http://www.ietf.org/rfc/rfc3168.txt,
+                Stand 14. Dezember 2013
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</main>
+
+
+</body>
+</html>

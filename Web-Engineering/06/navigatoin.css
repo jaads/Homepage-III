@@ -1,0 +1,37 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav {
+    flex: 1;
+    background-color: whitesmoke;
+}
+
+main {
+    flex: 2;
+    height: 25rem;
+    padding: auto;
+}
+
+aside {
+    flex: 1;
+    background-color: whitesmoke;
+}
+
+.navitem {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    border: solid 1px;
+    margin: 1rem;
+    border-radius: 1rem;
+    list-style: none;   
+    padding: 0.2rem;
+    padding-left: 1rem;
+}
+
+.menuitem {
+    float: left;
+    padding-right: 1rem;
+    margin-top: -1rem;
+}

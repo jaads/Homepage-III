@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 4</title>
+    <style>
+
+        .border {
+            border: lightgrey solid 4px;
+            border-radius: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 10fr 1fr;
+            grid-template-areas:
+                    "header header header header"
+                    "Nav Article1 Article1 Aside"
+                    "footer footer footer footer";
+
+        }
+
+        footer {
+            grid-area: footer;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        .navitem {
+            margin: 0 2em 0.5em;
+        }
+
+        main {
+            grid-area: Article1;
+        }
+
+        aside {
+            grid-area: Aside;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        html {
+            height: 98%;
+        }
+
+    </style>
+</head>
+<body class="grid-container">
+
+<header class="header border"><b>Header</b></header>
+<div class="mynav border"><b>Nav</b>
+        <div class="navitem border"><b>Menupunkt 1</b></div>
+        <div class="navitem border"><b>Menupunkt 2</b></div>
+        <div class="navitem border"><b>Menupunkt 3</b></div>
+</div>
+<main class="Article1 border"><b>Article 1</b></main>
+<aside class="Aside border"><b>Aside</b></aside>
+<footer class="footer border"><b>Footer</b></footer>
+
+</body>
+</html>

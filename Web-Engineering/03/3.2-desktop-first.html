@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 3.2</title>
+    <style>
+
+        .red {
+            background-color: red;
+            color: red;
+        }
+
+        .green {
+            background-color: chartreuse;
+            color: chartreuse;
+        }
+
+        .blue {
+            background-color: blue;
+            color: blue;
+        }
+
+        .pink {
+            background-color: hotpink;
+            color: hotpink;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-areas: "left middle side";
+        }
+
+        header {
+            height: 10rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            grid-area: left;
+            margin-right: 0.5rem;
+        }
+
+        main {
+            grid-area: middle;
+            height: 30rem;
+        }
+
+        aside {
+            grid-area: side;
+            margin-left: 0.5rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 5fr 1fr;
+                grid-template-areas: "left maain" "bottom bottom";
+            }
+
+            header {
+                height: 7rem;
+            }
+
+            main {
+                grid-area: maain;
+            }
+
+            aside {
+                grid-area: bottom;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+        }
+
+        @media screen and (max-width: 400px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 5fr 1fr;
+                grid-template-areas: "nav" "main" "bottom";
+            }
+
+            main {
+                grid-area: main;
+            }
+
+            nav {
+                grid-area: nav;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            aside {
+                grid-area: bottom;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<header class="red">.</header>
+<div class="grid-container">
+    <nav class="green">.</nav>
+    <main class="blue">.</main>
+    <aside class="pink">.</aside>
+</div>
+
+</body>
+</html>

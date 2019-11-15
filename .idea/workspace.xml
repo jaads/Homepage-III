@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="29e262d3-33c5-4db0-88bb-fb781a77e34e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SHtTgYwUkDBYKAb1lRlMPZ3nNp" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="liveEdit" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/03" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.Async.html">
+    <configuration name="Abgabe5.1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uebungen/Web-Engineering/05/Abgabe5.1.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Abgabe5.2.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uebungen/Web-Engineering/05/Abgabe5.2.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Abgabe5.3.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uebungen/Web-Engineering/05/Abgabe5.3.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Async.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uebungen/Web-Engineering/06/Async.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="DOMExamples.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Uebungen/Web-Engineering/05/DOMExamples.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Async.html" />
+        <item itemvalue="JavaScript Debug.DOMExamples.html (1)" />
+        <item itemvalue="JavaScript Debug.Abgabe5.1.html" />
+        <item itemvalue="JavaScript Debug.Abgabe5.2.html" />
+        <item itemvalue="JavaScript Debug.Abgabe5.3.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29e262d3-33c5-4db0-88bb-fb781a77e34e" name="Default Changelist" comment="" />
+      <created>1571232357487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571232357487</updated>
+      <workItem from="1571232358819" duration="3595000" />
+      <workItem from="1571246873395" duration="1515000" />
+      <workItem from="1571258117064" duration="2190000" />
+      <workItem from="1571325473745" duration="6240000" />
+      <workItem from="1571410531817" duration="1761000" />
+      <workItem from="1571492628776" duration="1769000" />
+      <workItem from="1571567073251" duration="10032000" />
+      <workItem from="1571580501588" duration="6698000" />
+      <workItem from="1571770006570" duration="14000" />
+      <workItem from="1571816490827" duration="4949000" />
+      <workItem from="1571828908580" duration="3904000" />
+      <workItem from="1571840410880" duration="538000" />
+      <workItem from="1571962249709" duration="4946000" />
+      <workItem from="1572016392627" duration="836000" />
+      <workItem from="1572264191421" duration="14773000" />
+      <workItem from="1572359179966" duration="20645000" />
+      <workItem from="1572424034347" duration="14384000" />
+      <workItem from="1572463799191" duration="9448000" />
+      <workItem from="1572546950215" duration="3378000" />
+      <workItem from="1572609188989" duration="30473000" />
+      <workItem from="1572680894168" duration="5095000" />
+      <workItem from="1572855893915" duration="182000" />
+      <workItem from="1573033969333" duration="309000" />
+      <workItem from="1573034519574" duration="11058000" />
+      <workItem from="1573057247289" duration="6579000" />
+      <workItem from="1573112822165" duration="2255000" />
+      <workItem from="1573147635579" duration="608000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 2</title>
+    <style>
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        td {
+            padding: 1vh;
+        }
+
+        body {
+            text-align: center;
+            background: #B2D6D1;
+            font-family: sans-serif;;
+        }
+
+        p {
+            padding-top: 2.5em;
+        }
+
+        .leftcol {
+            text-align: right;
+        }
+
+        .rightcol {
+            text-align: left;
+        }
+
+        .top {
+            vertical-align: top;
+        }
+
+        .formular {
+            background: #eeeeee;
+            margin: 0 5vw;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Survey Form</h1>
+
+<div class="formular">
+
+    <p>Let us know how we can imprive freeCodeCamp</p>
+
+    <table class="center">
+        <tr>
+            <td class="leftcol">* Name</td>
+            <td class="rightcol"><input type="text" placeholder="Enter your name" name="name"></td>
+        </tr>
+        <tr>
+            <td class="leftcol">* Email</td>
+            <td class="rightcol"><input type="text" placeholder="Enter your Email" name="email"></td>
+        </tr>
+        <tr>
+            <td class="leftcol">* Age</td>
+            <td class="rightcol"><input type="number" placeholder="Enter your age" name="age"></td>
+        </tr>
+        <tr>
+            <td class="leftcol">Which option best describes your current role?</td>
+            <td class="rightcol">
+                <select>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftcol top">How likely is that you would recommend freeCodeCamp to friend</td>
+            <td class="rightcol">
+
+                <div>
+                    <input type="radio" id="definitely" name="recom" value="definitely">
+                    <label for="definitely">Definitely</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="maybe" name="recom" value="maybe">
+                    <label for="maybe">Maybe</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="notsure" name="recom" value="notsure">
+                    <label for="notsure">Not sure</label>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="leftcol top">What do you like t most in FCC</td>
+            <td class="rightcol">
+                <select>
+                    <option value="option" hidden>Select an option</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftcol top">Things that should be improved in the future<br> (Check all that apply)</td>
+            <td class="rightcol">
+
+                <div>
+                    <input type="checkbox" id="frontend">
+                    <label for="frontend">Front-end Projects</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="backend">
+                    <label for="backend">Back-end Projects</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="datavisual">
+                    <label for="datavisual">Data Visualization</label>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

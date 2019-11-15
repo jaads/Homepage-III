@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 5.1</title>
+    <script>
+        window.onload = function () {
+            const shoppingInput = document.getElementById("shoppingform");
+            const addBtnForShopping = document.getElementById('addforshoppingbutton');
+            const shoppingList = document.getElementById('shoppinglist');
+
+            addBtnForShopping.onclick = function () {
+                const value = shoppingInput.value;
+                const listitem = document.createElement('li');
+                listitem.innerHTML = `${value} <button>Remove</button>`;
+                shoppingList.appendChild(listitem);
+                const deletebtn = listitem.querySelector('button');
+                deletebtn.onclick = function () {
+                    listitem.remove();
+                };
+                shoppingInput.value = '';
+                shoppingInput.focus();
+            };
+
+            shoppingInput.onkeydown = function (event) {
+                if (event.key === 'Enter') addBtnForShopping.click();
+            };
+        }
+    </script>
+</head>
+<body>
+<h2>Shopping list</h2>
+<p>A list which is dynamically editable by adding items using the enter key or a button, automatically cleans the
+    input
+    field and assign the focus properly.</p>
+<label for="shoppingform">Enter a new item</label>
+<input type="text" id="shoppingform">
+<button id="addforshoppingbutton">Add</button>
+<ul id="shoppinglist"></ul>
+</body>
+</html>

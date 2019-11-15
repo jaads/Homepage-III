@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 3.1</title>
+    <style>
+        html, body {
+            margin: 1em 2em 1em;
+        }
+
+        .red {
+            background-color: red;
+            color: red;
+        }
+
+        .green {
+            background-color: chartreuse;
+            color: chartreuse;
+        }
+
+        .blue {
+            background-color: blue;
+            color: blue;
+        }
+
+        .pink {
+            background-color: hotpink;
+            color: hotpink;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            height: 7rem;
+            margin-bottom: 0.5em;
+        }
+
+        nav {
+            height: 7rem;
+        }
+
+        main {
+            margin: 0.5rem 0 0;
+            height: 30rem;
+        }
+
+        aside {
+            height: 7rem;
+        }
+
+        @media screen and (min-device-width: 400px) {
+
+            .flex-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            nav {
+                flex: 1;
+                height: 30rem;
+            }
+
+            main {
+                flex: 2;
+                margin: 0 0 0.5rem 0.5rem;
+            }
+
+            aside {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-device-width: 600px) {
+
+            header {
+                height: 10rem;
+            }
+            main {
+                flex: 2;
+                margin: 0 0.5rem 0;
+            }
+
+            aside {
+                flex: 1;
+                height: 30rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<header class="red">.</header>
+<div class="flex-container">
+    <nav class="green">.</nav>
+    <main class="blue">.</main>
+    <aside class="pink">.</aside>
+</div>
+
+</body>
+</html>

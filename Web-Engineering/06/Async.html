@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Async JS</title>
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" type="text/css" href="navigatoin.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="../../index.html">
+            <button class="fancy-button">
+                <i class="fas fa-home fa-3x"></i>Home
+            </button>
+        </a>
+        <h1>Asynchronous JavaScript</h1>
+    </header>
+
+    <main>
+        <div class="contentbox">
+            <h1>Promises</h1>
+            <p>A promise can have tree different states:</p>
+            <ul>
+                <li>pending</li>
+                <li>settled</li>
+                <ul>
+                    <li>resolved</li>
+                    <li>rejected</li>
+                </ul>
+            </ul>
+            <p>In this example two files from the servers are downloaded <u>parallel and asynchronously</u> using the
+                <code>fetch-API</code>.</p>
+            <p>The <code>fetch</code> function uses promises instead of callbacks, as you might
+                know it from the <code>XMLHttpRequest</code>.
+                As said, a promise has one of the above listed states. Here, only if
+                both promises are in the resolved state, they are will be displayed.</p>
+            <p>Trigger the process by pressing the button:</p>
+            <button class="fancy-button" id="loadAsyncBtn1">Load data</button>
+            <button class="fancy-button" id="clearBtn">Clear</button>
+            <p>Content from the first file:</p> <code id="firstfilecontent"></code>
+            <p>Content from the second file:</p> <code id="secondfilecontent"></code>
+
+            <pre>
+<code class="lang-javascript line-numbers">
+let getFileA = () => {
+    return fetch('A.txt')
+        .then(res => res.text())
+};
+
+let getFileB = () => {
+    return fetch('B.txt')
+        .then(res => res.text())
+};
+
+loadBtn.onclick = () => {
+    let promises = [getFileA(), getFileB()];
+
+    Promise.all(promises)
+        .then(data => {
+            placeholder1.innerText = data[0];
+            placeholder2.innerText = data[1];
+        });
+};
+</code>
+</pre>
+        </div>
+
+        <div class="contentbox">
+            <h1>Using async / await</h1>
+            <p>The above scenario can also be done using async/ await which is again just <u>syntactic sugar</u>.</p>
+            <button class="fancy-button" id="loadAsyncBtn2">Load data</button>
+            <button class="fancy-button" id="clearBtn2">Clear</button>
+            <p>Content from the first file:</p> <code id="firstfilecontentasync"></code>
+            <p>Content from the second file:</p> <code id="secondfilecontentasync"></code>
+            <pre>
+<code class="line-numbers lang-javascript">
+let getFileAWithSuger = async () => {
+    let response = await fetch('A.txt');
+    return response.text();
+};
+
+let getFileBWithSuger = async () => {
+    let response = await fetch('B.txt');
+    return response.text();
+};
+
+loadBtn2.onclick = async () => {
+    let promises = [getFileAWithSuger(), getFileBWithSuger()];
+    let data = await Promise.all(promises);
+    placeholder1async.innerText = data[0];
+    placeholder2async.innerText = data[1];
+};        
+</code>
+</pre>
+        </div>
+
+        <div class="contentbox">
+            <h1>Web Worker</h1>
+            <p>Here, the computational time of web workers is demonstrated.</p>
+            <p>Therefore, a list of 100 000 random numbers is generated and sorted afterwards.<br>
+                The sorting can done using either the main thread or a web worker thread.<br>
+                For each method the time needed for the calculation is displayed.</p>
+            <p>Click the buttons and view the time in milliseconds.</p>
+            <p>Check the console for further insights.</p>
+            <button class="fancy-button" id="generateBtn">Generate</button>
+            <button class="fancy-button" id="sortMainBtn" disabled>Sort in main thread</button>
+            <button class="fancy-button" id="sortWorkerBtn" disabled>Sort using worker</button>
+            <p id="sortres1"></p>
+            <p id="sortres2"></p>
+
+            <pre><code class="line-numbers lang-javascript">
+generateBtn.onclick = function () {
+    randomNumbers1 = [];
+    randomNumbers2 = [];
+    for (let i = 0; i < 100000; i++) {
+        let randomNumber = Math.random()
+        randomNumbers1.push(randomNumber);
+        randomNumbers2.push(randomNumber);
+    }
+    sortMainBtn.disabled = false;
+    sortWorkerBtn.disabled = false;
+    console.log('Generated list of random numbers: ');
+    console.log(randomNumbers1);
+};
+
+sortMainBtn.onclick = function () {
+    console.log('Sorting the following using the main thread: ');
+    console.log(randomNumbers1);
+    let t0 = performance.now();
+    randomNumbers1.sort((a, b) => a - b);
+    let t1 = performance.now();
+    let milliseconds = t1 - t0;
+    sortres1.innerText = milliseconds + ' milliseconds when using the main thread.';
+    console.log("Sorted in " + milliseconds + " milliseconds. Result:");
+    console.log(randomNumbers1);
+};
+
+sortWorkerBtn.onclick = function () {
+    console.log('Sorting the following using a web worker: ');
+    console.log(randomNumbers2);
+    let worker = new Worker('worker.js');
+    worker.postMessage(randomNumbers2)
+    worker.onmessage = function (ev) {
+        sortres2.innerText = ev.data + ' milliseconds when using a web worker.';
+    }
+};
+</code></pre>
+
+            <p>Next the web worker which is implemented in a seperat file.</p>
+            <pre><code class="line-numbers lang-javascript">self.onmessage = function (ev) {
+    randomNumbersW = ev.data;   
+    console.log('Worker received the  random numbers.');
+    let t0 = performance.now();
+    randomNumbersW.sort((a, b) => a -b);
+    let t1 = performance.now();
+    let milliseconds = t1 - t0;
+    console.log('Sorted in ' + milliseconds + 'milliseconds. Result:');
+    console.log(randomNumbersW);
+    self.postMessage(milliseconds);
+    self.close();
+};
+</code></pre>
+
+        </div>
+
+        <div class="contentbox">
+            <h1>Asynchronous Navigation</h1>
+            <p>Finally a whole website can be based on asynchronous JavaScript as the following example shows.</p>
+            <p>Here, the data is loaded just once, but it could also be done in a more fine granular way.</p>
+
+            <div>
+                <header class="aprikot">
+                    <nav>
+                        <ul id="topnav"></ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav class="aprikot">
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main class="white">
+                        <p id="mainarea"></p>
+                    </main>
+                    <aside class="aprikot">
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
+            </div>
+            <p>Following the plain javascript code is listet which is responsible for the above behavior.</p>
+
+            <pre>
+<code class="line-numbers lang-javascript">window.onload = function () {
+    // Get data from the server 
+    fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+            makeMainMenu(data);
+        })
+};
+
+let makeMainMenu = function (jsonData) {
+    // Create list item for menu for each object from the JSON file
+    jsonData.forEach(function (elem, idx) {
+        let listItem = document.createElement('li');
+        listItem.classList.add('menuitem');
+        listItem.classList.add('navitem');
+        listItem.onclick = () => applyFunctions(jsonData, idx);
+        listItem.innerText = elem.headline;
+        topNavList.appendChild(listItem);
+    });
+    applyFunctions(jsonData, 0);
+};
+
+let applyFunctions = function (data, idx) {
+    updateSideNav(data, idx);
+    updateContent(data, idx, 0);
+};
+
+let updateSideNav = function (data, idx) {
+    let dataArr = data[idx].topics;
+    currentSideNav = [];
+    dataArr.forEach((item) => currentSideNav.push(item.navitem));
+    sideNavList.innerHTML = '';
+    currentSideNav.forEach(function (elem, innerIdx) {
+        let sideNavListItem = document.createElement('li');
+        sideNavList.appendChild(sideNavListItem);
+        sideNavListItem.classList.add('navitem');
+        sideNavListItem.onclick = () => {
+            updateContent(data, idx, innerIdx);
+        };
+        sideNavListItem.innerText = elem;
+    });
+};
+
+let updateContent = function (data, idx, innerIdx) {
+    let topic = data[idx].topics[innerIdx].text;
+    mainArea.innerHTML = topic;
+    linksList.innerHTML = '';
+    let linkArr = data[idx].topics[innerIdx].resources;
+    linkArr.forEach(elem => {
+        let link = document.createElement('a');
+        link.innerText = elem.link;
+        linksList.appendChild(link);
+    });
+};        
+</code>
+</pre>
+        </div>
+
+    </main>
+    <script src="Async.js"></script>
+    <script src="../../vendor/prism.js"></script>
+</body>
+
+</html>

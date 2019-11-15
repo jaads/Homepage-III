@@ -1,0 +1,173 @@
+[
+	{
+		"headline": "HTML",
+		"topics": [
+			{
+				"navitem": "Headings",
+				"text": "Heading content defines the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself).<br><code>h1, h2, h3, h4, h5, h6, hgroup</code>",
+				"resources": [
+					{
+						"link": "https://html.spec.whatwg.org/multipage/dom.html#heading-content"
+					}
+				]
+			},
+			{
+				"navitem": "Paragraphs",
+				"text": "A paragraph is typically a run of phrasing content that forms a block of text with one or more sentences that discuss a particular topic, as in typography, but can also be used for more general thematic grouping. For instance, an address is also a paragraph, as is a part of a form, a byline, or a stanza in a poem.",
+				"resources": [
+					{
+						"link": "https://html.spec.whatwg.org/multipage/dom.html#paragraphs"
+					}
+				]
+			},
+			{
+				"navitem": "Links",
+				"text": "If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor) labeled by its contents.",
+				"resources": [
+					{
+						"link": "https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element"
+					}
+				]
+			},
+			{
+				"navitem": "Images",
+				"text": "In HTML, images are defined with the <img> tag. <br> The <img> tag is empty, it contains attributes only, and does not have a closing tag. <br> The src attribute specifies the URL (web address) of the image:",
+				"resources": [
+					{
+						"link": "https://www.w3schools.com/html/html_images.asp"
+					}
+				]
+			},
+			{
+				"navitem": "Tables",
+				"text": "An HTML table is defined with the <table> tag.<br> Each table row is defined with the <tr> tag. A table header is defined with the <th> tag. By default, table headings are bold and centered. A table data/cell is defined with the <td> tag.",
+				"resources": [
+					{
+						"link": "https://www.w3schools.com/html/html_tables.asp"
+					}
+				]
+			}
+		]
+	},
+	{
+		"headline": "CSS",
+		"topics": [
+			{
+				"navitem": "Selectors",
+				"text": "I'm telling you about selectors",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					},
+					{
+						"link": "www.googledinomu.de"
+					}
+				]
+			},
+			{
+				"navitem": "Colors",
+				"text": "I'm telling you about colos",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Boxes",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Display",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Float",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"headline": "Javascript",
+		"topics": [
+			{
+				"navitem": "Functions",
+				"text": "I'm telling you about headings",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Objects",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Scope",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Events",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Hoisting",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "Strict_mode",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			},
+			{
+				"navitem": "JSON",
+				"text": "I'm telling you about ",
+				"resources": [
+					{
+						"link": "https://duckduckgo.com/"
+					}
+				]
+			}
+		]
+	}
+]
