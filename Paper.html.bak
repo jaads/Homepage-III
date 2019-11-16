@@ -29,7 +29,7 @@
                     <p>In the end of 2017 researchers discovered a vulnerability which allowed attackers to reveal
                         encrypted emails
                         on the basis of questionable implementations of security features in various email clients.</p>
-                    <p>In this paper I examined this vulnerability in very detail according to the implementation of the open source email client Mozilla Thunderbird.</p>
+                    <p>In this paper I exaimed this vulnerability in very detail according to the implementaiton of the open source email client Mozilla Thunderbird.</p>
                     <div class="button-group">
                         <a href="Paper/Bachelorthesis/Efai-in-Thunderbird.html">
                             <button class="fancy-button">Read online</button>
@@ -53,10 +53,10 @@
                 </div>
                 <div class="paper-desc">
                     <h2>Malware Analysis</h2>
-                    <p>The freedom designed internet allows malicious software to spread incredibly fast and inconspicuously - mostly even highly obfuscated. 
-                        Therefore the analysis of such software becomes more and more important and necessary for an accurate incident response.</p>
+                    <p>The freedomly designed internet allowes malicious software to spread incredibly fast and inconspicuously - mostly even highly obfuscated. 
+                        Therefore the analysis of such software becomes more and more imporant and necessary for an acurat insident response.</p>
                         <p>Common tools and techniques are explained here which master the analysis.</p>
-                    <div class="button-group">
+                    <div class="button-group"
                         <a href="Paper/Malware-Analysis/malware-analysis.html">
                             <button class="fancy-button">Read online</button>
                         </a>
@@ -78,8 +78,8 @@
                     <i class="fas fa-network-wired fa-9x"></i>
                 </div>
                 <div class="paper-desc">
-                    <h2>IPv4 and IPv6 Header comparison (ger.)</h2>
-                    <p>A detailed comparison between the headers of the internet protocols in its two major versions written in German.</p>
+                    <h2>IPv4 und IPv6 Header comparison (ger.)</h2>
+                    <p>A detailed comparison between the headers of the internet protocols in its tweo major versions written in german.</p>
                     <div class="button-group">
                         <a href="Paper/IPs/ipv4ipv6.html">
                             <button class="fancy-button">Read online</button>
