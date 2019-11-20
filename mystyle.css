@@ -130,9 +130,8 @@ hr {
 	/* box-shadow: 0 2px  4px rgba(0,0,0,.5); */
 }
 
-.landing-icons-container{
+.landing-links-container {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 }
 
@@ -252,6 +251,10 @@ header .fancy-button:hover {
 @media screen and (max-width: 900px) {
 	.paperbox {
 		width: 80vw;
+	}
+
+	.landing-links-container {
+		flex-wrap: wrap;
 	}
 
 	.landing-icons {
