@@ -56,7 +56,6 @@ addSpeakerBtn.onclick = function () {
 
     }
 
-
     const btn = listItem.querySelector('button');
     btn.onclick = function () {
         if (btn.innerText === 'Stop') {
