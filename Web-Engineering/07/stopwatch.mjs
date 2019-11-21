@@ -1,4 +1,4 @@
-import { LitElement, html } from 'https://unpkg.com/lit-element/lit-element.js?module';
+import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
 
 class MyStopWatch extends LitElement {
 
@@ -8,6 +8,12 @@ class MyStopWatch extends LitElement {
             minutes: { type: Number },
             hours: { type: Number }
         };
+    }
+
+    static get styles() {
+        return css`
+          div { border: 0.5rem solid lightgrey; }
+        `;
     }
 
     constructor() {
@@ -65,10 +71,12 @@ class MyStopWatch extends LitElement {
 
     render() {
         return html`
+        <div>
           <p>${this.formattedTime}</p>
           <button @click="${this.start}" id="start-btn">Start</button>
           <button @click="${this.stop}">Stop</button>
           <button @click="${this.continue}" id="continue-btn">Weiter</button>
+        </div>
         `;
     }
 }

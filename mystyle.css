@@ -19,8 +19,8 @@
 html,
 body {
 	margin: 0;
-	width: 100%;
-	height: 100%;
+	/*width: 100%;
+	height: 100%; */
 	font-family: Tenor Sans, sans-serif;
 	/* font-family: monaco, Consolas, Lucida Console, monospace; */
 }
@@ -38,7 +38,7 @@ header h1 {
 
 main {
 	font-size: 1.2rem;
-	width: 70rem;
+	max-width: 70rem;
 	margin: auto auto;
 	padding-top: 4rem;
 }
@@ -108,7 +108,7 @@ hr {
 	color: white;
 }
 
- /* -------- Landingpage ---------- */
+/* -------- Landingpage ---------- */
 
 .landingpage {
 	height: 100vh;
@@ -162,18 +162,19 @@ hr {
 
 /* ----------- Paper  -------------- */
 
-
 .paper-container {
-	display: flex;
-	align-items: center;
+	display: grid;
+	grid-template-rows: auto;
 }
 
 .paper-pic {
 	flex: 1;
-	/* background-color: var(--second-color); */
-	margin-right: 1rem;
+	/* margin-right: 1rem; */
+	/* margin: auto ; */
 	text-align: center;
 }
+
+
 .paper-pic i {
 	color: #c94526;
 }
@@ -245,13 +246,20 @@ header .fancy-button:hover {
 
 .button-group {
 	display: flex;
+	flex-wrap: wrap;
 	margin: 2rem 1rem;
+	justify-content: center;
 }
 
-@media screen and (max-width: 900px) {
-	.paperbox {
+.button-group button {
+	margin-bottom: 1rem;
+	align-content: center;
+}
+
+@media screen and (max-width: 100px) {
+	/* .paperbox {
 		width: 80vw;
-	}
+	} */
 
 	.landing-links-container {
 		flex-wrap: wrap;
@@ -263,11 +271,15 @@ header .fancy-button:hover {
 		top: 90%;
 		transform: translate(-50%, -50%);
 	}
+
 }
 
 @media screen and (max-width: 500px) {
 	.landing-icons {
 		display: none;
 	}
-}
 
+	.button-group {
+		margin-bottom: 2rem;
+	}
+}
