@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
 
     <script src="stopwatch.mjs" type="module"></script>
-    <script src="navitem.mjs" type="module"></script>
+    <script src="navitem-json.mjs" type="module"></script>
+    <script src="main-content.mjs" type="module"></script>
 
 </head>
 
@@ -91,19 +92,19 @@ customElements.define('my-navitem', NavItem);
             <header>
                 <nav>
                     <ul id="topnav">
-                        <my-navitem reference="../../index.html" class="menuitem navitem">Home</my-navitem>
+                        <!-- <my-navitem headline="HTML" class="menuitem navitem"></my-navitem>
+                        <my-navitem headline="CSS" class="menuitem navitem"></my-navitem>
+                        <my-navitem headline="Javascript" class="menuitem navitem"></my-navitem> -->
                     </ul>
                 </nav>
             </header>
             <div class="flex-container">
                 <nav>
                     <h3>Topics</h3>
-                    <ul id="sideNavList">
-                        <my-navitem reference="../../WE.html" class="navitem">Web Engeneering</my-navitem>
-                    </ul>
+                    <ul id="sideNavList"></ul>
                 </nav>
                 <main>
-                    <p id="mainarea"></p>
+                    <p id="mainarea"><my-contentitm text="kjh"></my-contentitm></p>
                 </main>
                 <aside>
                     <h3>Resources</h3>
@@ -112,8 +113,8 @@ customElements.define('my-navitem', NavItem);
             </div>
         </div>
     </main>
+    <script src="navigation.js"></script>
     <script src="../../vendor/prism.js"></script>
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 </body>
 
 </html>
