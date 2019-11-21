@@ -8,6 +8,12 @@ class NavItem extends LitElement {
         };
     }
 
+    static get styles() {
+        return css`
+          a { color: white; text-decoration: none; }
+        `;
+    }
+
     constructor() {
         super();
         this.reference = '#';
