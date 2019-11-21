@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <title>Web Components</title>
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" tpye="text/css" href="../06/navigatoin.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
 
     <script src="stopwatch.mjs" type="module"></script>
+    <script src="navitem.mjs" type="module"></script>
 
 </head>
 
@@ -33,11 +35,78 @@
                 <li>Shadow DOM</li>
                 <li>HTML Template</li>
             </ul>
-            <q>Web components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.</q>
+            <q>Web components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated
+                HTML tags to use in web pages and web apps.</q>
             <cite><a href="https://www.webcomponents.org/introduction" target="_blank">webcomponents.org</a></cite>
-            <p>The light grey box below with its inner content is one single web component.</p>
+            <p>The light grey box below is one single web component consisting of properties, stlyes and functions
+                triggered by buttons.</p>
             <my-stopwatch></my-stopwatch>
             <p>It ca be placed anywhere on the website by using the custom element as follows:</p>
+            <pre><code class="line-numbers lang-html">&ltmy-stopwatch>&lt/my-stopwatch></code></pre>
+        </div>
+
+        <div class="contentbox">
+            <h1>A navigation element as web component</h1>
+            <p>In this senarios two majar techniques had been used in order to reach as much independenceas of the
+                component as possible. First the fact that each property of a compontent made with Lit-Element is
+                automaticcaly converted to a HTML attribute of the custom elememt and hence editable in a declarative
+                fashion from the HTML file.</p>
+            <p>Furthermore slots has beed used inject conten into the component.</p>
+            <p>The usage of such the web compoennt is shown below. where <code>reference</code> is a propbierty of the
+                component.</p>
+<pre><code class="line-numbers lang-html">&ltmy-navitem reference="../../index.html" class="menuitem navitem">Home&lt/my-navitem></code></pre>
+            
+            <p></p>
+
+<pre><code class="line-numbers lang-javascript">import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+class NavItem extends LitElement {
+
+    static get properties() {
+        return {
+            reference: { type: String }
+        };
+    }
+
+    constructor() {
+        super();
+        this.reference = '#';
+    }
+
+    render() {
+        return html`
+        &lta href="${this.reference}">&ltslot>&lt/slot>&lt/a>
+        `;
+    }
+}
+
+customElements.define('my-navitem', NavItem);
+</code></pre>
+
+            <p>Since the stlying is also indepented from the component this component can either be used in the horizontal
+                navigatioen as well as in the vertical navigation. The final result can be seen here:</p>
+            <header>
+                <nav>
+                    <ul id="topnav">
+                        <my-navitem reference="../../index.html" class="menuitem navitem">Home</my-navitem>
+                    </ul>
+                </nav>
+            </header>
+            <div class="flex-container">
+                <nav>
+                    <h3>Topics</h3>
+                    <ul id="sideNavList">
+                        <my-navitem reference="../../WE.html" class="navitem">Web Engeneering</my-navitem>
+                    </ul>
+                </nav>
+                <main>
+                    <p id="mainarea"></p>
+                </main>
+                <aside>
+                    <h3>Resources</h3>
+                    <ul id="linksList"></ul>
+                </aside>
+            </div>
         </div>
     </main>
     <script src="../../vendor/prism.js"></script>

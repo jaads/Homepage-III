@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 }
 
-nav {
+.flex-container nav {
     flex: 1;
     background-color: whitesmoke;
 }
