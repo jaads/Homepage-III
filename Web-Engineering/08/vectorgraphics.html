@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+
+    <script src="barscomponent.js" type="module"></script>
+
+</head>
+
+<body>
+    <header>
+        <a href="../../index.html">
+            <button class="fancy-button">
+                <i class="fas fa-home fa-3x"></i>Home
+            </button>
+        </a>
+        <h1>Scalable Vector Graphics (SVG)</h1>
+    </header>
+
+    <main>
+
+        <div class="contentbox">
+            <h1>A simple SVG</h1>
+            <p>A bar chart</p>
+            <!-- <svg viewBox="0 0 120 120">
+                <line x1="10" y1="150" x2="130" y2="110" stroke="lightblue" stroke-width="45"></line>
+            </svg> -->
+        </div>
+
+        <div class="contentbox">
+            <h1>An application example</h1>
+            <h3>Using SVG in a Web Component with CSS transactions</h3>
+            <button id="loadbarvaluesbtn">Load values</button>
+            <div id="barchartdiv"></div>
+            <ul style="list-style-type: none;" id="barlist"></ul>
+        </div>
+    </main>
+    <script src="barchart.js"></script>
+    <script src="../../vendor/prism.js"></script>
+</body>
+
+</html>

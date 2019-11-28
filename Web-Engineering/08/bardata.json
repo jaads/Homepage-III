@@ -1,0 +1,21 @@
+{
+	"description": "Data for bar chart example",
+	"values": [
+		{
+			"Language": "JavaScript",
+			"Funfactor": 25
+		},
+		{
+			"Language": "Java",
+			"Funfactor": 20
+		},
+		{
+			"Language": "Python",
+			"Funfactor": 17
+		},
+		{
+			"Language": "C",
+			"Funfactor": 4
+		}
+	]
+}
