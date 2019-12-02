@@ -116,6 +116,13 @@ hr {
 	background-color: var(--second-color);
 }
 
+.landing-bg {
+	background-image: url(./Logo/Vector\ 2.svg);
+	background-size: contain;
+	background-repeat:   no-repeat;
+    background-position: bottom; 
+}
+
 .landingStuff {
 	position: absolute;
 	transform: translate(-50%, -50%);
