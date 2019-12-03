@@ -29,15 +29,16 @@
         <div class="contentbox">
             <h1>A simple SVG</h1>
             <p>A bar chart</p>
-            <!-- <svg viewBox="0 0 120 120">
-                <line x1="10" y1="150" x2="130" y2="110" stroke="lightblue" stroke-width="45"></line>
-            </svg> -->
+            <svg viewBox="0 0 25 2">
+                <rect width="16" height="0.8" fill="var(--second-color)"></rect>
+            </svg>
         </div>
 
         <div class="contentbox">
             <h1>An application example</h1>
-            <h3>Using SVG in a Web Component with CSS transactions</h3>
-            <button id="loadbarvaluesbtn">Load values</button>
+            <p>Using SVG in a Web Component with CSS transactions</p>
+            <button id="loadbarvaluesbtn" class="fancy-button">Load values</button>
+            <button id="resetbarvaluesbtn" class="fancy-button">Reset values</button>
             <div id="barchartdiv"></div>
             <ul style="list-style-type: none;" id="barlist"></ul>
         </div>

@@ -1,8 +1,10 @@
 const barvaluesBtn = document.getElementById('loadbarvaluesbtn');
+const resetValuesBtn = document.getElementById('resetbarvaluesbtn');
 const barlist = document.getElementById('barlist');
 
 const barDataArr = [];
 barvaluesBtn.onclick = () => updateBarValues();
+resetValuesBtn.onclick = () => resetBarValues();
 
 const getDataAndInit = (() => {
     fetch('bardata.json')
@@ -32,3 +34,10 @@ const updateBarValues = () => {
     });
 
 };
+
+const resetBarValues = () => {
+    barlist.childNodes.forEach( (elem, idx) => {
+        const ff = barDataArr[idx].Funfactor;
+        elem.childNodes[1].size = 1;
+    });
+}
