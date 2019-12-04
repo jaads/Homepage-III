@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+import { LitElement, html } from 'https://unpkg.com/lit-element/lit-element.js?module';
 
 class ContentItem extends LitElement {
 
@@ -7,11 +7,6 @@ class ContentItem extends LitElement {
             text: { type: String }
         };
     }
-
-    // static get styles() {
-    //     return css`
-    //     `;
-    // }
 
     constructor() {
         super();
