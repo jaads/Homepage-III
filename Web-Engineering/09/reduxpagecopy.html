@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    
+</head>
+
+<body>
+    <header>
+        <a href="../../index.html">
+            <button class="fancy-button">
+                <i class="fas fa-home fa-3x"></i>Home
+            </button>
+        </a>
+        <h1>State Management using Redux</h1>
+    </header>
+
+    <main>
+        <div class="contentbox">
+
+            <p>
+                Selected index: <span id="value">0</span>
+            </p>
+
+            <div>
+                <header>
+                    <nav>
+                        <ul id="topnav" class="button-group">
+                            <li>
+                                <button class="fancy-button" id="htmlactionbtn">HMTL</button>
+                            </li>
+                            <li>
+                                <button class="fancy-button" id="cssactionbtn">CSS</button>
+                            </li>
+                            <li>
+                                <button class="fancy-button" id="jsactionbtn">JS</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav>
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main>
+                        <p id="mainarea"></p>
+                    </main>
+                    <aside>
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+            function navigator(state = 0, action) {
+        if (typeof state === 'undefined') {
+            return 0
+        }
+    
+        switch (action.type) {
+            case 'HTML':
+                return 0;
+            case 'CSS':
+                return 1;
+            case 'JS':
+                return 2;
+            default:
+                return state;
+        }
+    }
+    
+    var store = Redux.createStore(navigator, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    
+    function render() {
+        // Here the state is being checked
+        const index = store.getState().toString();
+    
+        fetch('../06/data.json')
+            .then(res => res.json())
+            .then(data => {
+                const topics = data[index].topics;
+                sideNavList.innerHTML = '';
+                topics.forEach((elem, innerIdx) => {
+                    let sideNavListItem = document.createElement('li');
+                    sideNavList.appendChild(sideNavListItem);
+                    sideNavListItem.classList.add('navitem');
+                    sideNavListItem.innerText = elem.navitem;
+                    sideNavListItem.onclick = () => {
+                        updateContent(data, index, innerIdx);
+                    };
+                });
+            });
+    
+        let updateContent = function (data, idx, innerIdx) {
+            let topic = data[idx].topics[innerIdx].text;
+            document.getElementById('mainarea').innerHTML = topic;
+            linksList.innerHTML = '';
+            let linkArr = data[idx].topics[innerIdx].resources;
+            linkArr.forEach(elem => {
+                let link = document.createElement('a');
+                link.innerText = elem.link;
+                linksList.appendChild(link);
+            });
+    
+        };
+    }
+    
+    render();
+    store.subscribe(render);
+    
+    document.getElementById('htmlactionbtn').onclick = () => store.dispatch({ type: 'HTML' });
+    document.getElementById('cssactionbtn').onclick = () => store.dispatch({ type: 'CSS' });
+    document.getElementById('jsactionbtn').onclick = () => store.dispatch({ type: 'JS' });
+    
+    
+    
+        </script>
+    <script src="../../vendor/prism.js"></script>
+</body>
+
+</html>

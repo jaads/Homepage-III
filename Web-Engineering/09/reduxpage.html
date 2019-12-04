@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
-    <script type="module" src="storestuff.js"></script>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script src="storestuff.js" type="module"></script>
 </head>
 
 <body>
@@ -24,7 +25,33 @@
 
     <main>
         <div class="contentbox">
-          
+
+            <p>
+               Here, the navigation known from previous sections is refactored and now has its state centralized in a store provieded by Redux.
+            </p>
+
+            <header>
+                <nav>
+                    <ul id="topnav" class="button-group">
+                        <li><button class="fancy-button" id="htmlactionbtn">HMTL</button></li>
+                        <li><button class="fancy-button" id="cssactionbtn">CSS</button></li>
+                        <li><button class="fancy-button" id="jsactionbtn">JS</button></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="flex-container">
+                <nav>
+                    <h3>Topics</h3>
+                    <ul id="sideNavList"></ul>
+                </nav>
+                <main>
+                    <p id="mainarea"></p>
+                </main>
+                <aside>
+                    <h3>Resources</h3>
+                    <ul id="linksList"></ul>
+                </aside>
+            </div>
         </div>
 
     </main>
