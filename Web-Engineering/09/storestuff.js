@@ -18,8 +18,11 @@ function navigator(state = 0, action) {
 var store = Redux.createStore(navigator, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 function render() {
-    // Here the state is being checked
+    // Checked state fur further ussage
     const index = store.getState().toString();
+
+    // Set the url accordingly
+    history.pushState({index}, `selected: ${index}`, `state=${index}`);
 
     fetch('../06/data.json')
         .then(res => res.json())
