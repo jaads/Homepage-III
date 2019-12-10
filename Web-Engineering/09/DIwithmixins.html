@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <a href="../../index.html">
+            <button class="fancy-button">
+                <i class="fas fa-home fa-3x"></i>Home
+            </button>
+        </a>
+        <h1>Mix-Ins DI</h1>
+    </header>
+
+    <main>
+        <div class="contentbox">
+
+            <p>
+                Selected index: <span id="value">0</span>
+            </p>
+
+            <div>
+                <header>
+                    <nav>
+                        <ul id="topnav" class="button-group">
+                            <li>
+                                <button class="fancy-button" id="htmlactionbtn">HMTL</button>
+                            </li>
+                            <li>
+                                <button class="fancy-button" id="cssactionbtn">CSS</button>
+                            </li>
+                            <li>
+                                <button class="fancy-button" id="jsactionbtn">JS</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav>
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main>
+                        <p id="mainarea"></p>
+                    </main>
+                    <aside>
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        const Requester = (Base) => class extends Base {
+
+            requestInstance(key) {
+
+                const event = new CustomEvent('request-instance', {
+                    detail: { key },
+                    bubbles: true,
+                    cancelable: true
+                });
+
+                this.dispatchEvent(event); // ask Provider for instance at key
+                // Provider processes event synchronously and sets event.detail.instance
+                return event.detail.instance; // get provided instance from Provider
+            }
+        };
+
+        const Provider = (Base) => class extends Base {
+            _instances = new Map();
+            provideInstance(key, instance) { // write into Map
+                this._instances.set(key, instance);
+            }
+            constructor() {
+                super();
+                this.addEventListener('request-instance', (event) => {
+                    const key = event.detail.key;
+                    if (this._instances.has(key)) { // read from Map
+                        event.detail.instance = this._instances.get(key);
+                        event.stopPropagation();
+                    }
+                })
+            }
+        };
+
+    </script>
+    <script src="../../vendor/prism.js"></script>
+</body>
+
+</html>
