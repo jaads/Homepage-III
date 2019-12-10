@@ -34,9 +34,9 @@ header h1 {
 	color: var(--main-color);
 	font-size: 3.5rem;
 }
- header ul {
-	 list-style: none;
- }
+header ul {
+	list-style: none;
+}
 
 main {
 	font-size: 1.2rem;
@@ -116,46 +116,59 @@ hr {
 	height: 100vh;
 	margin: 0;
 	padding: 0;
-	background-color: var(--second-color);
+	/* background-color: var(--second-color); */
 }
 
 .landing-bg {
-	background-image: url(./Logo/Vector\ 2.svg);
-	background-size: contain;
-	background-repeat:   no-repeat;
-    background-position: bottom; 
+	background-image: url(./Logo/Group\ 7.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
-.landingStuff {
+.landingpage .fancy-button {
+	color: var(--second-color);
+	border-color: var(--second-color);
+}
+
+.myname {
 	position: absolute;
-	transform: translate(-50%, -50%);
-	left: 50%;
-	top: 40%;
-}
-
-.landingStuff h1 {
+	/* transform: translate(-50%, -50%); */
+	left: 10%;
+	top: 36%;
 	color: var(--main-color);
 	font-size: 5rem;
-	margin: 2rem;
+	transform: rotate(-25deg);
 }
 
 .landing-links-container {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 2rem;
 }
 
+.landing-icons-container {
+	position: absolute;
+	left: 76%;
+	top: 74%;
+	display: flex;
+}
+
 .landing-icons a {
-	margin: 0 1rem;
+	margin: 0 2rem;
 }
 
 .fab {
-	color: var(--third-color);
+	color: var(--main-color);
 }
 
 .fab:hover {
-	color: var(--main-color);
+	color: var(--third-color);
 }
 
 .flex-container-holy {
@@ -256,14 +269,43 @@ header .fancy-button:hover {
 	align-content: center;
 }
 
+@media screen and (max-width: 2020px) {
+	.myname {
+		position: absolute;
+		left:11%;
+		top: 30%;
+		font-size: 3.7rem;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1200px) {
+	.myname {
+		position: absolute;
+		left: 7%;
+		top: 22%;
+		font-size: 3.7rem;
+	}
+}
+
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
+	.myname {
+		position: absolute;
+		left: 4%;
+		top: 14%;
+	}
 
+	.landing-icons-container {
+		position: absolute;
+		left: 53%;
+		top: 81%;
+		display: flex;
+	}
 }
 
 /* Medium devices (tablets, 768px and down) */
-@media (max-width: 768px) { 
-
+@media (max-width: 768px) {
 	.paper-container {
 		display: flex;
 		flex-direction: column;
@@ -277,16 +319,34 @@ header .fancy-button:hover {
 		flex: 2;
 	}
 
- }
+	.myname {
+		position: absolute;
+		left: 3%;
+		top: 15%;
+		color: var(--main-color);
+		font-size: 3.7rem;
+		transform: rotate(-25deg);
+	}
+}
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
+	.myname {
+		left: 4%;
+		top: 8%;
+		font-size: 2.8rem;
+	}
+
+	.fancy-button {
+		height: 3rem;
+		min-width: 11rem;
+	}
 
 	header {
 		padding: 2rem;
 	}
 	header h1 {
-		font-size: 2rem;;
+		font-size: 2rem;
 	}
 	main {
 		font-size: 1rem;
@@ -307,17 +367,14 @@ header .fancy-button:hover {
 		display: none;
 	}
 
-	.landingStuff {
-		top: 50%;
-	}
-
-	.landingStuff h1 {
-		font-size: 3rem;
-		margin-bottom: 0;
+	.landing-icons-container {
+		display: flex;
+		position: absolute;
+		left: 27%;
+		top: 81%;
 	}
 
 	.landing-links-container {
 		margin: 0;
 	}
-	
 }
