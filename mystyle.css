@@ -171,7 +171,7 @@ hr {
 	color: var(--third-color);
 }
 
-.flex-container-holy {
+.flex-container {
 	display: flex;
 	justify-content: center;
 	margin: 0 3rem 0;
