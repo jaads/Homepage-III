@@ -25,8 +25,17 @@
     <main>
         <div class="contentbox">
             <div id="vueapp">
-                <h1>A Single File Component</h1>
+                <h1>A counter in a Single File Component</h1>
                 <counter></counter>
+            </div>
+        </div>
+
+        <div class="contentbox">
+            <div id="counterwithstore">
+                <h1>The counter using state managemenr with Vuex</h1>
+                <p>Counter value: {{ counteroutput }}</p>
+                <button class="fancy-button" v-on:click="inc">Inc</button>
+                <button class="fancy-button" v-on:click="dec">Dec</button>
             </div>
         </div>
 
@@ -39,6 +48,7 @@
 
         <div class="contentbox">
             <h1>The good old navigation example</h1>
+            <h2>Now with VueX for state management</h2>
             <header>
                 <nav>
                     <ul id="topnav" class="button-group">
@@ -65,6 +75,7 @@
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.2/dist/vuex.js"></script>
     <script src="../../vendor/prism.js"></script>
 </body>
 
