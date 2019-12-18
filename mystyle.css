@@ -39,7 +39,7 @@ header {
 	width: 100%;
 	height: 100%;
 	background-image: linear-gradient(#1659A7, var(--second-color));
-	transform: skewY(-6deg);
+	transform: skewY(-7deg);
 	transform-origin: top left;
 }
 
@@ -144,7 +144,7 @@ hr {
 }
 
 .landing-bg {
-	background-image: url(./Logo/Group\ 7.svg);
+	background-image: url(./Logo/Group73.svg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom;
@@ -159,10 +159,10 @@ hr {
 	position: absolute;
 	/* transform: translate(-50%, -50%); */
 	left: 10%;
-	top: 36%;
+	top: 22%;
 	color: var(--main-color);
 	font-size: 5rem;
-	transform: rotate(-25deg);
+	transform: rotate(-14deg);
 }
 
 .landing-links-container {
@@ -297,7 +297,7 @@ header .fancy-button:hover {
 	.myname {
 		position: absolute;
 		left: 11%;
-		top: 30%;
+		top: 20%;
 		font-size: 3.7rem;
 	}
 }
@@ -305,17 +305,15 @@ header .fancy-button:hover {
 /* Extra large devices (large desktops, 1200px and down) */
 @media (max-width: 1200px) {
 	.myname {
-		position: absolute;
 		left: 7%;
-		top: 22%;
-		font-size: 3.7rem;
+		top: 17%;
+		font-size: 2.5rem;
 	}
 }
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
 	.myname {
-		position: absolute;
 		left: 4%;
 		top: 14%;
 	}
@@ -344,12 +342,8 @@ header .fancy-button:hover {
 	}
 
 	.myname {
-		position: absolute;
-		left: 3%;
-		top: 15%;
-		color: var(--main-color);
-		font-size: 3.7rem;
-		transform: rotate(-25deg);
+		left: 9%;
+		top: 10%;
 	}
 }
 
@@ -358,7 +352,7 @@ header .fancy-button:hover {
 	.myname {
 		left: 4%;
 		top: 8%;
-		font-size: 2.8rem;
+		font-size: 1.7rem;
 	}
 
 	.fancy-button {
@@ -392,10 +386,7 @@ header .fancy-button:hover {
 	}
 
 	.landing-icons-container {
-		display: flex;
-		position: absolute;
-		left: 27%;
-		top: 81%;
+		display: none;
 	}
 
 	.landing-links-container {
