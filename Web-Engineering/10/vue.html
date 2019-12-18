@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
     <script src="vueapp.js" type="module"></script>
+    <script src="navigation.js" type="module"></script>
 </head>
 
 <body>
@@ -47,16 +48,16 @@
             </div>
         </div>
 
-        <div class="contentbox">
+        <div id="vuejsnav">
             <h1>The good old navigation example</h1>
             <h2>Now with VueX for state management</h2>
             <header>
                 <div class="headerbg"></div>
                 <nav>
                     <ul id="topnav" class="button-group">
-                        <li><button class="fancy-button" id="htmlactionbtn">HMTL</button></li>
-                        <li><button class="fancy-button" id="cssactionbtn">CSS</button></li>
-                        <li><button class="fancy-button" id="jsactionbtn">JS</button></li>
+                        <li><button class="fancy-button" id="htmlactionbtn" v-on:click="getHTMLStuff">HMTL</button></li>
+                        <li><button class="fancy-button" id="cssactionbtn" v-on:click="getCSSStuff">CSS</button></li>
+                        <li><button class="fancy-button" id="jsactionbtn" v-on:click="getJSStuff">JS</button></li>
                     </ul>
                 </nav>
             </header>
@@ -73,7 +74,6 @@
                     <ul id="linksList"></ul>
                 </aside>
             </div>
-        </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

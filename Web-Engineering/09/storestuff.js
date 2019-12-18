@@ -22,7 +22,7 @@ function render() {
     const index = store.getState().toString();
 
     // Set the url accordingly
-    history.pushState({index}, `selected: ${index}`, `state=${index}`);
+    history.pushState({ index }, `selected: ${index}`, `state=${index}`);
 
     fetch('../06/data.json')
         .then(res => res.json())
@@ -50,7 +50,6 @@ function render() {
             link.innerText = elem.link;
             linksList.appendChild(link);
         });
-
     };
 }
 
