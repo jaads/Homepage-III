@@ -1,10 +1,11 @@
-// Kein IIFE, sondern Block scaoped!
+// Kein IIFE, sondern Block scoped!
 (() => {
     const component = {
         name: 'counter',
         ccm: 'https://ccmjs.github.io/ccm/ccm.js',
         config: {
-            html: ['ccm.load', 'template.html']
+            html: ['ccm.load', 'template.html'],
+            version: [1,0,0]
         },
         Instance: function () {
             let count = 0;
