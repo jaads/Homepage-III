@@ -144,32 +144,31 @@ hr {
 }
 
 .landing-bg {
-	background-image: url(./Logo/Group73.svg);
+	background-image: url(./Logo/Group7.svg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom;
 }
 
 .landingpage .fancy-button {
-	color: var(--second-color);
-	border-color: var(--second-color);
+	color: var(--main-color);
+	border-color: var(--main-color);
 }
 
 .myname {
 	position: absolute;
-	/* transform: translate(-50%, -50%); */
-	left: 10%;
-	top: 22%;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 25%;
 	color: var(--main-color);
 	font-size: 5rem;
-	transform: rotate(-14deg);
 }
 
 .landing-links-container {
 	position: absolute;
 	transform: translate(-50%, -50%);
 	left: 50%;
-	top: 50%;
+	top: 45%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -178,8 +177,9 @@ hr {
 
 .landing-icons-container {
 	position: absolute;
-	left: 76%;
-	top: 74%;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 70%;
 	display: flex;
 }
 
@@ -281,6 +281,12 @@ header .fancy-button:hover {
 	color: var(--second-color);
 }
 
+.landingpage .fancy-button:hover {
+	border-color: var(--main-color);
+	background-color: var(--main-color);
+	color: var(--second-color);
+}
+
 .button-group {
 	display: flex;
 	flex-wrap: wrap;
@@ -295,9 +301,6 @@ header .fancy-button:hover {
 
 @media screen and (max-width: 2020px) {
 	.myname {
-		position: absolute;
-		left: 11%;
-		top: 20%;
 		font-size: 3.7rem;
 	}
 }
@@ -305,18 +308,12 @@ header .fancy-button:hover {
 /* Extra large devices (large desktops, 1200px and down) */
 @media (max-width: 1200px) {
 	.myname {
-		left: 7%;
-		top: 17%;
-		font-size: 2.5rem;
+		font-size: 3rem;
 	}
 }
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
-	.myname {
-		left: 4%;
-		top: 14%;
-	}
 
 	.landing-icons-container {
 		position: absolute;
@@ -340,18 +337,11 @@ header .fancy-button:hover {
 	.paper-desc {
 		flex: 2;
 	}
-
-	.myname {
-		left: 9%;
-		top: 10%;
-	}
 }
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
 	.myname {
-		left: 4%;
-		top: 8%;
 		font-size: 1.7rem;
 	}
 
@@ -363,9 +353,11 @@ header .fancy-button:hover {
 	header {
 		padding: 2rem;
 	}
+
 	header h1 {
 		font-size: 2rem;
 	}
+	
 	main {
 		font-size: 1rem;
 		padding-top: 0;
