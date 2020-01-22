@@ -357,6 +357,11 @@ header .fancy-button:hover {
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
+
+	header {
+		height: 10rem;
+	}
+
 	.myname {
 		font-size: 0.1rem;
 	}
