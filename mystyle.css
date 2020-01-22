@@ -133,6 +133,14 @@ hr {
 	color: white;
 }
 
+.extrahight {
+	height: 23rem;
+}
+
+.table {
+	overflow-x: auto;
+}
+
 /* -------- Landingpage ---------- */
 
 .landingpage {
@@ -244,6 +252,7 @@ hr {
 	background-color: var(--codebg);
 	padding: 2rem;
 	border-radius: 0.8rem;
+	max-width: 80vw;
 }
 
 .sidebyside {
@@ -352,6 +361,20 @@ header .fancy-button:hover {
 
 	.paper {
 		padding: 0 2rem;
+	}
+
+	.paper img {
+		padding: 0.3rem;
+	}
+
+	.extrahight {
+		height: 17rem;
+	}
+
+	.sidebyside {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 	}
 
 }
