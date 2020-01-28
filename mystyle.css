@@ -19,8 +19,9 @@
 html,
 body {
 	margin: 0;
-	font-family: Tenor Sans, sans-serif;
-	/* font-family: monaco, Consolas, Lucida Console, monospace; */
+	font-family: 'Ubuntu', Helvetica, Verdana, sans-serif;
+	line-height: 1.67;
+	letter-spacing: 0.02rem;
 }
 
 header {
