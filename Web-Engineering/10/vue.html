@@ -6,7 +6,6 @@
     <title>Web Components</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
     <script src="vueapp.js" type="module"></script>
@@ -14,65 +13,130 @@
 </head>
 
 <body>
-    <header>
-        <div class="headerbg"></div>
-        <a href="../../index.html">
-            <button class="fancy-button">
-                <i class="fas fa-home fa-3x"></i>Home
-            </button>
-        </a>
-        <h1>Vue JS</h1>
-    </header>
-
     <main>
+        <h1>Vue JS</h1>
         <div class="contentbox">
             <div id="vueapp">
-                <h1>A counter in a Single File Component</h1>
+                <h2>A counter in a Single File Component</h2>
                 <counter></counter>
-            </div>
+            </div>  
+            <p>The counter.js file:</p>
+            <pre><code class="line-numbers lang-javascript">export default {
+    template: `&ltdiv>
+    &ltp>Value: {{ value }}&lt/p>
+    &ltp>Buttons pressed: {{ count }}&lt/p>
+    &ltbutton @click="increment">+ 1&lt/button>
+    &ltbutton @click="decrement">- 1&lt/button>
+    &lt/div> `,
+    data() {
+        return {
+            count: 0, 
+            value: 0
+        }
+    },
+    methods: {
+        increment() {
+            this.value++;
+            this.count++;
+        },
+        decrement() {
+            this.value--;
+            this.count++;
+        }
+    }
+}</code></pre>
+            
+            <pre><code class="line-numbers lang-javascript">import Counter from './counter.js';
+
+new Vue({
+    el: '#vueapp',
+    components: { Counter }
+});</code></pre>
         </div>
 
         <div class="contentbox">
+            <h2>The counter using Vuex for state management</h2>
             <div id="counterwithstore">
-                <h1>The counter using state managemenr with Vuex</h1>
                 <p>Counter value: {{ counteroutput }}</p>
                 <button class="fancy-button" v-on:click="inc">Inc</button>
                 <button class="fancy-button" v-on:click="dec">Dec</button>
             </div>
+
+            <pre><code class="line-numbers lang-html">&ltdiv id="counterwithstore">
+    &ltp>Counter value: {{ counteroutput }}&lt/p>
+    &ltbutton class="fancy-button" v-on:click="inc">Inc&lt/button>
+    &ltbutton class="fancy-button" v-on:click="dec">Dec&lt/button>
+&lt/div></code></pre>
+
+            <pre><code class="line-numbers lang-javascript">const counterStore = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state) {
+            state.count++;
+        },
+        decrement(state) {
+            state.count--;
+        }
+    }
+});
+
+new Vue({
+    el: '#counterwithstore',
+    computed: {
+        counteroutput() {
+            return counterStore.state.count;
+        }
+    },
+    methods: {
+        inc() {
+            counterStore.commit('increment');
+            console.log('Store state: ' + counterStore.state.count);
+        },
+        dec() {
+            counterStore.commit('decrement');
+            console.log('Store state: ' + counterStore.state.count);
+        }
+    }
+});</code></pre>
         </div>
 
         <div class="contentbox">
             <div id="vueapp2">
-                <h1>Another</h1>
+                <h2>Another</h2>
                 <navcomp v-bind:prop="true"></navcomp>
             </div>
-        </div>
+        </div>        
 
-        <div id="vuejsnav">
-            <h1>The good old navigation example</h1>
-            <h2>Now with VueX for state management</h2>
-            <header>
-                <div class="headerbg"></div>
-                <nav>
-                    <ul id="topnav" class="button-group">
-                        <li><button class="fancy-button" id="htmlactionbtn" v-on:click="getHTMLStuff">HMTL</button></li>
-                        <li><button class="fancy-button" id="cssactionbtn" v-on:click="getCSSStuff">CSS</button></li>
-                        <li><button class="fancy-button" id="jsactionbtn" v-on:click="getJSStuff">JS</button></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="flex-container">
-                <nav>
-                    <h3>Topics</h3>
-                    <ul id="sideNavList"></ul>
-                </nav>
-                <main>
-                    <p id="mainarea"></p>
-                </main>
-                <aside>
-                    <h3>Resources</h3>
-                    <ul id="linksList"></ul>
-                </aside>
+        <div class="contentbox">
+            <div id="vuejsnav">
+                <h2>The good old navigation example</h2>
+                <p>... now with VueX for state management in place. Click on an item from the navigation.</p>
+                <header class="headerbg">
+                    <nav>
+                        <ul id="topnav" class="button-group">
+                            <li><button class="fancy-button" id="htmlactionbtn" v-on:click="getHTMLStuff">HMTL</button>
+                            </li>
+                            <li><button class="fancy-button" id="cssactionbtn" v-on:click="getCSSStuff">CSS</button>
+                            </li>
+                            <li><button class="fancy-button" id="jsactionbtn" v-on:click="getJSStuff">JS</button></li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav>
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main>
+                        <p id="mainarea"></p>
+                    </main>
+                    <aside>
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
             </div>
         </div>
     </main>

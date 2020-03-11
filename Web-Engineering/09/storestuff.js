@@ -1,3 +1,4 @@
+const h3 = document.querySelector('.contentbox h3');
 function navigator(state = 0, action) {
     if (typeof state === 'undefined') {
         return 0
@@ -22,7 +23,8 @@ function render() {
     const index = store.getState().toString();
 
     // Set the url accordingly
-    history.pushState({ index }, `selected: ${index}`, `state=${index}`);
+    // history.pushState({ index }, `selected: ${index}`, `state=${index}`);
+    h3.innerText = "Current state: " + index;
 
     fetch('../06/data.json')
         .then(res => res.json())

@@ -6,35 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans"/>
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
 </head>
 <body>
-<header>
-    <div class="headerbg"></div>
-    <a href="../../index.html">
-        <button class="fancy-button">Home</button>
-    </a>
-    <h1> Document Object Model (DOM) Manipulation using JavaScript</h1>
-</header>
 <main>
-    <div class="paperbox">
+    <h1>DOM Manipulation using JavaScript</h1>
+
+    <div>
         <h2>Shopping list</h2>
-        <p>A list which is dynamically editable by adding items using the enter key or a button, automatically cleans the
-            input field and assign the focus properly.</p>
+        <p>A list which is dynamically editable by adding items using the enter key or a button and removing items by clicking the dynamically created button. 
+            The input field is automatically cleaned ofter a values has been entered and the focus will be assigned properly.</p>
         <label for="shoppingform">Enter a new item</label>
         <input type="text" id="shoppingform">
         <button id="addforshoppingbutton">Add</button>
         <ul id="shoppinglist"></ul>
+
+        <pre><code class="line-numbers lang-javascript">const shoppingInput = document.getElementById("shoppingform");
+const addBtnForShopping = document.getElementById('addforshoppingbutton');
+const shoppingList = document.getElementById('shoppinglist');
+
+addBtnForShopping.onclick = function () {
+    const value = shoppingInput.value;
+    const listitem = document.createElement('li');
+    listitem.innerHTML = `${value} <button>Remove</button>`;
+    shoppingList.appendChild(listitem);
+    const deletebtn = listitem.querySelector('button');
+    deletebtn.onclick = () => listitem.remove();
+    shoppingInput.value = '';
+    shoppingInput.focus();
+};
+
+shoppingInput.onkeydown = function (event) {
+    if (event.key === 'Enter') addBtnForShopping.click();
+};</code></pre>
     </div> 
 
-    <div class="paperbox">
+    <div>
         <h2>List of speakers</h2>
+        <p>Simmilar the the example before, here a list of speakers can be created with the addition that for each speaker a time tracker is provieded. Try it out.</p>
         <label for="speakerinput">Enter a new speaker</label>
         <input type="text" id="speakerinput">
         <button id="addspeakerbutton">Add</button>
         <ul id="speakerlist"></ul>
+        
+        <pre><code class="line-numbers lang-javascript">const speakerInput = document.getElementById("speakerinput");
+const addSpeakerBtn = document.getElementById('addspeakerbutton');
+const speakerList = document.getElementById('speakerlist');
+
+addSpeakerBtn.onclick = function () {
+    const inputValue = speakerInput.value;
+    let listItem = document.createElement('li');
+    speakerList.appendChild(listItem);
+    listItem.innerHTML = `${inputValue} <time>00:00:00</time> <button>Stop</button>`;
+
+    let seconds = 0, minutes = 0, hours = 0;
+    let timerID = setInterval(addSecond, 1000);
+
+    function addSecond() {
+        console.log("Executing..");
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+            if (minutes >= 60) {
+                minutes = 0;
+                hours++;
+                if (hours >= 24) {
+                    seconds = 0;
+                    minutes = 0;
+                    hours = 0;
+                }
+            }
+        }
+
+        let formattedTime = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":"
+            + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":"
+            + (seconds > 9 ? seconds : "0" + seconds);
+        listItem.querySelector('time').innerText = formattedTime;
+
+    }
+
+    const btn = listItem.querySelector('button');
+    btn.onclick = function () {
+        if (btn.innerText === 'Stop') {
+            clearInterval(timerID);
+            console.log('Stopped time.');
+            listItem.querySelector('button').innerText = 'Start';
+            return;
+        }
+        if (btn.innerText === 'Start') {
+            timerID = setInterval(addSecond, 1000);
+            console.log('Resumed time.');
+            listItem.querySelector('button').innerText = 'Stop';
+        }
+
+    };
+    speakerInput.value = '';
+    speakerInput.focus();
+};
+
+speakerInput.onkeydown = function (event) {
+    if (event.key === 'Enter') addSpeakerBtn.click();
+};</pre></code>
+<p>I know - its not structured too well.</p>
     </div>
 
-    <div class="paperbox">
+    <div>
         <h2>A Spreadsheet</h2>
         <p>Define the matrix dynamically.</p>
         <p>
@@ -67,5 +144,6 @@
 </main>
 
 <script src="dom.js"></script>
+<script src="../../vendor/prism.js"></script>
 </body>
 </html>

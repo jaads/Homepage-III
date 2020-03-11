@@ -18,7 +18,7 @@ const counterStore = new Vuex.Store({
             state.count--;
         }
     }
-})
+});
 
 new Vue({
     el: '#counterwithstore',

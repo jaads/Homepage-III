@@ -100,7 +100,6 @@ rightBottomCornerRow.onchange = createTable;
 rightBottomCornerCol.onchange = createTable;
 
 function createTable() {
-    console.log('creating');
     tbody.remove();
     tbody = table.createTBody();
     for (let i = 0; i < nrOfRows.value; i++) {
@@ -113,30 +112,24 @@ function createTable() {
         }
     }
 
-    let sum = 0;
-
-    add();
-
     leftTopCornerRow.max = rightBottomCornerRow.value;
     leftTopCornerCol.max = rightBottomCornerCol.value;
     rightBottomCornerRow.min = leftTopCornerRow.value;
     rightBottomCornerCol.min = leftTopCornerCol.value;
 
-    function add() {
-        console.log('Calculating..');
-        for (let k = leftTopCornerRow.value; k <= rightBottomCornerRow.value; k++) {
-            // iterate through rows
-            let row = tbody.rows[k];
-            for (let l = leftTopCornerCol.value; l <= rightBottomCornerCol.value; l++) {
-                //iterate through columns
-                let col = row.cells[l];
-                sum += parseInt(col.innerText);
-                col.style.backgroundColor = 'lightgrey';
-            }
+    let sum = 0;
+    for (let k = leftTopCornerRow.value; k <= rightBottomCornerRow.value; k++) {
+        // iterate through rows
+        let row = tbody.rows[k];
+        for (let l = leftTopCornerCol.value; l <= rightBottomCornerCol.value; l++) {
+            //iterate through columns
+            let col = row.cells[l];
+            sum += parseInt(col.innerText);
+            col.style.backgroundColor = 'lightgrey';
         }
-
-        result.innerText = sum;
     }
+
+    result.innerText = sum;
 
 }
 
