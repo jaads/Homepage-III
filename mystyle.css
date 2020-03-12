@@ -170,26 +170,14 @@ hr {
 
 .landing-bg {
 	background-image: url(./Logo/Vector\ 2.svg);
-	/* background-size: cover; */
 	background-repeat: no-repeat;
-	/* background-position: bottom; */
 }
 
-.landingimg {
-	margin: auto;
+#landingimg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	width: 50%;
-}
-
-.landingtext h1 {
-	color: var(--main-color);
-	font-size: 5rem;
-	text-align: center;
-	margin-bottom: 1.5rem;
-	/* font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; */
-}
-
-.landingimg small {
-	color: whitesmoke;
 }
 
 .landing-icons-container {
@@ -364,20 +352,31 @@ header .fancy-button:hover {
 
 
 @media screen and (max-width: 2020px) {
-	.myname {
-		font-size: 3.7rem;
+
+	.landing-bg {
+		background-size: cover;
 	}
+
+	#landingimg {
+		width: 60%;
+	}
+
 }
 
 /* Extra large devices (large desktops, 1200px and down) */
 @media (max-width: 1200px) {
-	.myname {
-		font-size: 3rem;
+
+	#landingimg {
+		width: 80%;
 	}
 }
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
+
+	#landingimg {
+		width: 100%;
+	}
 
 	.landing-icons-container {
 		position: absolute;
@@ -420,18 +419,23 @@ header .fancy-button:hover {
 		justify-content: space-around;
 	}
 
+	.landing-bg {
+		background-size: contain;
+	}
+
 }
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
 
+	.landing-bg {
+		background-size: cover;
+	}
+
 	header {
 		height: 10rem;
 	}
 
-	.myname {
-		font-size: 0.1rem;
-	}
 
 	.fancy-button {
 		height: 3rem;
@@ -496,6 +500,10 @@ header .fancy-button:hover {
 }
 
 @media screen and (max-height: 700px) { 
+
+	#landingimg {
+		margin-top: 3rem;
+	}
 
 	.landingtext h1 {
 		font-size: 4rem;
