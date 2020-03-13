@@ -1,3 +1,9 @@
+.contentbox {
+	padding: 0.5rem 1rem 1rem;
+	margin: auto auto;
+	margin-bottom: 1rem;
+}
+
 .paper-container {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
@@ -14,7 +20,7 @@
 	grid-row-end: 2;
 	margin: 0;
 	padding-top: 1rem;
-	font-size: xx-large;
+	font-size: x-large;
 	background-image: linear-gradient(rgb(43, 113, 192), var(--second-color));
 	color: white;
 }
@@ -68,4 +74,64 @@
 .sidebyside {
 	display: flex;
 	justify-content: space-around;
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+
+	.contentbox {
+		margin: 2rem;
+	}
+
+	.paper-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.paper-container .button-group .fancy-button {
+		height: 3rem;
+		min-width: 8rem;
+	}
+
+	.paper-pic img{
+		height: 8rem;
+	}
+
+	.paper-desc {
+		text-align: center;
+		margin: 0 1rem;
+	}
+
+	.paper {
+		padding: 0 2rem;
+	}
+
+	.paper img {
+		padding: 0.3rem;
+	}
+
+	.sidebyside {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 576px) {
+
+	.contentbox {
+		margin: 2rem 1rem;
+		padding: 0;
+	}
+
+	.paper-container .button-group {
+		margin: 0 1rem 1rem;
+	}
+
+	.paper-container .button-group .fancy-button {
+		margin: 0.5rem;
+	}
+
 }

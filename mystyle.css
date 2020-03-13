@@ -248,7 +248,7 @@ hr {
 
 .fancy-button {
 	border: 2px solid #999999;
-	min-width: 12rem;
+	min-width: 10rem;
 	height: 4rem;
 	text-transform: uppercase;
 	background-color: transparent;
@@ -259,23 +259,6 @@ hr {
 	color: var(--main-color);
 	background-color: var(--second-color);
 	border-color: var(--second-color);
-}
-
-header .fancy-button {
-	border-color: var(--main-color);
-	color: var(--main-color);
-}
-
-header .fancy-button:hover {
-	border-color: var(--main-color);
-	background-color: var(--main-color);
-	color: var(--second-color);
-}
-
-.landingpage .fancy-button:hover {
-	border-color: var(--main-color);
-	background-color: var(--main-color);
-	color: var(--second-color);
 }
 
 @media screen and (max-width: 2020px) {
@@ -365,37 +348,6 @@ header .fancy-button:hover {
 		text-align: left;
 	}
 
-	.paper-container {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.paper-pic {
-		flex: 1;
-	}
-
-	.paper-desc {
-		flex: 2;
-	}
-
-	.paper {
-		padding: 0 2rem;
-	}
-
-	.paper img {
-		padding: 0.3rem;
-	}
-
-	.extrahight {
-		height: 17rem;
-	}
-
-	.sidebyside {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
-
 }
 
 /* Small devices (landscape phones, 576px and down) */
@@ -409,9 +361,13 @@ header .fancy-button:hover {
 		width: 4rem;
 	}
 
+	.topnav a.icon {
+		margin: 0;
+		padding-bottom: 0;
+	}
+
 	.fancy-button {
 		height: 3rem;
-		min-width: 11rem;
 	}
 
 	header .fancy-button {
@@ -424,34 +380,12 @@ header .fancy-button:hover {
 	}
 
 	header {
-		padding: 2rem;
+		padding: 0.5rem;
 	}
 
-	header h1 {
-		font-size: 2rem;
-	}
-	
 	main {
 		font-size: 1rem;
 		padding-top: 0;
-	}
-
-	.contentbox {
-		padding: 0.5rem 1rem 1rem;
-		margin: auto auto;
-		margin-bottom: 1rem;
-	}
-
-	.paper-desc h2 {
-		text-align: left;
-	}
-
-	.paper-pic {
-		display: none;
-	}
-
-	.paper {
-		padding: 0 1rem;
 	}
 
 	.landing-icons-container {
@@ -460,11 +394,6 @@ header .fancy-button:hover {
 
 	.landing-links-container {
 		margin: 0;
-	}
-
-	.landingtext h1 {
-		font-size: 3rem;
-		margin-bottom: 7rem;
 	}
 
 }
@@ -487,4 +416,7 @@ header .fancy-button:hover {
 	.landing-icons-container {
 		display: none;
 	}
+
+
+
 }
