@@ -94,27 +94,19 @@ header ul li a:hover {
 	font-size: xx-large;
   } 
 
-
-
 main {
 	max-width: 60rem;
 	margin: auto auto;
 	padding-top: 2rem;
 }
 
-main h1 {
-	text-align: center;
-	font-size: 3.5rem;
-}
-
 h1 {
 	text-align: center;
-	color: var(--mygrey);
+	font-size: 3rem;
 }
 
-h2 {
+h1, h2 {
 	color: var(--mygrey);
-	font-size: 2rem;
 }
 
 table,
@@ -174,10 +166,6 @@ hr {
 	left: 49%;
 	bottom: 7%;
 	color: white;
-}
-
-.extrahight {
-	height: 23rem;
 }
 
 .table {
@@ -299,6 +287,10 @@ hr {
 /* Medium devices (tablets, 768px and down) */
 @media (max-width: 768px) {
 
+	main h1 {
+		font-size: 2.5rem;
+	}
+
 	.landing-bg {
 		background-image: url(./Logo/Vector21.svg);
 	}
@@ -353,6 +345,11 @@ hr {
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
 
+	main h1 {
+		font-size: 2rem;
+	}
+
+
 	.landing-bg {
 		background-size: cover;
 	}
@@ -404,19 +401,8 @@ hr {
 		margin-top: 3rem;
 	}
 
-	.landingtext h1 {
-		font-size: 4rem;
-		margin-top: -5rem;
-	}
-
-	.landingtext h2 {
-		display: none;
-	}
-
 	.landing-icons-container {
 		display: none;
 	}
-
-
 
 }

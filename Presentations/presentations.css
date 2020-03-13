@@ -3,6 +3,7 @@
 .presentation-container {
 	display: flex;
 	margin-bottom: 3rem;
+	align-items: center;
 }
 
 .presentation-preview img{
@@ -18,3 +19,21 @@
 .presentation-preview img:hover {
 	transform: scale(1.06);
 }
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+
+	.presentation-container {
+		flex-direction: column-reverse;
+	}
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 576px) {
+
+	.presentation-preview img{
+		width: 19rem;
+	}
+}
+
