@@ -28,17 +28,17 @@ header {
 	padding: 1rem;
 	position: relative;
 	/* height: 17rem; */
-	overflow: hidden;
 }
 
 header ul {
 	list-style-type: none;
 	margin: 2rem;
+	overflow: hidden;
 }
 
 header ul li {
-	display: inline; 
 	float: right;
+	display: inline; 
 }
 
 header ul li a {
@@ -58,19 +58,43 @@ header ul li a:hover {
 	border-color: var(--main-color);
 }
 
-.logo {
-	background-image: url(./Logo/path4569.svg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
 .headerbg {
 	background-image: linear-gradient(#1659A7, var(--second-color));
 }
 
-header ul {
-	list-style: none;
-}
+ .topnav {
+	overflow: hidden;
+  }
+  
+  .topnav a {
+	display: inline-block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin-bottom: auto;
+  }
+
+  .topnav-right {
+	  /* display: inline; */
+	float: right;
+  }
+
+  .topnav .topnav-right a:hover {
+	background-color: var(--main-color);
+	color: var(--mydarkerblue);
+	/* border: 4px solid red; */
+  }
+  
+  .topnav .icon {
+	display: none;
+	margin: 0.7rem;
+	float: right;
+	font-size: xx-large;
+  } 
+
+
 
 main {
 	max-width: 60rem;
@@ -206,80 +230,6 @@ hr {
 	margin: 0 3rem 0;
 }
 
-/* ----------- Paper  -------------- */
-
-.paper-container {
-	display: grid;
-	grid-template-columns: 1fr 3fr;
-	grid-template-rows: 1fr 3fr 2fr;
-	box-shadow: -2px 7px 15px 0px rgba(50, 50, 50, 0.77);
-	border-radius: 0.3rem;
-	margin-top: 1rem;
-}
-
-.paper-container h1 {
-	grid-column-start: 1;
-	grid-column-end: 3;
-	grid-row-start: 1;
-	grid-row-end: 2;
-	margin: 0;
-	padding-top: 1rem;
-	font-size: xx-large;
-	background-image: linear-gradient(rgb(43, 113, 192), var(--second-color));
-	color: white;
-}
-
-.paper-pic {
-	margin: auto;
-	text-align: center;
-	grid-column-start: 1;
-	grid-row-start: 2;
-}
-
-.paper-pic i {
-	color: #c94526;
-}
-
-.paper-desc {
-	margin: 2rem;
-	grid-column-start: 2;
-	grid-row-start: 2;
-	text-align: justify;
-}
-
-.paper {
-	text-align: justify;
-	padding: 0 3rem;
-}
-
-.paper img {
-	width: 40rem;
-	background-color: var(--codebg);
-	padding: 2rem;
-	border-radius: 0.8rem;
-	max-width: 80vw;
-}
-
-.paper-container .button-group {
-	display: flex;
-	flex-wrap: wrap; 
-	margin: 2rem 1rem;
-	justify-content: center;
-	grid-column-start: 1;
-	grid-column-end: 3 ;
-	grid-row-start: 3;
-}
-
-.button-group button {
-	margin: 0.8rem;
-	align-content: center;
-}
-
-.sidebyside {
-	display: flex;
-	justify-content: space-around;
-}
-
 /* ----------- Summaries  ------------ */
 
 .summary {
@@ -292,27 +242,6 @@ hr {
 	color: grey;
 	margin-top: -2.5rem;
 	margin-bottom: 4rem;
-}
-
-/* ----------- presentation  ------------ */
-
-.presentation-container {
-	display: flex;
-	margin-bottom: 3rem;
-}
-
-.presentation-preview img{
-	width: 35rem;
-	box-shadow: -2px 7px 15px 0px rgba(50, 50, 50, 0.77);
-	transition: transform .2s; 
-}
-
-.pres-text {
-	margin: auto;
-}
-
-.presentation-preview img:hover {
-	transform: scale(1.06);
 }
 
 /* ----------- Buttons  -------------- */
@@ -348,8 +277,6 @@ header .fancy-button:hover {
 	background-color: var(--main-color);
 	color: var(--second-color);
 }
-
-
 
 @media screen and (max-width: 2020px) {
 
@@ -388,6 +315,56 @@ header .fancy-button:hover {
 
 /* Medium devices (tablets, 768px and down) */
 @media (max-width: 768px) {
+
+	.landing-bg {
+		background-image: url(./Logo/Vector21.svg);
+	}
+
+	footer small {
+		color: #1d225f;
+	}
+
+	footer small a {
+		color: #1d225f;
+	}
+
+	.topnav-right {
+		float: none;
+		display: inline;
+	}
+	.topnav-right a {
+		display: none;
+	}
+
+	.topnav a.icon {
+		display: block;
+	}
+
+	.topnav a img {
+		width: 6rem;
+	}
+
+	.topnav.responsive {
+		position: relative;
+	}
+
+	.topnav.responsive .activenavitem{
+		background-color: var(--main-color);
+		color: var(--mydarkerblue);
+	}
+
+	.topnav.responsive a.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+
 	.paper-container {
 		display: flex;
 		flex-direction: column;
@@ -419,10 +396,6 @@ header .fancy-button:hover {
 		justify-content: space-around;
 	}
 
-	.landing-bg {
-		background-size: contain;
-	}
-
 }
 
 /* Small devices (landscape phones, 576px and down) */
@@ -432,10 +405,9 @@ header .fancy-button:hover {
 		background-size: cover;
 	}
 
-	header {
-		height: 10rem;
+	.topnav a img {
+		width: 4rem;
 	}
-
 
 	.fancy-button {
 		height: 3rem;
@@ -494,9 +466,7 @@ header .fancy-button:hover {
 		font-size: 3rem;
 		margin-bottom: 7rem;
 	}
-	.landingtext img {
 
-	}
 }
 
 @media screen and (max-height: 700px) { 

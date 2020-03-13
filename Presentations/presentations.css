@@ -1,0 +1,20 @@
+/* ----------- presentation  ------------ */
+
+.presentation-container {
+	display: flex;
+	margin-bottom: 3rem;
+}
+
+.presentation-preview img{
+	width: 35rem;
+	box-shadow: -2px 7px 15px 0px rgba(50, 50, 50, 0.77);
+	transition: transform .2s; 
+}
+
+.pres-text {
+	margin: auto;
+}
+
+.presentation-preview img:hover {
+	transform: scale(1.06);
+}

@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <title>Web Engineering</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
-    <link rel="stylesheet" href="vendor/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../mystyle.css">
 </head>
 
 <body>
 
     <header class="headerbg">
-        <ul>
-            <li style="float:left"><a href="index.html">
-                    <img src="./Logo/path4569.svg"></a></li>
-            <li><a href="Summaries/summaries.html" >summaries</a></li>
-            <li><a href="Presentations/presentation.html">Presentations</a></li>
-            <li><a class="activenavitem">web engineering</a></li>
-            <li><a href="Paper.html">paper</a></li>
-
-        </ul>
+        <div class="topnav" id="myTopnav">
+            <a href="../index.html">
+                <img src="../Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="../Paper/Paper.html">paper</a>
+                <a class="activenavitem">web engineering</a>
+                <a href="../Presentations/presentation.html">Presentations</a>
+                <a href="../Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
     </header>
 
     <main class="center">
@@ -51,6 +51,7 @@
             <li><a href="Web-Engineering/03/3.2-desktop-first.html">Desktop first</a></li>
         </ul>
     </main>
+    <script src="../responsive.js"></script>
 </body>
 
 </html>
