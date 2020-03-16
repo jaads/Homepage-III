@@ -25,9 +25,7 @@ body {
 }
 
 header {
-	padding: 1rem;
-	position: relative;
-	/* height: 17rem; */
+	padding: 2rem;
 }
 
 .activenavitem {
@@ -40,21 +38,17 @@ header {
 }
 
 .topnav {
-	overflow: hidden;
+	display: flex;
+	align-items: center;
 }
 
 .topnav a {
 	display: inline-block;
 	color: #f2f2f2;
-	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 	text-transform: uppercase;
-	margin-bottom: auto;
-}
-
-.topnav-right {
-	float: right;
+	flex-grow: 1;
 }
 
 .topnav .topnav-right a:hover {
@@ -270,10 +264,6 @@ hr {
 		color: #1d225f;
 	}
 
-	.topnav-right {
-		float: none;
-		display: inline;
-	}
 	.topnav-right a {
 		display: none;
 	}
@@ -288,6 +278,8 @@ hr {
 
 	.topnav.responsive {
 		position: relative;
+		flex-direction: column;
+		align-items: stretch;	
 	}
 
 	.topnav.responsive .activenavitem{
@@ -304,7 +296,8 @@ hr {
 	.topnav.responsive a {
 		float: none;
 		display: block;
-		text-align: left;
+		/* text-align: left; */
+		flex-grow: 0;
 	}
 
 }
