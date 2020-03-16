@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <title>Web Components</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="../navigation.js"></script>
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
-    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
     <script src="storestuff.js" type="module"></script>
 </head>
 
 <body>
+    <my-navbar activeitem="WE.html"></my-navbar>
+
     <main>
         <h1>State Management using Redux</h1>
         <div class="contentbox">
@@ -47,6 +49,7 @@
         </div>
 
     </main>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
     <script src="../../vendor/prism.js"></script>
 </body>
 
