@@ -1,0 +1,19 @@
+.product-container {
+    padding: 2rem;
+    transition: .2s;
+    color:  var(--peach);
+}
+
+.product-container:hover {
+	transform: scale(1.2);
+}
+
+.product-container h1 {
+    color:  var(--second-color);
+}
+
+
+.product-container a, .product-container span {
+    margin: auto;
+}
+

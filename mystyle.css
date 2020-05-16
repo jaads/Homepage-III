@@ -125,6 +125,10 @@ hr {
 	margin-bottom: 1rem;
 }
 
+.contentbox a {
+	text-decoration: none;	
+}
+
 .arrow {
 	position: absolute;
 	border-bottom-style: solid;
