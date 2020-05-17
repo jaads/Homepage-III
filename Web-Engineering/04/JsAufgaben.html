@@ -6,50 +6,90 @@
     <title>JS functions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
 </head>
 
 <body>
-    <main>
-        <h1>First-Class Functions in JavaScript</h1>
-        <p>Followind code is written in ES5 for a good understanding of JavaScript, since ES6+ uses a lot of abstraction
-            which
-            hides the actual workflow.</p>
-        <h3>A function that get a parameter and returns a function which again returns the given parameter.</h3>
-        <input type="number" id="param">
-        <button onclick="identity_function_wrapper()">Submit</button>
-        Return value: <span id="ret"></span>
 
-        <h3>1.2</h3>
-        <input type="number" id="xforaddf">
-        <input type="number" id="yforaddf">
-        <button onclick="addf_wrapper()">Submit</button>
-        Return value: <span id="retAddf"></span>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
+    </header>
 
-        <h3>1.3</h3>
-        <input type="number" id="xforapplyf">
-        <input type="number" id="yforapplyf">
-        <button onclick="applyf_wrapper()">Submit</button>
-        Return value: <span id="retApplyF"></span>
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
 
-        <h3>1.13 A factory function for a counter.</h3>
-        <input type="number" id="xforcounter">
-        <button onclick="initCounter()">Init counter</button>
-        <button onclick="dec_wrapper()">Decrement</button>
-        <button onclick="inc_wrapper()">Increment</button>
-        Output: <span id="retcounterf"></span>
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
 
-        <h3>A factory that makes functions which generate unique symbols with a given prefix.</h3>
-        <button onclick="generateSymbol()">Generate</button>
-        Output: <span id="genret"></span>
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
 
-        <h3>A funcion that takes a value and a source string and return them as an object.</h3>
-        <input type="text" id="valueform" placeholder="value">
-        <input type="text" id="sourceform" placeholder="source">
-        <button onclick="m_trigger()">Submit</button>
-        Output: <span id="mret"></span>
-    </main>
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
 
+        <main>
+            <h1>First-Class Functions in JavaScript</h1>
+            <p>Followind code is written in ES5 for a good understanding of JavaScript, since ES6+ uses a lot of
+                abstraction
+                which
+                hides the actual workflow.</p>
+            <h3>A function that get a parameter and returns a function which again returns the given parameter.</h3>
+            <input type="number" id="param">
+            <button onclick="identity_function_wrapper()">Submit</button>
+            Return value: <span id="ret"></span>
 
+            <h3>1.2</h3>
+            <input type="number" id="xforaddf">
+            <input type="number" id="yforaddf">
+            <button onclick="addf_wrapper()">Submit</button>
+            Return value: <span id="retAddf"></span>
+
+            <h3>1.3</h3>
+            <input type="number" id="xforapplyf">
+            <input type="number" id="yforapplyf">
+            <button onclick="applyf_wrapper()">Submit</button>
+            Return value: <span id="retApplyF"></span>
+
+            <h3>1.13 A factory function for a counter.</h3>
+            <input type="number" id="xforcounter">
+            <button onclick="initCounter()">Init counter</button>
+            <button onclick="dec_wrapper()">Decrement</button>
+            <button onclick="inc_wrapper()">Increment</button>
+            Output: <span id="retcounterf"></span>
+
+            <h3>A factory that makes functions which generate unique symbols with a given prefix.</h3>
+            <button onclick="generateSymbol()">Generate</button>
+            Output: <span id="genret"></span>
+
+            <h3>A funcion that takes a value and a source string and return them as an object.</h3>
+            <input type="text" id="valueform" placeholder="value">
+            <input type="text" id="sourceform" placeholder="source">
+            <button onclick="m_trigger()">Submit</button>
+            Output: <span id="mret"></span>
+        </main>
+    </div>
     <script src="Aufg1.js"></script>
 </body>
 

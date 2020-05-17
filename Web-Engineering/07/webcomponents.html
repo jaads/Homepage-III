@@ -6,8 +6,8 @@
     <title>Web Components</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
-    <link rel="stylesheet" tpye="text/css" href="../06/navigatoin.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
 
     <script src="stopwatch.js" type="module"></script>
     <script src="navitem-json.js" type="module"></script>
@@ -16,96 +16,146 @@
 </head>
 
 <body>
-    <main>
-        <h1>Web Components using Lit Element</h1>
-        <div class="contentbox">
-            <h2>A simple web component</h2>
-            <p>Web component are made out of four main specifications:</p>
-            <ul>
-                <li>ES6 Modules</li>
-                <li>Custom Elements</li>
-                <li>Shadow DOM</li>
-                <li>HTML Template</li>
-            </ul>
-            <q>Web components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated
-                HTML tags to use in web pages and web apps.</q>
-            <cite><a href="https://www.webcomponents.org/introduction" target="_blank">webcomponents.org</a></cite>
-            <p>The light grey box below is one single web component consisting of properties, stlyes and functions
-                triggered by buttons.</p>
-            <my-stopwatch></my-stopwatch>
-            <p>It ca be placed anywhere on the website by using the custom element as follows:</p>
-            <pre><code class="line-numbers lang-html">&ltmy-stopwatch>&lt/my-stopwatch></code></pre>
-        </div>
 
-        <div class="contentbox">
-            <h2>A navigation element as web component</h2>
-            <p>In this senarios two majar techniques had been used in order to reach as much independenceas of the
-                component as possible. First the fact that each property of a compontent made with Lit-Element is
-                automaticcaly converted to a HTML attribute of the custom elememt and hence editable in a declarative
-                fashion from the HTML file.</p>
-            <p>Furthermore slots has beed used inject conten into the component. Here is the component:</p>
-
-            <pre><code class="line-numbers lang-javascript">import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
-
-class NavItem extends LitElement {
-
-    static get properties() {
-        return {
-            reference: { type: String }
-        };
-    }
-
-    constructor() {
-        super();
-        this.reference = '#';
-    }
-
-    render() {
-        return html`
-        &lta href="${this.reference}">&ltslot>&lt/slot>&lt/a>
-        `;
-    }
-}
-
-customElements.define('my-navitem', NavItem);
-</code></pre>
-
-            <p>And how the above web compoennt can be used is shown below. <code>reference</code> is the propbierty of
-                the component.</p>
-            <pre><code class="line-numbers lang-html">&ltmy-navitem reference="../../index.html" class="menuitem navitem">Home&lt/my-navitem></code></pre>
-        </div>
-
-        <div class="contentbox">
-            <h2>A navigation out of web components</h2>
-            <p>As well as in the previous section, the this technique can be used to relized a whole navigation. </p>
-            <p>Since the stlying is also indepented from the component this component can either be used in the
-                horizontal navigatioen as well as in the vertical navigation. The final result can be seen here:</p>
-            <header>
-                <nav>
-                    <ul id="topnav">
-                        <!-- <my-navitem headline="HTML" class="menuitem navitem"></my-navitem>
-                        <my-navitem headline="CSS" class="menuitem navitem"></my-navitem>
-                        <my-navitem headline="Javascript" class="menuitem navitem"></my-navitem> -->
-                    </ul>
-                </nav>
-            </header>
-            <div class="flex-container">
-                <nav>
-                    <h3>Topics</h3>
-                    <ul id="sideNavList"></ul>
-                </nav>
-                <main>
-                    <p id="mainarea"><my-contentitm text="kjh"></my-contentitm></p>
-                </main>
-                <aside>
-                    <h3>Resources</h3>
-                    <ul id="linksList"></ul>
-                </aside>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
-    </main>
+    </header>
+
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>Web Components using Lit Element</h1>
+            <div class="contentbox">
+                <h2>A simple web component</h2>
+                <p>Web component are made out of four main specifications:</p>
+                <ul>
+                    <li>ES6 Modules</li>
+                    <li>Custom Elements</li>
+                    <li>Shadow DOM</li>
+                    <li>HTML Template</li>
+                </ul>
+                <q>Web components are a set of web platform APIs that allow you to create new custom, reusable,
+                    encapsulated
+                    HTML tags to use in web pages and web apps.</q>
+                <cite><a href="https://www.webcomponents.org/introduction" target="_blank">webcomponents.org</a></cite>
+                <p>The light grey box below is one single web component consisting of properties, stlyes and functions
+                    triggered by buttons.</p>
+                <my-stopwatch></my-stopwatch>
+                <p>It ca be placed anywhere on the website by using the custom element as follows:</p>
+                <pre><code class="line-numbers lang-html">&ltmy-stopwatch>&lt/my-stopwatch></code></pre>
+            </div>
+
+            <div class="contentbox">
+                <h2>A navigation element as web component</h2>
+                <p>In this senarios two majar techniques had been used in order to reach as much independenceas of the
+                    component as possible. First the fact that each property of a compontent made with Lit-Element is
+                    automaticcaly converted to a HTML attribute of the custom elememt and hence editable in a
+                    declarative
+                    fashion from the HTML file.</p>
+                <p>Furthermore slots has beed used inject conten into the component. Here is the component:</p>
+
+                <pre><code class="line-numbers lang-javascript">import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+    
+    class NavItem extends LitElement {
+    
+        static get properties() {
+            return {
+                reference: { type: String }
+            };
+        }
+    
+        constructor() {
+            super();
+            this.reference = '#';
+        }
+    
+        render() {
+            return html`
+            &lta href="${this.reference}">&ltslot>&lt/slot>&lt/a>
+            `;
+        }
+    }
+    
+    customElements.define('my-navitem', NavItem);
+    </code></pre>
+
+                <p>And how the above web compoennt can be used is shown below. <code>reference</code> is the propbierty
+                    of
+                    the component.</p>
+                <pre><code class="line-numbers lang-html">&ltmy-navitem reference="../../index.html" class="menuitem navitem">Home&lt/my-navitem></code></pre>
+            </div>
+
+            <div class="contentbox">
+                <h2>A navigation out of web components</h2>
+                <p>As well as in the previous section, the this technique can be used to relized a whole navigation.
+                </p>
+                <p>Since the stlying is also indepented from the component this component can either be used in the
+                    horizontal navigatioen as well as in the vertical navigation. The final result can be seen here:</p>
+                <header>
+                    <nav>
+                        <ul id="topnav">
+                            <!-- <my-navitem headline="HTML" class="menuitem navitem"></my-navitem>
+                            <my-navitem headline="CSS" class="menuitem navitem"></my-navitem>
+                            <my-navitem headline="Javascript" class="menuitem navitem"></my-navitem> -->
+                        </ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav>
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main>
+                        <p id="mainarea">
+                            <my-contentitm text="kjh"></my-contentitm>
+                        </p>
+                    </main>
+                    <aside>
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
     <script src="navigation.js"></script>
     <script src="../../vendor/prism.js"></script>
+    <!-- <script type="module" src="../navigation.js"></script> -->
 </body>
 
 </html>

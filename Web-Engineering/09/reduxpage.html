@@ -7,50 +7,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="../navigation.js"></script>
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <script src="storestuff.js" type="module"></script>
 </head>
 
 <body>
-    <my-navbar activeitem="WE.html"></my-navbar>
+    <!-- <my-navbar activeitem="WE.html"></my-navbar> -->
 
-    <main>
-        <h1>State Management using Redux</h1>
-        <div class="contentbox">
-            <p>Here, the navigation known from previous sections had been refactored and has now its state centralized
-                in a store provieded by Redux. Here, the state represents the index of the current navigation item.</p>
-                <h3>Current state</h3>
-            <p>How the rendering is done is basically shown at the end of this <a href="../06/Async.html">this page.</a>
-            </p> <br>
-
-            <header class="headerbg">
-                <div ></div>
-                <nav>
-                    <ul id="topnav" class="button-group">
-                        <li><button class="fancy-button" id="htmlactionbtn">HMTL</button></li>
-                        <li><button class="fancy-button" id="cssactionbtn">CSS</button></li>
-                        <li><button class="fancy-button" id="jsactionbtn">JS</button></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="flex-container">
-                <nav>
-                    <h3>Topics</h3>
-                    <ul id="sideNavList"></ul>
-                </nav>
-                <main>
-                    <p id="mainarea"></p>
-                </main>
-                <aside>
-                    <h3>Resources</h3>
-                    <ul id="linksList"></ul>
-                </aside>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
+    </header>
 
-    </main>
-    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
-    <script src="../../vendor/prism.js"></script>
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>State Management using Redux</h1>
+            <div class="contentbox">
+                <p>Here, the navigation known from previous sections had been refactored and has now its state
+                    centralized
+                    in a store provieded by Redux. Here, the state represents the index of the current navigation item.
+                </p>
+                <h3>Current state</h3>
+                <p>How the rendering is done is basically shown at the end of this <a href="../06/Async.html">this
+                        page.</a>
+                </p> <br>
+
+                <header class="headerbg">
+                    <div></div>
+                    <nav>
+                        <ul id="topnav" class="button-group">
+                            <li><button class="fancy-button" id="htmlactionbtn">HMTL</button></li>
+                            <li><button class="fancy-button" id="cssactionbtn">CSS</button></li>
+                            <li><button class="fancy-button" id="jsactionbtn">JS</button></li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="flex-container">
+                    <nav>
+                        <h3>Topics</h3>
+                        <ul id="sideNavList"></ul>
+                    </nav>
+                    <main>
+                        <p id="mainarea"></p>
+                    </main>
+                    <aside>
+                        <h3>Resources</h3>
+                        <ul id="linksList"></ul>
+                    </aside>
+                </div>
+            </div>
+
+        </main>
+        <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+        <script src="../../vendor/prism.js"></script>
 </body>
 
 </html>

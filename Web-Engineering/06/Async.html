@@ -7,38 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
-    <link rel="stylesheet" type="text/css" href="navigatoin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="navigatoin.css"> -->
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
-    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free-5.11.2-web/css/all.min.css">
 </head>
 
 <body>
-    <main>
-        <h1>Asynchronous JavaScript</h1>
-        <div class="contentbox">
-            <h2>Promises</h2>
-            <p>A promise can have tree different states:</p>
-            <ul>
-                <li>pending</li>
-                <li>settled</li>
-                <ul>
-                    <li>resolved</li>
-                    <li>rejected</li>
-                </ul>
-            </ul>
-            <p>In this example two files from the servers are downloaded <u>parallel and asynchronously</u> using the
-                <code>fetch-API</code>.</p>
-            <p>The <code>fetch</code> function uses promises instead of callbacks, as you might
-                know it from the <code>XMLHttpRequest</code>.
-                As said, a promise has one of the above listed states. Here, only if
-                both promises are in the resolved state, they are will be displayed.</p>
-            <p>Trigger the process by pressing the button:</p>
-            <button class="fancy-button" id="loadAsyncBtn1">Load data</button>
-            <button class="fancy-button" id="clearBtn">Clear</button>
-            <p>Content from the first file:</p> <code id="firstfilecontent"></code>
-            <p>Content from the second file:</p> <code id="secondfilecontent"></code>
 
-            <pre>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>Asynchronous JavaScript</h1>
+            <div class="contentbox">
+                <h2>Promises</h2>
+                <p>A promise can have tree different states:</p>
+                <ul>
+                    <li>pending</li>
+                    <li>settled</li>
+                    <ul>
+                        <li>resolved</li>
+                        <li>rejected</li>
+                    </ul>
+                </ul>
+                <p>In this example two files from the servers are downloaded <u>parallel and asynchronously</u> using
+                    the
+                    <code>fetch-API</code>.</p>
+                <p>The <code>fetch</code> function uses promises instead of callbacks, as you might
+                    know it from the <code>XMLHttpRequest</code>.
+                    As said, a promise has one of the above listed states. Here, only if
+                    both promises are in the resolved state, they are will be displayed.</p>
+                <p>Trigger the process by pressing the button:</p>
+                <button class="fancy-button" id="loadAsyncBtn1">Load data</button>
+                <button class="fancy-button" id="clearBtn">Clear</button>
+                <p>Content from the first file:</p> <code id="firstfilecontent"></code>
+                <p>Content from the second file:</p> <code id="secondfilecontent"></code>
+
+                <pre>
 <code class="lang-javascript line-numbers">
 let getFileA = () => {
     return fetch('A.txt')
@@ -61,16 +101,17 @@ loadBtn.onclick = () => {
 };
 </code>
 </pre>
-        </div>
+            </div>
 
-        <div class="contentbox">
-            <h2>Using async / await</h2>
-            <p>The above scenario can also be done using async/ await which is again just <u>syntactic sugar</u>.</p>
-            <button class="fancy-button" id="loadAsyncBtn2">Load data</button>
-            <button class="fancy-button" id="clearBtn2">Clear</button>
-            <p>Content from the first file:</p> <code id="firstfilecontentasync"></code>
-            <p>Content from the second file:</p> <code id="secondfilecontentasync"></code>
-            <pre>
+            <div class="contentbox">
+                <h2>Using async / await</h2>
+                <p>The above scenario can also be done using async/ await which is again just <u>syntactic sugar</u>.
+                </p>
+                <button class="fancy-button" id="loadAsyncBtn2">Load data</button>
+                <button class="fancy-button" id="clearBtn2">Clear</button>
+                <p>Content from the first file:</p> <code id="firstfilecontentasync"></code>
+                <p>Content from the second file:</p> <code id="secondfilecontentasync"></code>
+                <pre>
 <code class="line-numbers lang-javascript">
 let getFileAWithSuger = async () => {
     let response = await fetch('A.txt');
@@ -90,23 +131,23 @@ loadBtn2.onclick = async () => {
 };        
 </code>
 </pre>
-        </div>
+            </div>
 
-        <div class="contentbox">
-            <h2>Web Worker</h2>
-            <p>Here, the computational time of web workers is demonstrated.</p>
-            <p>Therefore, a list of 100 000 random numbers is generated and sorted afterwards.<br>
-                The sorting can done using either the main thread or a web worker thread.<br>
-                For each method the time needed for the calculation is displayed.</p>
-            <p>Click the buttons and view the time in milliseconds.</p>
-            <p>Check the console for further insights.</p>
-            <button class="fancy-button" id="generateBtn">Generate</button>
-            <button class="fancy-button" id="sortMainBtn" disabled>Sort in main thread</button>
-            <button class="fancy-button" id="sortWorkerBtn" disabled>Sort using worker</button>
-            <p id="sortres1"></p>
-            <p id="sortres2"></p>
+            <div class="contentbox">
+                <h2>Web Worker</h2>
+                <p>Here, the computational time of web workers is demonstrated.</p>
+                <p>Therefore, a list of 100 000 random numbers is generated and sorted afterwards.<br>
+                    The sorting can done using either the main thread or a web worker thread.<br>
+                    For each method the time needed for the calculation is displayed.</p>
+                <p>Click the buttons and view the time in milliseconds.</p>
+                <p>Check the console for further insights.</p>
+                <button class="fancy-button" id="generateBtn">Generate</button>
+                <button class="fancy-button" id="sortMainBtn" disabled>Sort in main thread</button>
+                <button class="fancy-button" id="sortWorkerBtn" disabled>Sort using worker</button>
+                <p id="sortres1"></p>
+                <p id="sortres2"></p>
 
-            <pre><code class="line-numbers lang-javascript">
+                <pre><code class="line-numbers lang-javascript">
 generateBtn.onclick = function () {
     randomNumbers1 = [];
     randomNumbers2 = [];
@@ -144,8 +185,8 @@ sortWorkerBtn.onclick = function () {
 };
 </code></pre>
 
-            <p>Next the web worker which is implemented in a seperat file.</p>
-            <pre><code class="line-numbers lang-javascript">self.onmessage = function (ev) {
+                <p>Next the web worker which is implemented in a seperat file.</p>
+                <pre><code class="line-numbers lang-javascript">self.onmessage = function (ev) {
     randomNumbersW = ev.data;   
     console.log('Worker received the  random numbers.');
     let t0 = performance.now();
@@ -158,37 +199,37 @@ sortWorkerBtn.onclick = function () {
     self.close();
 };
 </code></pre>
-        </div>
-
-        <div id="asyncnavigation" class="contentbox">
-            <h2>Asynchronous Navigation</h2>
-            <p>Finally a whole website can be based on asynchronous JavaScript as the following example shows.</p>
-            <p>Here, the data is loaded just once, but it could also be done in a more fine granular way.</p>
-
-            <div>
-                <header>
-                    <div class="headerbg"></div>
-                    <nav>
-                        <ul id="topnav"></ul>
-                    </nav>
-                </header>
-                <div class="flex-container">
-                    <nav>
-                        <h3>Topics</h3>
-                        <ul id="sideNavList"></ul>
-                    </nav>
-                    <main>
-                        <p id="mainarea"></p>
-                    </main>
-                    <aside>
-                        <h3>Resources</h3>
-                        <ul id="linksList"></ul>
-                    </aside>
-                </div>
             </div>
-            <p>Following the plain javascript code is listet which is responsible for the above behavior.</p>
 
-            <pre>
+            <div id="asyncnavigation" class="contentbox">
+                <h2>Asynchronous Navigation</h2>
+                <p>Finally a whole website can be based on asynchronous JavaScript as the following example shows.</p>
+                <p>Here, the data is loaded just once, but it could also be done in a more fine granular way.</p>
+
+                <div>
+                    <header>
+                        <div class="headerbg"></div>
+                        <nav>
+                            <ul id="topnav"></ul>
+                        </nav>
+                    </header>
+                    <div class="flex-container">
+                        <nav>
+                            <h3>Topics</h3>
+                            <ul id="sideNavList"></ul>
+                        </nav>
+                        <main>
+                            <p id="mainarea"></p>
+                        </main>
+                        <aside>
+                            <h3>Resources</h3>
+                            <ul id="linksList"></ul>
+                        </aside>
+                    </div>
+                </div>
+                <p>Following the plain javascript code is listet which is responsible for the above behavior.</p>
+
+                <pre>
 <code class="line-numbers lang-javascript">window.onload = function () {
     // Get data from the server 
     fetch('data.json')
@@ -245,12 +286,13 @@ let updateContent = function (data, idx, innerIdx) {
 };        
 </code>
 </pre>
-        </div>
+            </div>
 
-    </main>
-    <script src="Async.js"></script>
-    <script src="navigation.js"></script>
-    <script src="../../vendor/prism.js"></script>
+        </main>
+    </div>
+        <script src="Async.js"></script>
+        <script src="navigation.js"></script>
+        <script src="../../vendor/prism.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+.we-container {
+	display: flex;
+	height: 100%;
+
+}
+
+.we-container main {
+	flex-grow: 1;
+}
+
+.we-container nav {
+	background-color: #f3f3f3;
+}
+
+.we-container nav {
+	padding: 0.3rem 2.5rem;
+}
+
+nav a {
+	text-decoration: none;
+	font-size: 1.3rem;
+	color: #818181;
+	display: block;
+}
+
+nav a:hover {
+	color: var(--second-color);
+}

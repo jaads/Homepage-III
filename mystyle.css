@@ -4,7 +4,6 @@
 	--third-color: #7fd7ff;
 	--codebg: #2d2d2d;
 	--mygrey: #2c3e50;
-	--myorange: #f2bf7e;
 	--peach: #efbaa1;
 	--anotherblue: #538fd5;
 	--mymint: #c1f0db;
@@ -66,7 +65,6 @@ header {
 main {
 	max-width: 60rem;
 	margin: auto auto;
-	padding-top: 2rem;
 }
 
 h1 {

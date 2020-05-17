@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>DOM Examples</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans"/>
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
 </head>
+
 <body>
-<main>
-    <h1>DOM Manipulation using JavaScript</h1>
 
-    <div>
-        <h2>Shopping list</h2>
-        <p>A list which is dynamically editable by adding items using the enter key or a button and removing items by clicking the dynamically created button. 
-            The input field is automatically cleaned ofter a values has been entered and the focus will be assigned properly.</p>
-        <label for="shoppingform">Enter a new item</label>
-        <input type="text" id="shoppingform">
-        <button id="addforshoppingbutton">Add</button>
-        <ul id="shoppinglist"></ul>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
+    </header>
 
-        <pre><code class="line-numbers lang-javascript">const shoppingInput = document.getElementById("shoppingform");
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>DOM Manipulation using JavaScript</h1>
+            <div>
+                <h2>Shopping list</h2>
+                <p>A list which is dynamically editable by adding items using the enter key or a button and removing
+                    items by clicking the dynamically created button.
+                    The input field is automatically cleaned ofter a values has been entered and the focus will be
+                    assigned properly.</p>
+                <label for="shoppingform">Enter a new item</label>
+                <input type="text" id="shoppingform">
+                <button id="addforshoppingbutton">Add</button>
+                <ul id="shoppinglist"></ul>
+
+                <pre><code class="line-numbers lang-javascript">const shoppingInput = document.getElementById("shoppingform");
 const addBtnForShopping = document.getElementById('addforshoppingbutton');
 const shoppingList = document.getElementById('shoppinglist');
 
@@ -39,17 +82,18 @@ addBtnForShopping.onclick = function () {
 shoppingInput.onkeydown = function (event) {
     if (event.key === 'Enter') addBtnForShopping.click();
 };</code></pre>
-    </div> 
+            </div>
 
-    <div>
-        <h2>List of speakers</h2>
-        <p>Simmilar the the example before, here a list of speakers can be created with the addition that for each speaker a time tracker is provieded. Try it out.</p>
-        <label for="speakerinput">Enter a new speaker</label>
-        <input type="text" id="speakerinput">
-        <button id="addspeakerbutton">Add</button>
-        <ul id="speakerlist"></ul>
-        
-        <pre><code class="line-numbers lang-javascript">const speakerInput = document.getElementById("speakerinput");
+            <div>
+                <h2>List of speakers</h2>
+                <p>Simmilar the the example before, here a list of speakers can be created with the addition that for
+                    each speaker a time tracker is provieded. Try it out.</p>
+                <label for="speakerinput">Enter a new speaker</label>
+                <input type="text" id="speakerinput">
+                <button id="addspeakerbutton">Add</button>
+                <ul id="speakerlist"></ul>
+
+                <pre><code class="line-numbers lang-javascript">const speakerInput = document.getElementById("speakerinput");
 const addSpeakerBtn = document.getElementById('addspeakerbutton');
 const speakerList = document.getElementById('speakerlist');
 
@@ -108,42 +152,44 @@ addSpeakerBtn.onclick = function () {
 speakerInput.onkeydown = function (event) {
     if (event.key === 'Enter') addSpeakerBtn.click();
 };</pre></code>
-<p>I know - its not structured too well.</p>
+                <p>I know - its not structured too well.</p>
+            </div>
+
+            <div>
+                <h2>A Spreadsheet</h2>
+                <p>Define the matrix dynamically.</p>
+                <p>
+                    <label for="x">X axis</label>
+                    <input type="number" id="x" value="4">
+                    <label for="y">Y axis</label>
+                    <input type="number" id="y" value="4">
+                </p>
+                <table></table>
+                <p> Sum of the selected fields:
+                    <span id="result"></span>
+                </p>
+                <div>
+                    <p>Input the top left corner of the area you want to select.</p>
+                    <label for="selectionTopLeftX">X-axis coordinate</label>
+                    <input type="number" id="selectionTopLeftX" value="1" min="0">
+                    <label for="selectionTopLeftY">Y-axis coordinate</label>
+                    <input type="number" id="selectionTopLeftY" value="1" min="0">
+                </div>
+
+                <div>
+                    <p>Input the bottom right corner of the area you want to select.</p>
+                    <label for="selectionBottomRightX">X-axis coordinate</label>
+                    <input type="number" id="selectionBottomRightX" value="2" min="0">
+                    <label for="selectionBottomRightY">Y-axis coordinate</label>
+                    <input type="number" id="selectionBottomRightY" value="2" min="0">
+                </div>
+            </div>
+
+        </main>
     </div>
 
-    <div>
-        <h2>A Spreadsheet</h2>
-        <p>Define the matrix dynamically.</p>
-        <p>
-            <label for="x">X axis</label>
-            <input type="number" id="x" value="4">
-            <label for="y">Y axis</label>
-            <input type="number" id="y" value="4">
-        </p>
-        <table></table>
-        <p> Sum of the selected fields:
-            <span id="result"></span>
-        </p>
-        <div>
-            <p>Input the top left corner of the area you want to select.</p>
-            <label for="selectionTopLeftX">X-axis coordinate</label>
-            <input type="number" id="selectionTopLeftX" value="1" min="0">
-            <label for="selectionTopLeftY">Y-axis coordinate</label>
-            <input type="number" id="selectionTopLeftY" value="1" min="0">
-        </div>
-
-        <div>
-            <p>Input the bottom right corner of the area you want to select.</p>
-            <label for="selectionBottomRightX">X-axis coordinate</label>
-            <input type="number" id="selectionBottomRightX" value="2" min="0">
-            <label for="selectionBottomRightY">Y-axis coordinate</label>
-            <input type="number" id="selectionBottomRightY" value="2" min="0">
-        </div>
-    </div>
-
-</main>
-
-<script src="dom.js"></script>
-<script src="../../vendor/prism.js"></script>
+    <script src="dom.js"></script>
+    <script src="../../vendor/prism.js"></script>
 </body>
+
 </html>

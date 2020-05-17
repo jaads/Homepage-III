@@ -6,31 +6,71 @@
     <title>Web Components</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <script src="barscomponent.js" type="module"></script>
 </head>
 
 <body>
-    <main>
-        <h1>Scalable Vector Graphics (SVG)</h1>
 
-        <div class="contentbox">
-            <h1>A simple SVG</h1>
-            <p>A bar chart</p>
-            <svg viewBox="0 0 25 2">
-                <rect width="16" height="0.8" fill="var(--second-color)"></rect>
-            </svg>
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
         </div>
+    </header>
 
-        <div class="contentbox">
-            <h1>An application example</h1>
-            <p>Using SVG in a Web Component with CSS transactions</p>
-            <button id="loadbarvaluesbtn" class="fancy-button">Load values</button>
-            <button id="resetbarvaluesbtn" class="fancy-button">Reset values</button>
-            <div id="barchartdiv"></div>
-            <ul style="list-style-type: none;" id="barlist"></ul>
-        </div>
-    </main>
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>Scalable Vector Graphics (SVG)</h1>
+
+            <div class="contentbox">
+                <h1>A simple SVG</h1>
+                <p>A bar chart</p>
+                <svg viewBox="0 0 25 2">
+                    <rect width="16" height="0.8" fill="var(--second-color)"></rect>
+                </svg>
+            </div>
+
+            <div class="contentbox">
+                <h1>An application example</h1>
+                <p>Using SVG in a Web Component with CSS transactions</p>
+                <button id="loadbarvaluesbtn" class="fancy-button">Load values</button>
+                <button id="resetbarvaluesbtn" class="fancy-button">Reset values</button>
+                <div id="barchartdiv"></div>
+                <ul style="list-style-type: none;" id="barlist"></ul>
+            </div>
+        </main>
+    </div>
     <script src="barchart.js"></script>
     <script src="../../vendor/prism.js"></script>
 </body>
