@@ -143,6 +143,12 @@ hr {
 	overflow-x: auto;
 }
 
+.border {
+	border: solid 3px var(--second-color);
+	border-radius: 0.4rem;
+	padding: 0.5rem
+};
+
 /* -------- Landingpage ---------- */
 
 .landingpage {

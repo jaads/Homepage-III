@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jan Arends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
+    <!-- <link rel="stylesheet" type="text/css" href="react.css"> -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="react.js" type="text/babel"></script>
+</head>
+
+<body>
+
+    <header class="headerbg">
+        <div class="topnav" id="myTopnav">
+            <a href="/index.html">
+                <img src="/Logo/path4569.svg"></a>
+            <div class="topnav-right">
+                <a href="/Paper/Paper.html">paper</a>
+                <a href="/Web-Engineering/WE.html" class="activenavitem">web engineering</a>
+                <a href="/Products/products.html">products</a>
+                <a href="/Presentations/presentation.html">Presentations</a>
+                <a href="/Summaries/summaries.html">summaries</a>
+                <a class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="we-container">
+        <nav>
+            <h2>Advances</h2>
+            <a href="/Web-Engineering/react/react.html">React</a>
+            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
+            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
+            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
+            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
+
+            <h2>JavaScript</h2>
+            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
+            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+
+            <h2>RWD using plain CSS</h2>
+            <h3>Flexboxes</h3>
+            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
+            <h3>Grid System</h3>
+            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
+            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
+        </nav>
+
+        <main>
+            <h1>React</h1>
+            <p>Here I wrote some React directly into a HTML file. This is only reasonable for testing or prototyping.
+                Like as it is the case here. For everything beyond, aka for production a proper React environment needs
+                to be set up.</p>
+            <div id="reactapp" class="border"></div>
+            <pre><code class="line-numbers lang-javascript">class Counter extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            totalclicked: 0,
+            value: 0
+        };
+    };
+
+    addTotalCount = () => {
+        this.setState({ totalclicked: this.state.totalclicked + 1 });
+    };
+
+    increment = () => {
+        this.setState({ value: this.state.value + 1 });
+        this.addTotalCount();
+    };
+
+    decrement = () => {
+        this.setState({ value: this.state.value - 1 });
+        this.addTotalCount();
+    };
+
+    render() {
+        return (
+            &ltdiv>
+                &lt;p>Value: {this.state.value} &lt;/p>
+                &lt;p>Buttons pressed: {this.state.totalclicked}&lt;/p>
+                &lt;button onClick={this.decrement}> - 1&lt;/button >
+                &lt;button onClick={this.increment}>+ 1&lt;/button>
+            &lt/div >
+        );
+    };
+};
+
+ReactDOM.render(<Counter />, document.getElementById('reactapp'));</code></pre>
+
+            <p>And also the important parts of the HTML code. Here Babel is important for the JSX syntax and ES6 in older browsers.</p>
+
+            <pre><code class="line-numbers lang-html"> ...
+    &lt;script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    &lt;script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    &lt;script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    &lt;script src="react.js" type="text/babel"></script>
+&lt;/head>
+
+&lt;body>
+    &lt;div id="reactapp" class="border">&lt;/div>
+&lt;/body></code></pre>
+        </main>
+    </div>
+
+    <script src="../../vendor/prism.js"></script>
+</body>
+
+</html>
