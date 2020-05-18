@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Web Components</title>
+    <title>Jan Arends</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
-    <link rel="stylesheet" type="text/css" href="../we-nav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
-    <script src="barscomponent.js" type="module"></script>
+    <link rel="stylesheet" type="text/css" href="../we-nav.css">
+    <script src="params.js"></script>
 </head>
 
 <body>
@@ -47,33 +47,51 @@
             <h3>Flexboxes</h3>
             <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
             <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
+
             <h3>Grid System</h3>
             <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
             <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
         </nav>
 
         <main>
-            <h1>Scalable Vector Graphics (SVG)</h1>
+            <h1>Variadic functions</h1>
+            <p>Altough the terms <i>parameter</i> and <i>argument</i> are usually used interchangeably, they actually
+                differ.</p>
+            <ul>
+                <li>A parameter is what is beeing declared by the functions signature.</li>
+                <li>In contrast, an argument is the concret value which is passed to a function. </li>
+            </ul>
+            <p>In terms of parameters and arguments, JavaScript behaves rather unique. In JS one can pass less or more
+                arguments to a function than parameters are defined. By passing less arguments, the missing parameters
+                are <code>undefined</code>. By passing more more arguments, the additional arguments can be accessed
+                using the <code>arguments</code> object. This comes in handy when the number of arguments are unknown.
+            </p>
+            <p>Here's consider the simplest example in which a function does not have any parameters at all but one
+                argument is given.</p>
 
-            <div class="contentbox">
-                <h1>A simple SVG</h1>
-                <p>A bar chart</p>
-                <svg viewBox="0 0 25 2">
-                    <rect width="16" height="0.8" fill="var(--second-color)"></rect>
-                </svg>
-            </div>
+            <pre><code class="line-numbers lang-javascript">function noParams() {
+    console.log(arguments);
+};
 
-            <div class="contentbox">
-                <h1>An application example</h1>
-                <p>Using SVG in a Web Component with CSS transactions</p>
-                <button id="loadbarvaluesbtn" class="fancy-button">Load values</button>
-                <button id="resetbarvaluesbtn" class="fancy-button">Reset values</button>
-                <div id="barchartdiv"></div>
-                <ul style="list-style-type: none;" id="barlist"></ul>
-            </div>
+console.log(noParams(1,2,3));</code></pre>
+
+            <p>This is totally valid and prints the argument object to the console - check it out. This might be used if
+                the number of
+                arguments need to be flexible. Compared to another interpreted programming language like Python, this
+                would end up in a typerror:
+                <code>TypeError: noParams() takes 0 positional arguments but 1 was given</code>. However, ES2015 another
+                way to provide such functionalitiy in a more clear way: the rest parameter syntax.</p>
+
+            <pre><code class="line-numbers lang-javascript">function restParamFun(...Args) {
+    console.log(Args);
+};
+
+console.log(restParamFun(1,2,3));</code></pre>
+            <p>By having a look in the console, you'll notice that instead of an object now an array is printed which I
+                think is more suitable. Tha's all it is to say.</p>
         </main>
     </div>
-    <script src="barchart.js"></script>
+
     <script src="../../vendor/prism.js"></script>
 </body>
 
