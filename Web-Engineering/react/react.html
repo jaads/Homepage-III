@@ -44,7 +44,7 @@
             <h2>JavaScript</h2>
             <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
             <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
-            <a href="/Web-Engineering/04/JsAufgaben.html">JavaScript Challenges</a>
+            <a href="/Web-Engineering/04/JsAufgaben.html">Functions</a>
 
             <h2>RWD using plain CSS</h2>
             <h3>Flexboxes</h3>
@@ -58,10 +58,9 @@
 
         <main>
             <h1>React</h1>
-            <p>Here I wrote some React directly into a HTML file. This is only reasonable for testing or prototyping.
-                Like as it is the case here. For everything beyond, aka for production a proper React environment needs
-                to be set up.</p>
+            <p>Here again, the counter example:</p>
             <div id="reactapp" class="border"></div>
+            <p>Let's have a look into the JavaScript code.</p>
             <pre><code class="line-numbers lang-javascript">class Counter extends React.Component {
 
     constructor() {
@@ -98,9 +97,9 @@
     };
 };
 
-ReactDOM.render(<Counter />, document.getElementById('reactapp'));</code></pre>
+ReactDOM.render(<Counter />, document.getElementById('reactapp'));</code></pre> 
 
-            <p>And also the important parts of the HTML code. Here Babel is important for the JSX syntax and ES6 in older browsers.</p>
+            <p>And also the important parts of the HTML code. Babel is important for the JSX syntax and ES6 in older browsers.</p>
 
             <pre><code class="line-numbers lang-html"> ...
     &lt;script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
