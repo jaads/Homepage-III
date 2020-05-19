@@ -33,8 +33,8 @@
         </div>
     </header>
 
-    <div class="nav-container">
-        <nav>
+    <div class="nav-container-vh">
+        <nav class="scroll">
             <h2><a href="#1">Introduction</a></h2>
             <a href="#1.1">Motivation</a>
             <a href="#1.2">This work</a>
@@ -113,8 +113,8 @@
             <h3><a href="#10">Summary</a></h3>
         </nav>
 
-<div class="paper">
-    <main>
+
+    <main class="paper">
         <h1>Efail<br>An Evaluation of the Thunderbird Email Client</h1>
 
         <h1 id="1">1 Introduction</h1>
@@ -1563,7 +1563,7 @@ msg.insert_in_ciphertext(msg.get_block_amount() - 1, c2, x5)
         <p>The insertion method for the OpenPGP message, looks quite the same as the one implemented for S/MIME and
             hence not listed here. Again, the complete source code is also listed in Appendix A.3. After calculating and
             inserting all chosen ciphertext blocks in the LD packet, it looks like shown in Appendix A.9.</p>
-        <h2> 8.5 Integration</h2>
+        <h2 id="8.5"> 8.5 Integration</h2>
         <p> Since the new ciphertext got longer during the proceeding step, the new ci- phertext needs be integrated
             into the existing OpenPGP message, as already done for the S/MIME message. This can also be done by adapting
             the length bytes in the respective packet headers. Here, only two packet header must be provided with the
@@ -2460,7 +2460,6 @@ Content-Disposition: inline; filename="encrypted.asc"
         </div>
 
     </main>
-</div>
 
 </div>
 <script src="../../vendor/prism.js"></script>
