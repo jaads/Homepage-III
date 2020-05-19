@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="../paper.css">
+    <link rel="stylesheet" type="text/css" href="/sidenav.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans"/>
 </head>
 
@@ -32,11 +33,91 @@
         </div>
     </header>
 
+    <div class="nav-container">
+        <nav>
+            <h2><a href="#1">Introduction</a></h2>
+            <a href="#1.1">Motivation</a>
+            <a href="#1.2">This work</a>
+            <h3><a href="#2">Background</a></h3>
+            <a href="#2.1">Email history </a>
+            <a href="#2.2">Email architecture</a>
+            <a href="#2.3">Information security</a>
+            <a href="#2.4">Cryptography</a>
+            <a href="#2.4.1">Bitwise operations</a>
+            <a href="#2.4.2">Encryption</a>
+            <a href="#2.4.3">Block modes of operation</a>
+            <a href="#2.4.4">Modification Detection Code (MDC)</a>
+            <a href="#2.5">Vulnerabilities</a>
+            <h3><a href="#3">MIME and End-to-End Encryption</a></h3>
+            <a href="#3.1">MIME</a>
+            <a href="#3.2"> Secure MIME</a>
+            <a href="#3.3">OpenPGP</a>
+            <a href="#3.4">Implementations</a>
+            <a href="#3.4.1">Mozilla Thunderbird </a>
+            <a href="#3.4.2">Enigmail</a>
+            <a href="#3.4.3">GnuPG</a>
+            <h3><a href="#4">Efail</a></h3>
+            <a href="#4.1">Message acquisition</a>
+            <a href="#4.2">Exfiltration channels</a>
+            <a href="#4.3">The attack procedure</a>
+            <a href="#4.4">Direct Exfiltration Attack</a>
+            <a href="#4.4.1">MIME boundaries</a>
+            <a href="#4.4.2">Abusing boundaries</a>
+            <a href="#4.5">Malleability Gadget Attack</a>
+            <a href="#4.5.1">Malleability gadgets</a>
+            <a href="#4.5.2">Abusing malleability gadgets</a>
+            <a href="#4.6">CVEs</a>
+            <a href="#4.7">Mitigation</a>
+            <h3><a href="#5">Introduction to the Practical Exploitations</a></h3>
+            <a href="#5.1">Preparation</a>
+            <a href="#5.1.1">Test message</a>
+            <a href="#5.1.2">Cryptographic entities</a>
+            <a href="#5.1.3">Domain</a>
+            <a href="#5.1.4">Web server</a>
+            <a href="#5.1.5">SMTP client</a>
+            <a href="#5.1.6">Vulnerable software </a>
+            <a href="#5.2">Steps during a Malleability Gadget Attack </a>
+            <h3><a href="#6">Exploiting the Direct Exfiltration Attack </a></h3>
+            <a href="#6.1">Test message creation</a>
+            <a href="#6.2">The template</a>
+            <a href="#6.3">Results</a>
+            <h3><a href="#7">Exploiting Malicious Gadgets in S/MIME</a></h3>
+            <a href="#7.1">Message format and syntax </a>
+            <a href="#7.2">Analysis</a>
+            <a href="#7.3">Modification</a>
+            <a href="#7.4">Integration</a>
+            <a href="#7.5">Formatting</a>
+            <a href="#7.6">Results</a>
+            <h3><a href="#8">Exploiting Malicious Gadgets in OpenPGP</a></h3>
+            <a href="#8.1">Test message creation</a>
+            <a href="#8.2">Message format and syntax </a>
+            <a href="#8.3">Analysis</a>
+            <a href="#8.4">Modification</a>
+            <a href="#8.5">Integration</a>
+            <a href="#8.6">Defeating integrity protection</a>
+            <a href="#8.7">Formatting</a>
+            <a href="#8.8">Results</a>
+            <h3><a href="#9">Problem Definition</a></h3>
+            <a href="#9.1">MIME parser</a>
+            <a href="#9.2">Handling modified data</a>
+            <a href="#9.2.1">GnuPG’s handling of modified messages</a>
+            <a href="#9.2.2">Enigmail’s handling of GnuPG warnings</a>
+            <h3><a href="#10">Security Patches</a></h3>
+            <a href="#10.1">Mozilla Thunderbird </a>
+            <a href="#10.2">GnuPG</a>
+            <a href="#10.3">Enigmail</a>
+            <a href="#10.4">Verification</a>
+            <a href="#10.4.1">Direct Exfiltration Attack </a>
+            <a href="#10.4.2">Malleability Gadget Attack on S/MIME</a>
+            <a href="#10.4.3">Malleability Gadget Attack on OpenPGP message</a>
+            <h3><a href="#10">Summary</a></h3>
+        </nav>
+
 <div class="paper">
     <main>
         <h1>Efail<br>An Evaluation of the Thunderbird Email Client</h1>
 
-        <h1>1 Introduction</h1>
+        <h1 id="1">1 Introduction</h1>
         <p> Approximately half of the worldwide population has used emails in 2017. The current worldwide usage of
             emails amounts to 269 billion messages per day, amounting almost 2 trillion a week. These numbers are
             expected to continue to grow at an average annual rate of 4,4% [2]. Because email does not provide any
@@ -59,7 +140,7 @@
         </ul>
         <p> These standards and the software implementing them will be the focus of this paper. They will be introduced
             in a separate section later on. </p>
-        <h2>1.1 Motivation</h2>
+        <h2 id="1.1">1.1 Motivation</h2>
         <p> On May 13 th 2018 a group of researchers from different universities in Ger- many and Belgium published a
             paper [1] about novel techniques to leak confidential end-to-end encrypted emails to a third party server,
             after it has been decrypted within the recipients email client. </p>
@@ -83,7 +164,7 @@
             <li>Political activists</li>
         </ul>
 
-        <h2>1.2 This work</h2>
+        <h2 id="1.2">1.2 This work</h2>
         <p> This paper provides a detailed explanation about the Efail attacks, in theory and especially in practice. It
             is also a overall evaluation of Efail in a particular email client, namely Mozilla Thunderbird 2 . This
             includes actual exploitations of the attacks in Thunderbird, as well as an investigation of the
@@ -110,12 +191,12 @@
             <img style="background-color: white;" src="images/colors.svg">
         </figure>
 
-        <h1> 2 Background</h1>
+        <h1 id="2"> 2 Background</h1>
         <p> The paper starts with a section about basic concepts of traditional email and current information security
             aspects. Furthermore, fundamentals about cryptography are introduced which include cryptographic mechanisms
             which keep come across throughout this paper. Therefore, a brief primer in the binary number system and
             bitwise operations is needed. </p>
-        <h2> 2.1 Email history </h2>
+        <h2 id="2.1">2.1 Email history </h2>
         <p> The beginnings of Electronic Mail (Email) reach back to the early 1960s. Back then, engineers from the
             Massachusetts Institute of Technology (MIT) were able to send emails between users on a single system. In
             the 1970s emails reached the ability to be sent and received between different machines, as well over a
@@ -132,7 +213,7 @@
             Even character sets for languages other than US American are ignored, leaving no possibility to use email in
             other languages. To overcome these limitations, the Multipurpose Internet Mail Extensions (MIME) were
             introduced in the early 1990s. These will be discussed in detail later on.</p>
-        <h2> 2.2 Email architecture </h2>
+        <h2 id="2.2"> 2.2 Email architecture </h2>
         <p> Email has changed significantly in scale and complexity over its long history. Today it has become a system
             distinguished by many independent operators and many different components for providing service to users as
             well as to establish the transfer of a messages [10]. To understand the attacks high- lighted later on, the
@@ -156,7 +237,7 @@
             <figcaption>Figure 1: Email architecture</figcaption>
         </figure>
 
-        <h2>2.3 Information security</h2>
+        <h2 id="2.3">2.3 Information security</h2>
         <p> After a short excursion about traditional email, a more modern aspect of IT, namely its security concerns
             will now be introduced. It had never been easier to copy or alter information as it is today in the digital
             age. Any piece of information stored electronically can be altered and distributed while nobody could ever
@@ -187,11 +268,11 @@
         <p> To reach the above requirements, cryptography is used. By definition, it is the study and practice of
             mathematical techniques related to the aspects of information security [11] and will be introduced
             next. </p>
-        <h2>2.4 Cryptography</h2>
+        <h2 id="2.4">2.4 Cryptography</h2>
         <p> Efail compromises two goals of information security: Confidentiality and integrity. They are therefore
             important to understand and hence discussed here. Before talking about the cryptographic schemes, some
             operations on the lowest-level of a computer should be made familiar. </p>
-        <h3>2.4.1 Bitwise operations</h3>
+        <h3 id="2.4.1">2.4.1 Bitwise operations</h3>
 
         <p> A digital computer works by using the binary number system (base 2). It becomes obvious when considering the
             fact that the low-level elements of aprocessor only know two different states: Power off (0) and power on
@@ -224,7 +305,7 @@
             bit sequence either to the left or to the right side. It does so by adding a specified amount of 0-bits at
             the corresponding end. To express a left shift the symbol << is used. Similar, a right shift is expressed
             using >>. The symbols can be seen as arrows which define the shift direction. </p>
-        <h3> 2.4.2 Encryption</h3>
+        <h3 id="2.4.2"> 2.4.2 Encryption</h3>
         <p> As mentioned earlier, encryption can be used to ensure confidentiality. Here, the wording and the very basic
             concepts are introduced. Text or data whic is not encrypted is called plaintext, shortened P, whereas the
             encrypted data is called ciphertext, shortened C. The encryption and decryption can be expressed as
@@ -254,7 +335,7 @@
         </ul>
         <p> Both cryptographic systems,S/MIME and OpenPGP, rely on block ciphers when it comes to symmetric encryption.
             The de facto block cipher is Advanced Encryption Standard (AES), which has a block size of 16 bytes. </p>
-        <h3> 2.4.3 Block modes of operation</h3>
+        <h3 id="2.4.3"> 2.4.3 Block modes of operation</h3>
         <p> A block cipher provides several modes of operation. Although several modes of operation exist, here only the
             two matters regarding Efail are discussed. Both modes have several commonalities. Two meaningful properties
             do these modes have. First, the ciphertext blocks in this modes are chained together instead of simply
@@ -302,7 +383,7 @@
             18 th bytes are copies of the 15 th and 16 th bytes of the random data. However, since an attack on this
             check was published [14] the two bytes aren’t used to perform the quick check anymore, at least most of the
             time [1].</p>        
-        <h3>2.4.4 Modification Detection Code (MDC)</h3>
+        <h3 id="2.4.4">2.4.4 Modification Detection Code (MDC)</h3>
         <p> As encryption is a mechanism to provide confidentiality, similar a MDC can be used to provide integrity.
             Therefore, a kind of hash function is used. Such functions maps an input of arbitrary finite length, to a
             fixed length output [11, Sec. 9.2]. MDCs are a more goal-oriented classification of hash functions which
@@ -312,7 +393,7 @@
             is collision resistant, which means that it is very difficult to find two inputs having the same hash-value
             [11, Sec. 9.2]. Overall, a MDC can be expressed as follows:</p>
         <p class="text-center">MDC = hash (input)</p>
-        <h2>2.5 Vulnerabilities</h2>
+        <h2 id="2.5">2.5 Vulnerabilities</h2>
         <p>The CVE defines a vulnerability as follows [16]:</p>
         <p> A weakness in the computational logic (e.g., code) found in software and hardware components that, when
             exploited, results in a negative impact to confidentiality, integrity, or availability. Mitigation of the
@@ -325,7 +406,7 @@
             CVE entries to further communicate the characteristics and impacts of IT vulnerabilities. Therefore, it
             provides the <a href="https://nvd.nist.gov/vuln-metrics/cvss">Common Vulnerability Scoring System (CVSS)</a>
             , which will be discussed in detail in section 4.6. </p>
-        <h1> 3 MIME and End-to-End Encryption</h1>
+        <h1 id="3"> 3 MIME and End-to-End Encryption</h1>
         <p> This section covers all relevant standards for Efail to understand the attacks and the concrete
             implementation
             as will be presented. First, the Multipurpose Internet Mail Extensions (MIME) will therefore be briefly
@@ -334,7 +415,7 @@
         <p> Afterwards, the secure version of MIME, called S/MIME and the popular alternative OpenPGP will also be
             introduced. Lastly, the implementations of those standards will be highlighted which has been used for all
             practical aspects later on.</p>
-        <h2> 3.1 MIME </h2>
+        <h2 id="3.1"> 3.1 MIME </h2>
         <p> MIME describes several mechanisms that combine to solve most of the limitations of RFC 822. It does so
             without
             introducing any serious incompatibilities with the existing world of RFC 822 mail [9]. It is defined in a
@@ -375,7 +456,7 @@
             content-type. It turned out that most emails had been send with the <code class="language-bash">Content-type:</code></pre>
             <code class="language-markup">multipart/alternative</code>,
             <code class="language-bash">multipart/mixed</code> or <code class="language-bash">text/plain</code>.</p>
-        <h2>
+        <h2 id="3.2">
             3.2 Secure MIME
         </h2>
         <p>Based on the MIME standard, which does not mention any aspect of information security, S/MIME provides a
@@ -419,7 +500,7 @@
             exchanged over system as an abstract object using the Abstract Syntax Notation One (ASN.1). It serves as an
             abstract
             container for the CMS. </p>
-        <h2>3.3 OpenPGP</h2>
+        <h2 id="3.3">3.3 OpenPGP</h2>
         <p> OpenPGP is a non-proprietary protocol based on the original Pretty Good Privacy (PGP) software. Over the
             past
             decade, PGP, and later OpenPGP, has become the most widely used end-to-end encryption standard for email
@@ -429,19 +510,19 @@
             needed to read, check, generate and write conforming encrypted mes- sages [21]. In addition, it provides all
             common cryptographic functionality like data integrity, authentication and encryption services. Also, it
             provides compression and its own transport representation, called Radix-64 [15]. </p>
-        <h2>3.4 Implementations </h2>
+        <h2 id="3.4">3.4 Implementations </h2>
         <p>So far, the standards related to Efail have been introduced. To work with these standards in practice,
             software
             is needed which implement these stan- dards. Thus, all components necessary for a implementation and
             verification of the attacks later on are introduced next. </p>
-        <h3> 3.4.1 Mozilla Thunderbird </h3>
+        <h3 id="3.4.1"> 3.4.1 Mozilla Thunderbird </h3>
         <p> Mozilla Thunderbird is an open-source MUA licensed under the Mozilla Pub- lic License (MPL) 2.0. It is
             developed
             on top of the Mozilla application framework and mainly written in C/ C++ [22]. It is available for all com-
             mon
             platforms including Microsoft Windows, GNU/Linux and Mac OS. It supports implementations of the common email
             protocols like Post Office Protocol (POP), Internet Message Access Protocol (IMAP) and SMTP.</p>
-        <h3>3.4.2 Enigmail</h3>
+        <h3 id="3.4.2">3.4.2 Enigmail</h3>
         <p> As for end-to-end encrypted communication, Thunderbird has native sup- port for S/MIME but lacks on OpenPGP
             support by default. However, its functionality can be enhanced via extensions. The most common extension to
             provide OpenPGP functionality is called Enigmail. </p>
@@ -453,7 +534,7 @@
             underlying software is used each time Enigmail processes a corresponding functionality. This software is
             called
             GnuPG and will be discussed next. </p>
-        <h3> 3.4.3 GnuPG </h3>
+        <h3 id="3.4.3">3.4.3 GnuPG </h3>
         <p> plementation of the OpenPGP standard as defined by RFC4880 [15]. It is a free software licensed under the
             General Public License (GPL) and allows to encrypt and decrypt data, authenticate data with digital
             signatures
@@ -468,7 +549,7 @@
             GPGME bindings exist which should be used if possible. The developers suggest that especially authors of
             MUAs
             should consider using GPGME [24]. </p>
-        <h1>4 Efail</h1>
+        <h1 id="4">4 Efail</h1>
         <p> Now it is time to introduce the Efail attacks. Overall, these attacks aim to reveal plaintext of encrypted
             emails. They do so by abusing the concept of so called backchannels [1]. The researchers stated two ways to
             abuse such channels which results in two attacks.</p>
@@ -480,7 +561,7 @@
         <p> The second attack is called malleability gadget attack. This attack needs more detailed knowledge of the
             encryption standards and their block modes of operation instead of MIME. However, the basic idea behind this
             attack stays the same, since a backchannel is abused here as well, to exfiltrate the plaintext.</p>
-        <h2>4.1 Message acquisition </h2>
+        <h2 id="4.1">4.1 Message acquisition </h2>
         <p>To perform an Efail attack, an attacker needs to acquire an email with an encrypted message embedded. An
             attacker
             has two options to get such. The first and more realistic approach is eavesdropping. This would end up in a
@@ -493,7 +574,7 @@
             <figcaption>Figure 6: Options for message acquisition [1]</figcaption>
         </figure>
 
-        <h2> 4.2 Exfiltration channels</h2>
+        <h2 id="4.2">4.2 Exfiltration channels</h2>
         <p> As mentioned, the fundamental concept of Efail is based on backchannels. A backchannel is any functionality
             in a MIME message that interacts with a network. Or to be more precise, any method including in an email
             which forces the email client to invoke an external Uniform Resource Locator (URL) [1]. A typical example
@@ -520,7 +601,7 @@
             </figure>
         </div>
 
-        <h2>4.3 The attack procedure</h2>
+        <h2 id="4.3">4.3 The attack procedure</h2>
         <p> Before getting into it, the general procedure of both attacks are introduced. As mentioned, before any
             attack can be done, the attacker needs to have an email acquired which contains an encrypted message. This
             email can then be manipulated according to the attacks. Afterwards the manipulated email can be forwarded to
@@ -533,7 +614,7 @@
             <figcaption>Figure 9: Efail attacks process</figcaption>
         </figure>
 
-        <h2> 4.4 Direct Exfiltration Attack </h2>
+        <h2 id="4.4"> 4.4 Direct Exfiltration Attack </h2>
         <p> To understand and conduct the direct exfiltration attack, only basic knowl- edge of MIME is needed. The
             attack exploits the way a MUA handles emails which is from the content-type multipart, which is further
             explained next. Note, this attack does not require any changes of the ciphertext [1]. </p>        
@@ -566,7 +647,7 @@ Content-Type: text/html
 </code>
 </pre>
 
-        <h3> 4.4.2 Abusing boundaries </h3>
+        <h3 id="4.4.2"> 4.4.2 Abusing boundaries </h3>
         <p> The direct exfiltration attack makes usage of a multipart email as described above. Therefore an attacker
             would get the ciphertext out of a captured email and paste it in a prepared email template. In such template
             the ciphertext would be surrounded by a HTML tag using the multiple MIME entities. In fact, a HTML tag would
@@ -660,7 +741,7 @@ Tomorrow 9pm
         <p> To perform an attack, an
             attacker must be able to put these three blocks together. In fact, this means that the attacker knows one
             plaintext block P i and the associated ciphertext blocks. Then a malleability gadget is found. </p>
-        <h3>4.5.2 Abusing malleability gadgets </h3>
+        <h3 id="4.5.2">4.5.2 Abusing malleability gadgets </h3>
         <p> Malleability gadgets give the attacker the possibility to transform the known plaintext block into a chosen
             plaintext block by manipulating C i−1 for CBC and respectively C i+1 for CFB. How the manipulation can be
             done exactly is explained in the following steps. </p>
@@ -708,7 +789,7 @@ Tomorrow 9pm
             </figure>
         </div>
 
-        <h2>4.6 CVEs </h2>
+        <h2 id="4.6">4.6 CVEs </h2>
         <p> There are two official CVE entries for Efail, which both target the gadget attacks. Currently, the CVE
             regarding OpenPGP is marked as disputed. A CVE entry gets this status if one party, in fact GnuPG, disagrees
             with an- other party’s assertion, here in fact the Efail researchers, that a particular issue in software is
@@ -740,7 +821,7 @@ Tomorrow 9pm
             </table>
         </div>
 
-        <h2> 4.7 Mitigation</h2>
+        <h2 id="4.7"> 4.7 Mitigation</h2>
         <p> In the Efail paper [1] the researchers recommended some mitigation.</p>
         <ol>
             <li> No decryption and HTML rendering in Email clients</li>
@@ -756,7 +837,7 @@ Tomorrow 9pm
             problems.</p>
         <p> However, before coming to the indeed mitigation in the software, first the practical implementations of the
             attacks are introduced next.</p>
-        <h1> 5 Introduction to the Practical Exploitations </h1>
+        <h1 id="5"> 5 Introduction to the Practical Exploitations </h1>
         <p> So far, the relevant background and the Efail attacks itself have been intro- duced. The following three
             sections will describe practical implementations of those attacks. This section however provides some topics
             which need to be acknowledged before going deeper into these implementations. </p>
@@ -771,7 +852,7 @@ Tomorrow 9pm
         <p> Beside the practical verification of the attacks, the implementations should give the reader an
             understanding of the complexity and hence a feel of the importance of Efail and the corresponding security
             patches, which will be the topic of the next section. </p>
-        <h2> 5.1 Preparation </h2>
+        <h2 id="5.1"> 5.1 Preparation </h2>
         <p> To implement Efail attacks, some decisions and preparations needed to be done. Especially, because the
             author decided to implement the attack as realistic as possible. Hence, an actual attacker would make
             similar prepara- tions. The only thing an actual attack would do in addition, is the message acquisition.
@@ -787,7 +868,7 @@ This message is top secret!!
 Nobody else should ever be able to read this..
 </code>
 </pre>
-        <h3> 5.1.2 Cryptographic entities </h3>
+        <h3 id="5.1.2"> 5.1.2 Cryptographic entities </h3>
         <p> To encrypt a test message and later decrypt the manipulated version of it, several files need to be created
             depending on the standard. These had been created for this paper in advance. Regarding S/MIME a X.509
             certificate and a PKCS#12 certificate bundle is needed. How such entities can be cre- ated is shown in
@@ -801,12 +882,12 @@ Nobody else should ever be able to read this..
             malleability gadget attacks. For a direct exfiltration attack the length of the domain is not restricted in
             any way. The domain name jaads.de had been chosen and used for all attacks. It is only 8 bytes long and
             identical with the domain name length in the Efail paper [1]. </p>        
-        <h3> 5.1.4 Web server </h3>
+        <h3 id="5.1.4"> 5.1.4 Web server </h3>
         <p> A presumed attack server needed to be installed and running during the attack. It has to be reachable over
             the above domain. For this work the open-source HTTP server <a href="https://www.nginx.com/">NGINX</a> had
             been installed on a Debian system by
             using a Platform as a Service (PaaS) provider. </p>        
-        <h3> 5.1.5 SMTP client </h3>
+        <h3 id="5.1.5"> 5.1.5 SMTP client </h3>
         <p> To send the manipulated message a SMTP implementation is needed. The ability to add headers individually is
             important. A classic end-user MUA does not provide such functionality. Rather, the Python module smtplib had
             been chosen. All emails throughout this work have been sent using this module. The Listing 1 shows the
@@ -824,7 +905,7 @@ def send_mail(eml):
 </code>
 </pre>
 
-        <h3>5.1.6 Vulnerable software </h3>
+        <h3 id="5.1.6">5.1.6 Vulnerable software </h3>
         <p>What also is needed for a practical verification are the affected vulnerable implementations. Therefore, <a
                 href="https://archive.mozilla.org/pub/thunderbird/releases/">
             Thunderbird 52.5.2</a> and <a href="https://www.enigmail.net/download/release/2.0/">Enigmail 1.9.9</a> with
@@ -832,7 +913,7 @@ def send_mail(eml):
             They can be downloaded online in the respective archives. The installation was done using the type 2
             hypervisor <a href="https://www.virtualbox.org/">VirtualBox</a>. The host system of the Virtual Machine (VM)
             was Debian 9. </p>
-        <h2> 5.2 Steps during a Malleability Gadget Attack </h2>
+        <h2 id="5.2"> 5.2 Steps during a Malleability Gadget Attack </h2>
         <p> The implementation of a malleability gadget attack is much more work than the direct exfiltration attack. In
             fact, a script needs to be written which carries out the bit accurate modifications. In addition, the
             implementations differ depending on the encryption standard in use. Therefore, two scripts needed to be
@@ -898,7 +979,7 @@ def send_mail(eml):
             explicitly. Again, the whole source code is available in Annex A.3 and on GitHub 
             <a href="https://github.com/jaads/Efail-malleability-gadget-exploit" target="_blank">Efail-malleability-gadget-exploit</a>.
         </p>
-        <h1> 6 Exploiting the Direct Exfiltration Attack </h1>
+        <h1 id="6"> 6 Exploiting the Direct Exfiltration Attack </h1>
         <p>In this section it is explained how the implementation of a direct exfiltration attack has been performed.
             For this attack the vulnerabilities do not rely on a specific end-to-end encryption standard. Thus, the
             exploitation has been made using only the one standard, namely S/MIME. The attack would work identical when
@@ -906,7 +987,7 @@ def send_mail(eml):
         <p> As explained in the last section, the implementation includes the creation of a encrypted test message
             followed by a exploitation of the attack. In the end the incoming exfiltration is shown in the access log of
             the reconfigured web server. </p>
-        <h2> 6.1 Test message creation </h2>
+        <h2 id="6.1"> 6.1 Test message creation </h2>
         <p>As mentioned, the underlying standard in use is of no interest for a direct exfiltration. However, based on
             the example from the official paper [1, Figure 6], a S/MIME message had been used. For the creation of a
             S/MIME mes- sage, an implementation of the standard is needed. Here, the S/MIME utility from OpenSSL [25]
@@ -919,7 +1000,7 @@ def send_mail(eml):
 </pre>
         <p>The output consists of a PKCS7 message encoded in Base64, namely smime.p7m, and proceeding MIME header
             fields.</p>
-        <h2> 6.2 The template </h2>
+        <h2 id="6.2"> 6.2 The template </h2>
         <p> To conduct a direct exfiltration attack, the output from the message creation step can be placed in a
             particular template, which is already given in the Efail paper [1]. However, one major difference exists,
             which is worth mentioning. It turned out, the usage of single quotation marks provide better results in
@@ -962,7 +1043,7 @@ Content-Type: text/html
 
 </code>
 </pre>
-        <h2>6.3 Results</h2>
+        <h2 id="6.3">6.3 Results</h2>
         <p>The above message could then be sent to the victim. Here, it has been sent to the authors email address and
             then opened in the vulnerable Thunderbird version on the test system from Section 5.1.6. Once the email had
             been opened, Thunderbird tried to download an image. Remember, a HTML image tag had been used in the above
@@ -985,13 +1066,13 @@ Content-Type: text/html
             can be used to provide a more readable format.</p>
         <h1 class="center" style="color: indianred;">Exploited!</h1>
 
-        <h1>7 Exploiting Malicious Gadgets in S/MIME </h1>
+        <h1 id="7">7 Exploiting Malicious Gadgets in S/MIME </h1>
         <p> Compared to the direct exfiltration attack, the malleability gadget attack does rely on the end-to-end
             encryption standard to a greater extent. Hence, to practically verify the malleability gadget attack, two
             exploits were needed. The first one is discussed here and aims to reveal the plaintext of a S/MIME message.
             Remember, S/MIME uses CBC as block mode of operation.</p>
 
-        <h2> 7.1 Message format and syntax </h2>
+        <h2 id="7.1"> 7.1 Message format and syntax </h2>
         <p> As mentioned in the beginning, the message format of S/MIME relies on ASN.1. To represent an ASN.1 object, a
             set of rules exists. These are called Basic Encoding Rules (BER) [26] and need to be understood for a proper
             analysis and integration later on. BER defines three or four parts of an entry depending on the type of
@@ -1002,7 +1083,7 @@ Content-Type: text/html
             <li> Content bytes hold the concrete value or another nested element</li>
             <li> End-of-content bytes denote the end of the content</li>
         </ol>
-        <h2> 7.2 Analysis </h2>
+        <h2 id="7.2"> 7.2 Analysis </h2>
         <p> Luckily, tools exist which can parse ASN.1 objects by means of BER. The diagnostic utility asn1parse by
             OpenSSL is one of them. Also, a handsome <a href="https://lapo.it/asn1js/">JavaScript implementation</a>
             exists which offers a more clear
@@ -1056,7 +1137,7 @@ p1 = b"Content-Type: te"
 </code>
 </pre>
 
-        <h2> 7.3 Modification</h2> This step focuses on the actual modification of the encrypted part of the message.
+        <h2 id="7.3"> 7.3 Modification</h2> This step focuses on the actual modification of the encrypted part of the message.
         Therefore, the encrypted message needs to be converted a binary representation first. To get binary data from
         the message, it needs to be Base64 decoded. In practice, this can easily be done by using the base64 python
         library, as it has been in the exploit. <p> Afterwards, the canonical gadget X can be calculated using the
@@ -1126,7 +1207,7 @@ def insert_in_ciphertext(self, block_nr, *contentv):
 </pre>
         <p> Line 7 from Listing 5 calls a method to integrate the new ciphertext properly in the message structure. This
             is discussed in detail during the next step.</p>
-        <h2> 7.4 Integration </h2>
+        <h2 id="7.4"> 7.4 Integration </h2>
         <p> Without a proper integration parsing errors would occur when trying to de- crypt the modified S/MIME
             message. Thus the message would not decrypt and an exfiltration channel would not be opened. The parsing
             errors are caused by having the new ciphertext length not adapted in the existing mes- sage structure. In
@@ -1237,7 +1318,7 @@ Nobody else should ever be able to read this..
             replaced with a question mark for simplicity. This downside has been discussed in Section 4.5. Originally,
             this would end up in some ASCII characters if the bit sequence matches a character encoding by accident or
             symbols as placeholder, because nothing else matches the bit sequence.</p>
-        <h2> 7.5 Formatting</h2>
+        <h2 id="7.5"> 7.5 Formatting</h2>
         <p> After the ciphertext has been manipulated and integrated in the PKCS#7 message, it is time to prepare the
             message to be sent. Therefore, it first needs to be encoded back to Base64. Afterwards, line breaks need to
             be inserted to meet the recommendations from RFC2822 [8] regarding the line length limit of 78 characters.
@@ -1283,7 +1364,7 @@ def format_properly(self):
     send_mail(smime)
 </code>
 </pre>
-        <h2> 7.6 Results </h2>
+        <h2 id="7.6"> 7.6 Results </h2>
         <p> In this step, the final results of the exploit are shown. Therefore, the vul- nerable Thunderbird version
             has been opened on the virtual test system. Besides, the servers access log has been observed. Seconds after
             execution of the exploit, the email appears in Thunderbird. After opening the email in Thunderbird, it
@@ -1318,7 +1399,7 @@ GET /xt/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20
             the GnuPG command <code class="language-bash"> gpg --list-packet -vv</code> can be used similar to the ASN.1
             parser from the previous section but since it explores the internal structure of the ciphertext, a password
             is needed, so an attacker would not be able to use it. </p>
-        <h2> 8.1 Test message creation </h2>
+        <h2 id="8.1"> 8.1 Test message creation </h2>
         <p> Remember, an attacker would have to acquire a end-to-end encrypted mes- sage. Here, a message has again been
             created instead. The necessary keys could be generated using <code class="language-bash">gpg
                 --gen-key</code> . Afterwards, the plaintext mes- sage message.eml from Section 5 could be typed in a
@@ -1378,7 +1459,7 @@ GET /xt/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20
             </table>
         </div>
 
-        <h2> 8.2 Message format and syntax </h2>
+        <h2 id="8.2"> 8.2 Message format and syntax </h2>
         <p> The packet structure and its associated syntax need to be considered in de- tail. In general, an OpenPGP
             message is constructed from a number of packets. Each packet consists of a header and a body part, similar
             to ASN.1. The packet header is at least two bytes long. The first byte is called the packet tag [15] but
@@ -1393,7 +1474,7 @@ GET /xt/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20
             Symmetrically Encrypted Data (SED) packet, which provides also a packet for encrypted data but lacks on
             integrity protection, as the name indicates. All relevant packet types for Efail are listed in Table 2 [15,
             Sec. 4]. </p>
-        <h2> 8.3 Analysis </h2>
+        <h2 id="8.3"> 8.3 Analysis </h2>
         <p> To explore the packet structure within an OpenPGP message, the program pgpdump can be used. The output for
             the encrypted test message is shown in Appendix A.7. As mentioned before, the SEIPD packet type serves as
             container holding other packets. Most probably SEIPD packet would contain a compressed data packet. However,
@@ -1454,7 +1535,7 @@ p2 = b't-Type: text/htm'
 </code>
 </pre>
 
-        <h2> 8.4 Modification</h2>
+        <h2 id="8.4"> 8.4 Modification</h2>
         <p> In this step, it is explained how an exfiltration channel can be inserted into the ciphertext. This is
             similar to what needs to be done when using a S/MIME message. First, the canonical gadget can be
             conducted: </p>
@@ -1707,7 +1788,7 @@ Nobody else should ever be able to read this..????????????????'&gt;
 </code>
 </pre>
 
-        <h2> 8.6 Defeating integrity protection </h2>
+        <h2 id="8.6"> 8.6 Defeating integrity protection </h2>
         <p> As Figure 25 showed, GnuPG warns the user of a manipulated message. De- pending of the MUAs implementation
             regarding this warning, the integrity protection needs to be defeated. The SEIPD packet type provides
             integrity protection by passing the plaintext with the prefixed data through a SHA-1 function (Secure Hash
@@ -1732,7 +1813,7 @@ Nobody else should ever be able to read this..????????????????'&gt;
         <p>According to the Efail researchers, they were able to defeat integrity protec- tion in Thunderbird by using
             all above methods [1]. Due to the short time period, only the first option had been tested against the
             vulnerable version of Thunderbird and Enigmail. The results of each are shown later.</p>
-        <h2> 8.7 Formatting </h2>
+        <h2 id="8.7"> 8.7 Formatting </h2>
         <p> The last step of the attacks implementation is the formatting. OpenPGP’s native representation for encrypted
             messages is a raw binary data stream. To transport a message in this representation through various
             channels, a printable encoding of these binary data is needed. This encoding is provided by OpenPGP and is
@@ -1776,7 +1857,7 @@ Content-Disposition: inline; filename="encrypted.asc"
 </code>
 </pre>
 
-        <h2>8.8 Restuls </h2>
+        <h2 id="8.8">8.8 Restuls </h2>
         <p>As already done for the proceeding exploitations, the modified message had been sent and opened in an
             unpatched version of Thunderbird. This time, Enigmail is needed and had been installed at this point. In the
             Efail paper [1] the version of the tested Enigmail version was not stated. Hence, the last release before
@@ -1812,7 +1893,7 @@ Content-Disposition: inline; filename="encrypted.asc"
         <code class="language-markup">GET /%C2%B0=$%C3%A9%01O%C2%B2%06%C2%A3%C3%9A%C3%91c8%C3%B5*%C2%8Dt-Type:%20text/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20be%20able%20to%20read%20this..%C3%93%14!_yh%C3%86%05%7B4F%CB%86%0E%C3%A8%C3%91X%C2%A5 HTTP/1.1" 404 143 "-""Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101Thunderbird/52.5.2"</code>
     </pre>
         <h1 class="center" style="color: indianred;">Exploited!</h1>
-        <h1> 9 Problem Definition </h1>
+        <h1 id="9"> 9 Problem Definition </h1>
         <p>An encryption scheme is breakable if a third party, without prior knowledge of the corresponding key can
             systematically recover plaintext from corre- sponding ciphertext within some appropriate time frame [11].
             Regarding Efail, the plaintext recovery was demonstrated. Hence, the system is in fact breakable. Thus, the
@@ -1825,7 +1906,7 @@ Content-Disposition: inline; filename="encrypted.asc"
         <p>Starting with problems the direct exfiltration attack is based on, this section discusses all security
             concerns
             regarding Efail and possible countermeasures which would fix the vulnerabilities. </p>
-        <h2> 9.1 MIME parser </h2>
+        <h2 id="9.1"> 9.1 MIME parser </h2>
         <p> The direct exfiltration attack is based on two MIME entities which belong together and serve one
             functionality.
             This is already the exact problem. Re- member, whereas the first entity in Figure 16 opens a HTML tag, the
@@ -1850,7 +1931,7 @@ Content-Disposition: inline; filename="encrypted.asc"
         <p>Another countermeasure worth mentioning against direct exfiltration attacks is a same origin policy [32].
             This
             had been introduced in the official Efail paper [1] and is not further discussed here.</p>
-        <h2>9.2 Handling modified data </h2>
+        <h2 id="9.2">9.2 Handling modified data </h2>
         <p>Beside the MIME parser, which allows the exploitation of the direct exfil- tration attack, the general
             handling
             of modified data leads to the possibility to carry out the gadget attacks. This situation is caused by the
@@ -1877,7 +1958,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             handling this would be to drop the message and notify the user” [1]. Also the term ”should” is not
             appropriate
             since a user must be informed of the manipulation in any case. </p>    
-            <h3> 9.2.1 GnuPG’s handling of modified messages </h3>
+            <h3 id="9.2.1"> 9.2.1 GnuPG’s handling of modified messages </h3>
         <p> The OpenPGP implementation GnuPG is used by the Thunderbird extension Enigmail. GnuPG detects any data
             modification by checking the validity of the MDC. Since the handling of an invalid MDC isn’t prescribed by
             the
@@ -1913,13 +1994,13 @@ Content-Disposition: inline; filename="encrypted.asc"
             in GnuPG, here in fact the day vulnerabilities got disclosed had come already, namely by Efail. Therefore
             the
             mistakes taken in the past need to be fixed now. </p>
-        <h1> 10 Security Patches </h1>
+        <h1 id="10"> 10 Security Patches </h1>
         <p>All problems within the corresponding implementations have been outlined so far. Now it is time to have a
             look
             into the corresponding software patches which actual have been done recently. Three different software
             components need to be considered therefore: Thunderbird, GnuPG and Enigmail. The security patches of those
             implementations are subsequently discussed in this section.</p>
-        <h2>10.1 Mozilla Thunderbird </h2>
+        <h2 id="10.1">10.1 Mozilla Thunderbird </h2>
         <p>Thunderbird published patches for Efail in version 52.8 [33] and 52.9 [34] and stated to have fixed all
             vulnerabilities at that time [35]. Apparently, the bug entries on Mozilla’s Bugzilla are not available to
             the
@@ -1950,7 +2031,7 @@ Content-Disposition: inline; filename="encrypted.asc"
                 commit could be found, this patch could not be evaluated.
             </li>
         </ul>
-        <h2> 10.2 GnuPG</h2>
+        <h2 id="10.2"> 10.2 GnuPG</h2>
         <p>In GnuPG’s first official statement about the Efail vulnerabilities on May 14th 2018 [37] they pointed out to
             not be blamed for the vulnerabilities at all. They said the issues rely on ”buggy” email clients only, rather
             than on GnuPG or the OpenPGP standard. They stated that GnuPG is being pro- tected against malleability gadget
@@ -1969,7 +2050,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             deprecated a couple of modifica- tion detection related options (<code class="language-bash">no-mdc-warn</code>,
             <code class="language-bash">force-mdc</code>, <code class="language-bash">no-force-mdc</code>, 
             <code class="language-bash">disable-mdc</code>, <code class="language-bash">no-disable-mdc</code>) in GnuPG [38].</p>
-        <h2>10.3 Enigmail</h2>
+        <h2 id="10.3">10.3 Enigmail</h2>
         <p>In turn, the Enigmail developers knew from the beginner that they had to do something. Using <a
                 href="https://sourceforge.net/p/enigmail/bugs/">Enigmail’s bug tracking system</a> and the public
             available
@@ -2017,12 +2098,12 @@ Content-Disposition: inline; filename="encrypted.asc"
             released
             in version 2.0.5. One performance patch [43] and another patch for improvement of a confusing error message
             [44]. They are not further discussed here.</p>
-        <h2>10.4 Verification</h2>
+        <h2 id="10.4">10.4 Verification</h2>
         <p>To practically verify these patches, the approaches from Section 5 have been used once again. Remember, only
             the
             HTML image tag has been imple- mented in this paper. This excludes the verification of some patches the ven-
             dors made for specific exfiltration channels like the commit 48d7285be141 in Thunderbird.</p>    
-            <h3>10.4.1 Direct Exfiltration Attack </h3>
+        <h3 id="10.4.1">10.4.1 Direct Exfiltration Attack </h3>
         <p>To verify that Thunderbird is invulnerable for a direct exfiltration attack since version 52.9, the template
             from
             Section 6 has been opened in the cor- responding Thunderbird version. Figure 28 shows a screenshot of the
@@ -2039,7 +2120,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             servers access log. This proves that the Thunder- bird commit 96fab4a2b811 fixed the parsing of MIME entities
             against direct exfiltration attacks.</p>
         <h2 style="color: green;">No exfiltration by abusing MIME parser</h2>
-        <h3> 10.4.2 Malleability Gadget Attack on S/MIME </h3>
+        <h3 id="10.4.2"> 10.4.2 Malleability Gadget Attack on S/MIME </h3>
         <p>Similarly, the Thunderbird commit cda53cec9e97 could be verified by open- ing the email which was sent by the
             exploit introduced in Section 7. Figure 29 shows a screenshot of this email opened in Thunderbird 52.9.</p>
 
@@ -2059,7 +2140,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             is missing. However, the patch works as desired.</p>
         <h2 style="color: green;">No exfiltration by using CBC gadgets</h2>
         
-        <h3>10.4.3 Malleability Gadget Attack on OpenPGP message</h3>
+        <h3 id="10.4.3">10.4.3 Malleability Gadget Attack on OpenPGP message</h3>
         <p>The same procedure has been conducted to verify the invulnerability of the Thunderbird extension Enigmail.
             Here, the fix came with Enigmail version 2.0 could be evaluated and verified. This fix targets malleability gadget
             attacks for which no particular action regarding the integrity protection had been taken. Just like the
@@ -2079,7 +2160,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             further attacks are possible.</p>
         <h2 style="color: green;">No exfiltration by using CFB gadgets</h2>
 
-        <h1>11 Summery</h1>
+        <h1 id="11">11 Summary</h1>
         <p>This paper discussed Efail in all its details. Especially, all practical aspects have been highlighted. This
             included actual exploitations of the Efail vul- nerabilities which practically verified the vulnerabilities
             in
@@ -2379,6 +2460,8 @@ Content-Disposition: inline; filename="encrypted.asc"
         </div>
 
     </main>
+</div>
+
 </div>
 <script src="../../vendor/prism.js"></script>
 </body>

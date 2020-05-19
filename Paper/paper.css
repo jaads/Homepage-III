@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+}
+
 .contentbox {
 	padding: 0.5rem 1rem 1rem;
 	margin: auto auto;

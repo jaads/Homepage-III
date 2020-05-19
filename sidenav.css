@@ -1,17 +1,17 @@
-.we-container {
+.nav-container {
 	display: flex;
 	height: 100%;
 }
 
-.we-container main {
+.nav-container main {
 	flex-grow: 1;
 }
 
-.we-container nav {
+.nav-container nav {
 	background-color: #f3f3f3;
 }
 
-.we-container nav {
+.nav-container nav {
 	padding: 0.3rem 2.5rem;
 }
 
