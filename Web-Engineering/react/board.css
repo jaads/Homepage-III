@@ -1,0 +1,10 @@
+#theboard {
+	background-color: var(--mylightgrey);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.board-item {
+    background-color: var(--peach);
+    margin: 1rem;
+}

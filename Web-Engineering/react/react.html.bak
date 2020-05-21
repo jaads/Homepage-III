@@ -66,10 +66,10 @@
             <p>The outter boarder is from the <code>div</code> where the components are injected. In contract all inner
                 borders are the boarders of components itself.</p>
             <div id="board" class="border"></div>
-            <h3>Explanation</h3>
-            <p>First of all the board needs some data. I packed it in a JSON Array, which is how is typically would be
-                fetched from a back-end or directly from a document-based database or a search engine like
-                Elasticsearch alternatively. For testing purposes, I hard coded it in the state of the board component.
+            <h3>Explaination</h3>
+            <p>First of all the baord needs some data. I packed it in a JSON Array, which is how is typically would be
+                fetched from the backend or directly from a documend-based database or a search engine like
+                ElasticSearch alternatively. For testing purpuses, I hard coded it in the state of the board component.
                 This forms the first part of the component as you can see next.</p>
             <pre><code class="line-numbers lang-javascript">class Board extends React.Component {
 
@@ -125,7 +125,7 @@
         &lt;/div>
     );
 };</code></pre>
-            <p>Lastly for the actual board, I wrote a function which updates the state which in fact is the columns of a selected item.</p>
+            <p>Lastly for the actual board, I wrote a function which updates the state which in fact is the colums of a selected item.</p>
 <pre><code class="line-numbers lang-javascript">// Using an anonymous arrow function to bind 'this' correctly
 nextCol = (itemIndex) => {
     // Best practice: the immutable way
