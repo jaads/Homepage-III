@@ -23,6 +23,8 @@ const speakerInput = document.getElementById("speakerinput");
 const addSpeakerBtn = document.getElementById('addspeakerbutton');
 const speakerList = document.getElementById('speakerlist');
 
+const allTimers = [];
+
 addSpeakerBtn.onclick = function () {
     const inputValue = speakerInput.value;
     let listItem = document.createElement('li');
@@ -31,9 +33,9 @@ addSpeakerBtn.onclick = function () {
 
     let seconds = 0, minutes = 0, hours = 0;
     let timerID = setInterval(addSecond, 1000);
+    allTimers.push(timerID);
 
-    function addSecond() {
-        console.log("Executing..");
+    addSecond = function () {
         seconds++;
         if (seconds >= 60) {
             seconds = 0;
@@ -57,22 +59,28 @@ addSpeakerBtn.onclick = function () {
     }
 
     const btn = listItem.querySelector('button');
-    btn.onclick = function () {
-        if (btn.innerText === 'Stop') {
-            clearInterval(timerID);
-            console.log('Stopped time.');
-            listItem.querySelector('button').innerText = 'Start';
-            return;
-        }
-        if (btn.innerText === 'Start') {
-            timerID = setInterval(addSecond, 1000);
-            console.log('Resumed time.');
-            listItem.querySelector('button').innerText = 'Stop';
-        }
+    let p = [listItem, timerID]
+    btn.onclick = testii.bind(listItem, timerID, addSecond);
 
-    };
     speakerInput.value = '';
     speakerInput.focus();
+};
+
+function testii(timerID, addSecond) {
+    console.log(this);
+    console.log(addSecond);
+    
+    if (this.lastChild.innerText === 'Stop') {
+        clearInterval(timerID);
+        console.log('Stopped time.');
+        this.lastChild.innerText = 'Start';
+        return;
+    }
+    if (this.lastChild.innerText === 'Start') {
+        timerID = setInterval(addSecond, 1000);
+        console.log('Resumed time.');
+        this.lastChild.innerText = 'Stop';
+    }
 };
 
 speakerInput.onkeydown = function (event) {
