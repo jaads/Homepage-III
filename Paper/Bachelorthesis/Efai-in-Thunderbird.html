@@ -12,8 +12,8 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
-    <link rel="stylesheet" type="text/css" href="../paper.css">
     <link rel="stylesheet" type="text/css" href="/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="../paper.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans"/>
 </head>
 
@@ -33,89 +33,10 @@
         </div>
     </header>
 
-    <div class="nav-container-vh">
-        <nav class="scroll">
-            <h2><a href="#1">Introduction</a></h2>
-            <a href="#1.1">Motivation</a>
-            <a href="#1.2">This work</a>
-            <h3><a href="#2">Background</a></h3>
-            <a href="#2.1">Email history </a>
-            <a href="#2.2">Email architecture</a>
-            <a href="#2.3">Information security</a>
-            <a href="#2.4">Cryptography</a>
-            <a href="#2.4.1">Bitwise operations</a>
-            <a href="#2.4.2">Encryption</a>
-            <a href="#2.4.3">Block modes of operation</a>
-            <a href="#2.4.4">Modification Detection Code (MDC)</a>
-            <a href="#2.5">Vulnerabilities</a>
-            <h3><a href="#3">MIME and End-to-End Encryption</a></h3>
-            <a href="#3.1">MIME</a>
-            <a href="#3.2"> Secure MIME</a>
-            <a href="#3.3">OpenPGP</a>
-            <a href="#3.4">Implementations</a>
-            <a href="#3.4.1">Mozilla Thunderbird </a>
-            <a href="#3.4.2">Enigmail</a>
-            <a href="#3.4.3">GnuPG</a>
-            <h3><a href="#4">Efail</a></h3>
-            <a href="#4.1">Message acquisition</a>
-            <a href="#4.2">Exfiltration channels</a>
-            <a href="#4.3">The attack procedure</a>
-            <a href="#4.4">Direct Exfiltration Attack</a>
-            <a href="#4.4.1">MIME boundaries</a>
-            <a href="#4.4.2">Abusing boundaries</a>
-            <a href="#4.5">Malleability Gadget Attack</a>
-            <a href="#4.5.1">Malleability gadgets</a>
-            <a href="#4.5.2">Abusing malleability gadgets</a>
-            <a href="#4.6">CVEs</a>
-            <a href="#4.7">Mitigation</a>
-            <h3><a href="#5">Introduction to the Practical Exploitations</a></h3>
-            <a href="#5.1">Preparation</a>
-            <a href="#5.1.1">Test message</a>
-            <a href="#5.1.2">Cryptographic entities</a>
-            <a href="#5.1.3">Domain</a>
-            <a href="#5.1.4">Web server</a>
-            <a href="#5.1.5">SMTP client</a>
-            <a href="#5.1.6">Vulnerable software </a>
-            <a href="#5.2">Steps during a Malleability Gadget Attack </a>
-            <h3><a href="#6">Exploiting the Direct Exfiltration Attack </a></h3>
-            <a href="#6.1">Test message creation</a>
-            <a href="#6.2">The template</a>
-            <a href="#6.3">Results</a>
-            <h3><a href="#7">Exploiting Malicious Gadgets in S/MIME</a></h3>
-            <a href="#7.1">Message format and syntax </a>
-            <a href="#7.2">Analysis</a>
-            <a href="#7.3">Modification</a>
-            <a href="#7.4">Integration</a>
-            <a href="#7.5">Formatting</a>
-            <a href="#7.6">Results</a>
-            <h3><a href="#8">Exploiting Malicious Gadgets in OpenPGP</a></h3>
-            <a href="#8.1">Test message creation</a>
-            <a href="#8.2">Message format and syntax </a>
-            <a href="#8.3">Analysis</a>
-            <a href="#8.4">Modification</a>
-            <a href="#8.5">Integration</a>
-            <a href="#8.6">Defeating integrity protection</a>
-            <a href="#8.7">Formatting</a>
-            <a href="#8.8">Results</a>
-            <h3><a href="#9">Problem Definition</a></h3>
-            <a href="#9.1">MIME parser</a>
-            <a href="#9.2">Handling modified data</a>
-            <a href="#9.2.1">GnuPG’s handling of modified messages</a>
-            <a href="#9.2.2">Enigmail’s handling of GnuPG warnings</a>
-            <h3><a href="#10">Security Patches</a></h3>
-            <a href="#10.1">Mozilla Thunderbird </a>
-            <a href="#10.2">GnuPG</a>
-            <a href="#10.3">Enigmail</a>
-            <a href="#10.4">Verification</a>
-            <a href="#10.4.1">Direct Exfiltration Attack </a>
-            <a href="#10.4.2">Malleability Gadget Attack on S/MIME</a>
-            <a href="#10.4.3">Malleability Gadget Attack on OpenPGP message</a>
-            <h3><a href="#10">Summary</a></h3>
-        </nav>
-
-
+     <div class="nav-container-vh">
+         <nav id="sidenav" class="scroll"></nav>
     <main class="paper">
-        <h1>Efail<br>An Evaluation of the Thunderbird Email Client</h1>
+        <h1>Efail - An Evaluation of the Thunderbird Email Client</h1>
 
         <h1 id="1">1 Introduction</h1>
         <p> Approximately half of the worldwide population has used emails in 2017. The current worldwide usage of
@@ -1064,7 +985,7 @@ Content-Type: text/html
             email represents a proper implemen- tation of the attack. It opens an exfiltration channel and actually
             exfiltrates plaintext from a vulnerable system to a malicious server. A URL decoder and a HTML beautifier
             can be used to provide a more readable format.</p>
-        <h1 class="center" style="color: indianred;">Exploited!</h1>
+        <div class="center exploited">Exploited!</div>
 
         <h1 id="7">7 Exploiting Malicious Gadgets in S/MIME </h1>
         <p> Compared to the direct exfiltration attack, the malleability gadget attack does rely on the end-to-end
@@ -1385,7 +1306,7 @@ def format_properly(self):
 GET /xt/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20be%20able%20to%20read%20this..%07%07%07%07%07%07%07%C2%AD%C3%BBs%CB%9C%C2%9Dc[%C3%A4%C2%B0w%1C%CB%86P%07-%C3%BEHTTP/1.1" 404 143 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:52.0)Gecko/20100101 Thunderbird/52.5.2"
 </code>
 </pre>
-        <h1 class="center" style="color:indianred;">Exploited!</h1>
+        <div class="center exploited">Exploited!</div>
         <p>Here again, by carefully reading the entry, the encrypted message can be detected. This verified that the
             exploit worked as desired, but most importantly, it verifies that the stated Thunderbird version is in fact
             vulnerable.</p>
@@ -1892,7 +1813,7 @@ Content-Disposition: inline; filename="encrypted.asc"
         <pre>
         <code class="language-markup">GET /%C2%B0=$%C3%A9%01O%C2%B2%06%C2%A3%C3%9A%C3%91c8%C3%B5*%C2%8Dt-Type:%20text/htmlThis%20message%20is%20top%20secret!!Nobody%20else%20should%20ever%20be%20able%20to%20read%20this..%C3%93%14!_yh%C3%86%05%7B4F%CB%86%0E%C3%A8%C3%91X%C2%A5 HTTP/1.1" 404 143 "-""Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101Thunderbird/52.5.2"</code>
     </pre>
-        <h1 class="center" style="color: indianred;">Exploited!</h1>
+        <div class="center exploited">Exploited!</div>
         <h1 id="9"> 9 Problem Definition </h1>
         <p>An encryption scheme is breakable if a third party, without prior knowledge of the corresponding key can
             systematically recover plaintext from corre- sponding ciphertext within some appropriate time frame [11].
@@ -2119,8 +2040,8 @@ Content-Disposition: inline; filename="encrypted.asc"
         <p>As it can be seen, the HTML image tag has not been rendered correctly. Also, no request arrived at the
             servers access log. This proves that the Thunder- bird commit 96fab4a2b811 fixed the parsing of MIME entities
             against direct exfiltration attacks.</p>
-        <h2 style="color: green;">No exfiltration by abusing MIME parser</h2>
-        <h3 id="10.4.2"> 10.4.2 Malleability Gadget Attack on S/MIME </h3>
+        <div class="center fixed">No exfiltration by abusing MIME parser</div>
+        <h3 id="10.4.2">10.4.2 Malleability Gadget Attack on S/MIME </h3>
         <p>Similarly, the Thunderbird commit cda53cec9e97 could be verified by open- ing the email which was sent by the
             exploit introduced in Section 7. Figure 29 shows a screenshot of this email opened in Thunderbird 52.9.</p>
 
@@ -2138,7 +2059,7 @@ Content-Disposition: inline; filename="encrypted.asc"
             loading remote content in encrypted emails. An additional option to explicitly allow loading of remote
             content
             is missing. However, the patch works as desired.</p>
-        <h2 style="color: green;">No exfiltration by using CBC gadgets</h2>
+        <div class="center fixed">No exfiltration by using CBC gadgets</div>
         
         <h3 id="10.4.3">10.4.3 Malleability Gadget Attack on OpenPGP message</h3>
         <p>The same procedure has been conducted to verify the invulnerability of the Thunderbird extension Enigmail.
@@ -2158,7 +2079,7 @@ Content-Disposition: inline; filename="encrypted.asc"
         <p>As it can be seen, the message is not displayed at all. Enigmail respects the GnuPG warning as desired. Since
             no message is displayed and nothing can be rendered, no exfiltration channels can be established and hence no
             further attacks are possible.</p>
-        <h2 style="color: green;">No exfiltration by using CFB gadgets</h2>
+        <div class="center fixed">No exfiltration by using CFB gadgets</div>
 
         <h1 id="11">11 Summary</h1>
         <p>This paper discussed Efail in all its details. Especially, all practical aspects have been highlighted. This
@@ -2462,6 +2383,7 @@ Content-Disposition: inline; filename="encrypted.asc"
     </main>
 
 </div>
+<script src="./sidenav.js"></script>
 <script src="../../vendor/prism.js"></script>
 </body>
 </html>

@@ -77,6 +77,22 @@
 	justify-content: space-around;
 }
 
+.exploited {
+	font-size: xx-large;
+	color: indianred;
+}
+.fixed {
+	font-size: xx-large;
+	color: green;
+}
+.headline1 {
+	font-weight: 600;
+}
+
+.subheading {
+	margin-left: 1.3rem;
+}
+
 /* Medium devices (tablets, 768px and down) */
 @media (max-width: 768px) {
 
