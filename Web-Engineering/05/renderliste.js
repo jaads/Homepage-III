@@ -2,7 +2,53 @@ const speakerInput = document.getElementById("speakerinput");
 const addSpeakerBtn = document.getElementById('addspeakerbutton');
 const speakerList = document.getElementById('speakerlist');
 
-const allTimers = [];
+speakerInput.onkeydown = function (event) {
+    if (event.key === 'Enter') addSpeakerBtn.click();
+};
+
+let currentTimerId = null;
+
+addSpeakerBtn.onclick = function () {
+    const listItem = createListItem();
+    clearInterval(currentTimerId);
+    currentTimerId = setInterval(addSecond, 1000, listItem);
+    resetInput();
+};
+
+function createListItem() {
+    let li = document.createElement('li');
+    speakerList.appendChild(li);
+    li.innerHTML = `${speakerInput.value} <time>00:00:00</time> <button>Stop</button>`;
+    li.querySelector('button').onclick = toggleTime.bind(li, addSecond);
+    const allListItems = Array.from(li.parentNode.children);
+    allListItems.forEach((item, idx) => {
+        if (idx != allListItems.length - 1) {
+            item.lastChild.innerText = 'Start';
+        }
+    });
+    return li;
+};
+
+function resetInput() {
+    speakerInput.value = '';
+    speakerInput.focus();
+};
+
+function toggleTime(addSecond) {
+    if (this.lastChild.innerText === 'Stop') {
+        clearInterval(currentTimerId);
+        this.lastChild.innerText = 'Start';
+        return;
+    }
+    if (this.lastChild.innerText === 'Start') {
+        clearInterval(currentTimerId);
+        timerID = setInterval(addSecond, 1000, this);
+        currentTimerId = timerID;
+        const allListItems = Array.from(this.parentNode.children);
+        allListItems.forEach((item) => item.lastChild.innerText = 'Start');
+        this.lastChild.innerText = 'Stop';
+    }
+};
 
 function addSecond(li) {
     const time = li.querySelector('time');
@@ -31,39 +77,3 @@ function addSecond(li) {
     seconds = format(seconds);
     time.innerText = `${hours}:${minutes}:${seconds}`;
 };
-
-addSpeakerBtn.onclick = function () {
-    let listItem = document.createElement('li');
-    speakerList.appendChild(listItem);
-    listItem.innerHTML = `${speakerInput.value} <time>00:00:00</time> <button>Stop</button>`;
-
-    let timerID = setInterval(addSecond, 1000, listItem);
-    allTimers.push(timerID);
-
-    const btn = listItem.querySelector('button');
-    btn.onclick = toggleTime.bind(listItem, timerID, addSecond);
-
-    speakerInput.value = '';
-    speakerInput.focus();
-};
-
-function toggleTime(timerID, addSecond) {
-    if (this.lastChild.innerText === 'Stop') {
-        console.log('stopped time', timerID);
-
-        clearInterval(timerID);
-        console.log('Stopped time.');
-        this.lastChild.innerText = 'Start';
-        return;
-    }
-    if (this.lastChild.innerText === 'Start') {
-        timerID = setInterval(addSecond, 1000, this);
-        console.log('Resumed time.', timerID);
-        this.lastChild.innerText = 'Stop';
-    }
-};
-
-speakerInput.onkeydown = function (event) {
-    if (event.key === 'Enter') addSpeakerBtn.click();
-};
-
