@@ -150,6 +150,12 @@ hr {
 	padding: 0.5rem
 };
 
+.svglogo {
+	width: 1rem;
+	height: 1rem;
+	background-color: red;
+}
+
 /* -------- Landingpage ---------- */
 
 .landingpage {
