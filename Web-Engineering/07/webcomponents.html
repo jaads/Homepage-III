@@ -17,22 +17,7 @@
 </head>
 
 <body>
-    <header class="headerbg">
-        <div class="topnav" id="myTopnav">
-            <a href="/index.html">
-                <img src="/Logo/path4569.svg"></a>
-            <div class="topnav-right">
-                <a href="/Paper/Paper.html">paper</a>
-                <a class="activenavitem" href="/Web-Engineering/WE.html">web engineering</a>
-                <a href="/Products/products.html">products</a>
-                <a href="/Presentations/presentation.html">Presentations</a>
-                <a href="/Summaries/summaries.html">summaries</a>
-                <a href="https://github.com/jaads" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://www.xing.com/profile/Jan_Arends2" target="_blank"><i class="fab fa-xing fa-2x"></i></a>
-                <a class="icon" onclick="myFunction()">&#9776;</a>
-            </div>
-        </div>
-    </header>
+    <my-navbar activeitem="WE.html"></my-navbar>
 
     <div class="nav-container-full">
         <nav>
@@ -88,12 +73,11 @@
 
             <div class="contentbox">
                 <h2>A navigation element as web component</h2>
-                <p>In this senarios two majar techniques had been used in order to reach as much independenceas of the
-                    component as possible. First the fact that each property of a compontent made with Lit-Element is
+                <p>In this example two major techniques which Lit-Element offers had been used. Thus the component
+                    gets very flixible. First, the fact that each property of a Lit-Element compontent is
                     automaticcaly converted to a HTML attribute of the custom elememt and hence editable in a
-                    declarative
-                    fashion from the HTML file.</p>
-                <p>Furthermore slots has beed used inject conten into the component. Here is the component:</p>
+                    declarative fashion from the HTML file. Here, the property is <code>reference</code>.</p>
+                <p>Secondly <code>slots</code> has beed used inject conten into the component. Here is the component:</p>
 
                 <pre><code class="line-numbers lang-javascript">import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
     
@@ -164,7 +148,7 @@
 
     <script src="navigation.js"></script>
     <script src="../../vendor/prism.js"></script>
-    <!-- <script type="module" src="../navigation.js"></script> -->
+    <script type="module" src="../Lit-navigation.js"></script>
 </body>
 
 </html>

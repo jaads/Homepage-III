@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'https://unpkg.com/lit-element@2.2.1/lit-element.js?module';
 
-
 class MyNavbar extends LitElement {
 
     constructor() {
@@ -9,41 +8,40 @@ class MyNavbar extends LitElement {
         this.icon = ".topnav-right .icon";
     }
 
-    static get properties() { 
-        return { 
-          activeitem: { type: String }
+    static get properties() {
+        return {
+            activeitem: { type: String }
         };
-      }
-      
+    }
 
     static get styles() {
         return css`
 
         header {
-            padding: 1rem;
-            position: relative;
+            padding: 2rem;
         }
 
+        .activenavitem {
+            border-style: none none solid none;
+            border-color: var(--main-color);
+        }
+        
         .headerbg {
             background-image: linear-gradient(#1659A7, var(--second-color));
         }
-
+        
         .topnav {
-            overflow: hidden;
+            display: flex;
+            align-items: center;
         }
         
         .topnav a {
             display: inline-block;
             color: #f2f2f2;
-            text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             text-transform: uppercase;
-            margin-bottom: auto;
-        }
-        
-        .topnav-right {
-            float: right;
+            flex-grow: 1;
         }
         
         .topnav .topnav-right a:hover {
@@ -56,109 +54,79 @@ class MyNavbar extends LitElement {
             margin: 0.7rem;
             float: right;
             font-size: xx-large;
-        }
-
-        .activenavitem {
-            border-style: none none solid none;
-            border-color: var(--main-color);
-        }
+        } 
+        
 
         /* Medium devices (tablets, 768px and down) */
         @media (max-width: 768px) {
-
-            .topnav-right {
-                float: none;
-                display: inline;
-            }
+        
             .topnav-right a {
                 display: none;
             }
-
+        
             .topnav a.icon {
                 display: block;
             }
-
+        
             .topnav a img {
                 width: 6rem;
             }
-
+        
             .topnav.responsive {
                 position: relative;
+                flex-direction: column;
+                align-items: stretch;	
             }
-
+        
             .topnav.responsive .activenavitem{
                 background-color: var(--main-color);
                 color: var(--mydarkerblue);
             }
-
+        
             .topnav.responsive a.icon {
                 position: absolute;
                 right: 0;
                 top: 0;
             }
-
+        
             .topnav.responsive a {
                 float: none;
                 display: block;
-                text-align: left;
+                /* text-align: left; */
+                flex-grow: 0;
             }
-
+        
         }
-
+        
         /* Small devices (landscape phones, 576px and down) */
         @media screen and (max-width: 576px) {
-
-            main h1 {
-                font-size: 2rem;
-            }
-
-
-            .landing-bg {
-                background-size: cover;
-            }
-
+        
             .topnav a img {
                 width: 4rem;
             }
-
+        
             .topnav a.icon {
                 margin: 0;
                 padding-bottom: 0;
             }
 
-            .fancy-button {
-                height: 3rem;
-            }
-
-            header .fancy-button {
-                height: 3.2rem;
-                min-width: 5rem;
-            }
-
             .fancy-button span {
                 display: none;
             }
-
-            header {
-                padding: 0.5rem;
-            }
-
-            main {
-                font-size: 1rem;
-                padding-top: 0;
-            }
-
+        
         }`;
     }
 
     render() {
         return html`
+        <link rel="stylesheet" href="/vendor/fontawesome-free-5.13.1-web/css/all.min.css">
         <header class="headerbg">
             <div class="topnav" id="myTopnav">
             <a href="/index.html"><img src="/Logo/path4569.svg"></a>
                 <div class="topnav-right">
                     <a href="/Paper/Paper.html">paper</a>
                     <a href="/Web-Engineering/WE.html">web engineering</a>
+                    <a href="/Products/products.html">products</a>
                     <a href="/Presentations/presentation.html">Presentations</a>
                     <a href="/Summaries/summaries.html">summaries</a>
                     <a href="https://github.com/jaads" target="_blank"><i class="fab fa-github fa-2x"></i></a>
@@ -181,9 +149,9 @@ class MyNavbar extends LitElement {
             }
         }
 
-        const link = this.shadowRoot.querySelector( ".topnav-right a[href$= '" + this.activeitem + "']" );
+        const link = this.shadowRoot.querySelector(".topnav-right a[href$= '" + this.activeitem + "']");
         link.className += " activenavitem";
-        
+
     }
 }
 

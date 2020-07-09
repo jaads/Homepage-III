@@ -341,11 +341,6 @@ hr {
 		height: 3rem;
 	}
 
-	header .fancy-button {
-		height: 3.2rem;
-		min-width: 5rem;
-	}
-
 	.fancy-button span {
 		display: none;
 	}

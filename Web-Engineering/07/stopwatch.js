@@ -75,7 +75,7 @@ class MyStopWatch extends LitElement {
           <p>${this.formattedTime}</p>
           <button @click="${this.start}" id="start-btn">Start</button>
           <button @click="${this.stop}">Stop</button>
-          <button @click="${this.continue}" id="continue-btn">Weiter</button>
+          <button @click="${this.continue}" id="continue-btn">Continue</button>
         </div>
         `;
     }
