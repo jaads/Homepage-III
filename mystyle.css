@@ -311,7 +311,6 @@ hr {
 	.topnav.responsive a {
 		float: none;
 		display: block;
-		/* text-align: left; */
 		flex-grow: 0;
 	}
 

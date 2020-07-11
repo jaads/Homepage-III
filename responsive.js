@@ -1,9 +1,9 @@
-var x = document.getElementById("myTopnav");
+const topnav = document.querySelector("#myTopnav");
 
 function myFunction() {
-    if (x.className === "topnav") {
-        x.className += " responsive";
+    if (topnav.className === "topnav") {
+        topnav.classList.add("responsive");
     } else {
-        x.className = "topnav";
+        topnav.classList.remove("responsive")
     }    
 };
