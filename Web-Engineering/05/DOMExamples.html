@@ -63,6 +63,8 @@
         </nav>
 
         <main>
+            <div class="contentbox">
+
             <h1>DOM Manipulation using JavaScript</h1>
             <div>
                 <h2>Shopping list</h2>
@@ -94,11 +96,15 @@ shoppingInput.onkeydown = function (event) {
     if (event.key === 'Enter') addBtnForShopping.click();
 };</code></pre>
             </div>
+        </div>
 
-            <div>
+
+            <div class="contentbox">
                 <h2>List of speakers</h2>
-                <p>Simmilar the the example before, here a list of speakers can be created with the addition that for
-                    each speaker a time tracker is provieded. Try it out.</p>
+                <p>Next, a list of speakers can be created with the feature that for
+                    each speaker a time tracker is provieded. By adding a new speaker to the list, the time
+                    tracking stops for all other speakers. However, the time tracking can be resumed for a 
+                    specific speaker by clicking at the corresponding button. Then, the tracking stops for the rest, too. Try it out.</p>
                 <label for="speakerinput">Enter a new speaker</label>
                 <input type="text" id="speakerinput">
                 <button id="addspeakerbutton">Add</button>
@@ -110,11 +116,84 @@ const speakerList = document.getElementById('speakerlist');
 
 speakerInput.onkeydown = function (event) {
     if (event.key === 'Enter') addSpeakerBtn.click();
+};
+
+let currentTimerId = null;
+
+addSpeakerBtn.onclick = function () {
+    const listItem = createListItem();
+    clearInterval(currentTimerId);
+    currentTimerId = setInterval(addSecond, 1000, listItem);
+    resetInput();
+};
+
+function createListItem() {
+    let li = document.createElement('li');
+    speakerList.appendChild(li);
+    li.innerHTML = `${speakerInput.value} <time>00:00:00</time> <button>Stop</button>`;
+    li.querySelector('button').onclick = toggleTime.bind(li, addSecond);
+    const allListItems = Array.from(li.parentNode.children);
+    allListItems.forEach((item, idx) => {
+        if (idx != allListItems.length - 1) {
+            item.lastChild.innerText = 'Start';
+        }
+    });
+    return li;
+};
+
+function resetInput() {
+    speakerInput.value = '';
+    speakerInput.focus();
+};
+
+function toggleTime(addSecond) {
+    if (this.lastChild.innerText === 'Stop') {
+        clearInterval(currentTimerId);
+        this.lastChild.innerText = 'Start';
+        return;
+    }
+    if (this.lastChild.innerText === 'Start') {
+        clearInterval(currentTimerId);
+        timerID = setInterval(addSecond, 1000, this);
+        currentTimerId = timerID;
+        const allListItems = Array.from(this.parentNode.children);
+        allListItems.forEach((item) => item.lastChild.innerText = 'Start');
+        this.lastChild.innerText = 'Stop';
+    }
+};
+
+function addSecond(li) {
+    const time = li.querySelector('time');
+    let hours = parseInt(time.textContent.substring(0, 2));
+    let minutes = parseInt(time.textContent.substring(3, 5));
+    let seconds = parseInt(time.textContent.substring(6, 8));
+
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+            if (hours >= 24) {
+                seconds = 0;
+                minutes = 0;
+                hours = 0;
+            }
+        }
+    }
+
+    let format = (i) => i > 9 ? i : "0" + i;
+    hours = format(hours);
+    minutes = format(minutes);
+    seconds = format(seconds);
+    time.innerText = `${hours}:${minutes}:${seconds}`;
+};
+                    
 };</pre></code>
-                <p>I know - its not structured too well.</p>
             </div>
 
-            <div>
+            <div class="contentbox">
                 <h2>A Spreadsheet</h2>
                 <p>Define the matrix dynamically.</p>
                 <p>
