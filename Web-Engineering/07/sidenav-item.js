@@ -1,29 +1,29 @@
 import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
 
-class NavItem extends LitElement {
+class NavItem2 extends LitElement {
 
     static get properties() {
         return {
-            reference: { type: String }
+            name: { type: String }
         };
     }
 
     static get styles() {
         return css`
-          a { color: white; text-decoration: none; }
-        `;
+          a {
+            padding-right: 0.5rem;
+        }`;
     }
 
     constructor() {
         super();
-        this.reference = '#';
+        this.name = "Item";
     }
 
     render() {
         return html`
-        <a href="${this.reference}"><slot></slot></a>
-        `;
+        <li>${this.name}</li>`;
     }
 }
 
-customElements.define('my-navitem', NavItem);
+customElements.define('sidenav-item', NavItem2);

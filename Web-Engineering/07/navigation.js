@@ -19,10 +19,9 @@ window.onload = function () {
 let makeMainMenu = function (jsonObj) {
     // Create list item for menu for each object from the JSON file
     jsonObj.forEach(function (elem, idx) {
-        let listItem = document.createElement('my-navitem');
-        listItem.setAttribute("headline", elem.headline);
+        let listItem = document.createElement('topnav-item');
+        listItem.setAttribute("name", elem.headline);
         listItem.onclick = () => applyFunctions(jsonObj, idx);
-        listItem.innerText = elem.headline;
         topNavList.appendChild(listItem);
     });
     applyFunctions(jsonObj, 0);
@@ -40,12 +39,10 @@ let updateSideNav = function (data, idx) {
     dataArr.forEach((item) => currentSideNav.push(item.navitem));
     sideNavList.innerHTML = '';
     currentSideNav.forEach((elem, innerIdx) => {
-        let sideNavListItem = document.createElement('my-navitem2');
-        sideNavListItem.setAttribute("headline", elem);
+        let sideNavListItem = document.createElement('sidenav-item');        
+        sideNavListItem.setAttribute("name", elem);
         sideNavList.appendChild(sideNavListItem);
-        sideNavListItem.onclick = () => {
-            updateContent(data, idx, innerIdx);
-        };
+        sideNavListItem.onclick = () => updateContent(data, idx, innerIdx);
     });
 };
 
