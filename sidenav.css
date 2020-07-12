@@ -10,12 +10,12 @@
 
 .nav-container-full main, .nav-container-vh main {
 	overflow-y: auto;
-	align-self: center;
 }
 
 .nav-container-full nav, .nav-container-vh nav {
 	background-color: #f3f3f3;
 	padding: 0.3rem 2.5rem;
+	white-space: nowrap;
 }
 
 .nav-container-full nav a, .nav-container-vh nav a {
@@ -31,4 +31,33 @@
 
 .nav-container-vh .scroll {
 	overflow-y: scroll;
+}
+
+#sidenav-burger {
+	font-size: 2rem;
+	margin: 1rem;
+	cursor: pointer;
+	display: none;
+}
+
+#sidenav-close {
+	display: none;
+	text-align: right;
+	font-size: larger;
+	cursor: pointer;
+	padding: 0.5rem;
+}
+
+/* Medium devices (tablets, 768px and down) */
+
+@media (max-width: 768px) {
+	#sidenav-burger {
+		display: block;
+	}
+	#sidenav-close {
+		display: block;
+	}
+	#sidenav {
+		display: none;
+	}
 }

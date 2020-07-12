@@ -1,5 +1,8 @@
 /* Source: https://css-tricks.com/books/fundamental-css-tactics/animate-text-like-typewriter/  */
 
+#WeHeader {
+	margin-top: 30vh;
+}
 .typewriter h1 {
 	font-family: monospace; /* Web-safe typewriter-like font */
 	overflow: hidden; /* Ensures the content is not revealed until the animation */

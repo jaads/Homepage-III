@@ -19,8 +19,10 @@
 <body>
     <my-navbar activeitem="WE.html"></my-navbar>
 
+    <span id="sidenav-burger">&#9776;</span>
     <div class="nav-container-full">
-        <nav>
+        <nav id="sidenav">
+            <span id="sidenav-close">X</span>
             <h2>Advances</h2>
             <a href="/Web-Engineering/react/react.html">React</a>
             <a href="/Web-Engineering/10/vue.html">Vue JS</a>
@@ -149,6 +151,7 @@
     <script src="navigation.js"></script>
     <script src="../../vendor/prism.js"></script>
     <script type="module" src="../Lit-navigation.js"></script>
+    <script src="../../responsive.js"></script>
 </body>
 
 </html>
