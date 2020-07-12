@@ -12,7 +12,7 @@
 	overflow-y: auto;
 }
 
-.nav-container-full nav, .nav-container-vh nav {
+.nav-container-full > nav, .nav-container-vh > nav {
 	background-color: #f3f3f3;
 	padding: 0.3rem 2.5rem;
 	white-space: nowrap;

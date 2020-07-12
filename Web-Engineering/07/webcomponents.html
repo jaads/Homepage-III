@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" type="text/css" href="/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="../06/example-navigatoin.css">
 
     <script src="stopwatch.js" type="module"></script>
     <script src="navitem-json.js" type="module"></script>
@@ -79,7 +80,8 @@
                     gets very flixible. First, the fact that each property of a Lit-Element compontent is
                     automaticcaly converted to a HTML attribute of the custom elememt and hence editable in a
                     declarative fashion from the HTML file. Here, the property is <code>reference</code>.</p>
-                <p>Secondly <code>slots</code> has beed used inject conten into the component. Here is the component:</p>
+                <p>Secondly <code>slots</code> has beed used inject conten into the component. Here is the component:
+                </p>
 
                 <pre><code class="line-numbers lang-javascript">import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
     
@@ -118,32 +120,24 @@
                 </p>
                 <p>Since the stlying is also indepented from the component this component can either be used in the
                     horizontal navigatioen as well as in the vertical navigation. The final result can be seen here:</p>
-                <header>
-                    <nav>
-                        <ul id="topnav">
-                            <!-- <my-navitem headline="HTML" class="menuitem navitem"></my-navitem>
-                            <my-navitem headline="CSS" class="menuitem navitem"></my-navitem>
-                            <my-navitem headline="Javascript" class="menuitem navitem"></my-navitem> -->
-                        </ul>
-                    </nav>
-                </header>
-                <div class="flex-container">
-                    <nav>
-                        <h3>Topics</h3>
-                        <ul id="sideNavList"></ul>
-                    </nav>
-                    <main>
-                        <p id="mainarea">
-                            <my-contentitm text="kjh"></my-contentitm>
-                        </p>
-                    </main>
-                    <aside>
-                        <h3>Resources</h3>
-                        <ul id="linksList"></ul>
-                    </aside>
+
+                <div id="nav-example">
+                    <ul id="example-topnav-list"></ul>
+                    <div id="exmaple-nav-content">
+                        <nav>
+                            <h3>Topics</h3>
+                            <ul id="sideNavList"></ul>
+                        </nav>
+                        <main>
+                            <p id="mainarea"></p>
+                        </main>
+                        <aside>
+                            <h3>Resources</h3>
+                            <ul id="linksList"></ul>
+                        </aside>
+                    </div>
                 </div>
             </div>
-
 
         </main>
     </div>

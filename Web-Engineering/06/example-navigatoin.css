@@ -1,0 +1,54 @@
+#exmaple-nav-content {
+    display: flex;
+}
+
+#example-topnav-list {
+    list-style: none;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0.8rem;
+}
+
+#example-topnav-list li {
+    display: inline;
+    margin-right: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+#example-topnav-list li:hover {
+    color: yellow;
+    background-color: darkgray;
+}
+
+#nav-example nav {
+    background-color: whitesmoke;
+}
+
+#nav-example main {
+    flex: 2;
+    height: 25rem;
+    padding: auto;
+}
+
+#nav-example aside {
+    flex: 1;
+    background-color: whitesmoke;
+}
+
+#sideNavList li:hover {
+    color: var(--mydarkerblue);
+}
+
+
+@media (max-width: 768px) {
+    .navitem {
+        margin: 0;
+    }
+    ul {
+        padding: 1rem;
+    }
+    aside {
+        display: none;
+    }
+}

@@ -1,4 +1,4 @@
-const topNavList = document.getElementById('topnav');
+const topNavList = document.getElementById('example-topnav-list');
 const sideNavList = document.getElementById('sideNavList');
 const mainArea = document.getElementById('mainarea');
 const linksList = document.getElementById('linksList');
@@ -20,8 +20,6 @@ let makeMainMenu = function (jsonObj) {
     // Create list item for menu for each object from the JSON file
     jsonObj.forEach(function (elem, idx) {
         let listItem = document.createElement('my-navitem');
-        listItem.classList.add('navitem');
-        listItem.classList.add('menuitem');
         listItem.setAttribute("headline", elem.headline);
         listItem.onclick = () => applyFunctions(jsonObj, idx);
         listItem.innerText = elem.headline;

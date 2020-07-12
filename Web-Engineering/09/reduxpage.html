@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="/sidenav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
+    <link rel="stylesheet" type="text/css" href="../06/example-navigatoin.css">
     <script src="storestuff.js" type="module"></script>
     <link rel="stylesheet" href="/vendor/fontawesome-free-5.13.1-web/css/all.min.css">
 </head>
@@ -71,32 +72,29 @@
                     in a store provieded by Redux. Here, the state represents the index of the current navigation item.
                 </p>
                 <h3>Current state</h3>
-                <p>How the rendering is done is basically shown at the end of this <a href="../06/Async.html">this
-                        page.</a>
-                </p> <br>
+                <p>How the rendering is done is basically shown at the end of this <a href="../06/Async.html">this page.</a>
+                </p> 
+                <br>
 
-                <header class="headerbg">
-                    <div></div>
-                    <nav>
-                        <ul id="topnav" class="button-group">
-                            <li><button class="fancy-button" id="htmlactionbtn">HMTL</button></li>
-                            <li><button class="fancy-button" id="cssactionbtn">CSS</button></li>
-                            <li><button class="fancy-button" id="jsactionbtn">JS</button></li>
-                        </ul>
-                    </nav>
-                </header>
-                <div class="flex-container">
-                    <nav>
-                        <h3>Topics</h3>
-                        <ul id="sideNavList"></ul>
-                    </nav>
-                    <main>
-                        <p id="mainarea"></p>
-                    </main>
-                    <aside>
-                        <h3>Resources</h3>
-                        <ul id="linksList"></ul>
-                    </aside>
+                <div id="nav-example">
+                    <ul id="example-topnav-list">
+                        <li id="htmlactionbtn">HMTL</li>
+                        <li id="cssactionbtn">CSS</li>
+                        <li id="jsactionbtn">JS</li>
+                    </ul>
+                    <div id="exmaple-nav-content">
+                        <nav>
+                            <h3>Topics</h3>
+                            <ul id="sideNavList"></ul>
+                        </nav>
+                        <main>
+                            <p id="mainarea"></p>
+                        </main>
+                        <aside>
+                            <h3>Resources</h3>
+                            <ul id="linksList"></ul>
+                        </aside>
+                    </div>
                 </div>
             </div>
 

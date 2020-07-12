@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
-    <!-- <link rel="stylesheet" type="text/css" href="navigatoin.css"> -->
+    <link rel="stylesheet" type="text/css" href="example-navigatoin.css">
     <link rel="stylesheet" type="text/css" href="/sidenav.css">
     <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" href="/vendor/fontawesome-free-5.13.1-web/css/all.min.css">
@@ -213,18 +213,13 @@ sortWorkerBtn.onclick = function () {
             </div>
 
             <div id="asyncnavigation" class="contentbox">
-                <h2>Asynchronous Navigation</h2>
+                <h2>Fetching content asynchronously via navigation</h2>
                 <p>Finally a whole website can be based on asynchronous JavaScript as the following example shows.</p>
                 <p>Here, the data is loaded just once, but it could also be done in a more fine granular way.</p>
 
-                <div>
-                    <header>
-                        <div class="headerbg"></div>
-                        <nav>
-                            <ul id="topnav"></ul>
-                        </nav>
-                    </header>
-                    <div class="flex-container">
+                <div id="nav-example">
+                    <ul id="example-topnav-list"></ul>
+                    <div id="exmaple-nav-content">
                         <nav>
                             <h3>Topics</h3>
                             <ul id="sideNavList"></ul>

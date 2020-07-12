@@ -11,18 +11,8 @@ class NavItem2 extends LitElement {
     static get styles() {
         return css`
           a {
-            background-color: var(--second-color);
-            color: var(--main-color);
-            margin: 1rem;
-            border-radius: 1rem;
-            padding: 0.2rem;
-            padding-left: 1rem;
-        }
-
-        div {
-            margin: 1rem
-        }
-        `;
+            padding-right: 0.5rem;
+        }`;
     }
 
     constructor() {
