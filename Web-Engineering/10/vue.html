@@ -67,8 +67,8 @@
         <main>
             <h1>Vue JS</h1>
             <div class="contentbox">
-                <h2>A counter in a Single File Component</h2>
-                <div id="vueapp" class="border">
+                <h2>A Single File Component</h2>
+                <div id="vuecounterdiv" class="border">
                     <counter></counter>
                 </div>
                 <p>The counter.js file:</p>
@@ -96,21 +96,27 @@
         }
     }
 }</code></pre>
-
+                <p>Import the counter from another JS file and declare the Vue.</p>
                 <pre><code class="line-numbers lang-javascript">import Counter from './counter.js';
 
 new Vue({
-    el: '#vueapp',
+    el: '#vuecounterdiv',
     components: { Counter }
 });</code></pre>
+                <p>Provide, the HTML like this:</p>
+
+<pre><code class="line-numbers lang-html">&lt;div id="vuecounterdiv" class="border">
+    &lt;counter>&lt;/counter>
+&lt;/div>
+</code></pre>
             </div>
 
             <div class="contentbox">
-                <h2>The counter using Vuex for state management</h2>
-                <div id="counterwithstore">
+                <h2>The counter with Vuex as state management</h2>
+                <div id="counterwithstore" class="border">
                     <p>Counter value: {{ counteroutput }}</p>
-                    <button class="fancy-button" v-on:click="inc">Inc</button>
-                    <button class="fancy-button" v-on:click="dec">Dec</button>
+                    <button v-on:click="inc">Inc</button>
+                    <button v-on:click="dec">Dec</button>
                 </div>
 
                 <pre><code class="line-numbers lang-html">&ltdiv id="counterwithstore">
@@ -119,7 +125,7 @@ new Vue({
     &ltbutton class="fancy-button" v-on:click="dec">Dec&lt/button>
 &lt/div></code></pre>
 
-                <pre><code class="line-numbers lang-javascript">const counterStore = new Vuex.Store({
+                <pre data-line="23, 26"><code class="line-numbers lang-javascript">const counterStore = new Vuex.Store({
     state: {
         count: 0
     },
@@ -143,21 +149,53 @@ new Vue({
     methods: {
         inc() {
             counterStore.commit('increment');
-            console.log('Store state: ' + counterStore.state.count);
         },
         dec() {
             counterStore.commit('decrement');
-            console.log('Store state: ' + counterStore.state.count);
         }
     }
 });</code></pre>
             </div>
 
             <div class="contentbox">
-                <div id="vueapp2">
-                    <h2>Another</h2>
-                    <navcomp v-bind:prop="true"></navcomp>
+                <h2>A dynamic navigation item component.</h2>
+                <p>As in previous demonstrations, here is how one can implement a navigation item which can be placed 
+                    either in a horizontal or in a vertical fashion. This can easily archived by using props and e.g. inline styling. In the end, this is how one would use it.</p>
+                    <pre><code class="line-numbers lang-html">&lt;navcomp horizontal="true" name="Home">&lt;/navcomp>
+&lt;navcomp horizontal="true" name="About">&lt;/navcomp></code></pre>
+                <p>The result is rather simple:</p>
+                <div id="vueapp2" class="border" style="padding-bottom: 3rem;">
+                    <navcomp horizontal="true" name="Home"></navcomp>
+                    <navcomp horizontal="true" name="About"></navcomp>
                 </div>
+                <p>Here is the component:</p>
+                <pre><code class="line-numbers lang-javascript">export default {
+    template: `
+    &lt;div>
+        &lt;ul style="list-style-type: none;">
+            &lt;li v-bind:style="horizontal ? 'float: left; margin-left: 1rem;' : 'float: center'">
+                &lt;span href='#'>{{name}}&lt;/span>
+            &lt;/li>
+        &lt;/ul> 
+    &lt;/div>
+    `,
+    props: {
+        horizontal: {
+            type: Boolean,
+            default: true
+        },
+        name: {
+            type: String,
+            default: 'Hello World'
+        }
+    },
+    data() {
+        return {
+            horizontal: this.prop,
+            name: this.name
+        }
+    }
+}</code></pre>
             </div>
 
             <div class="contentbox">

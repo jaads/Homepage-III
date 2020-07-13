@@ -2,7 +2,7 @@ import Counter from './counter.js';
 import Navcomp from './navcomp.js';
 
 new Vue({
-    el: '#vueapp',
+    el: '#vuecounterdiv',
     components: { Counter }
 });
 
@@ -30,11 +30,9 @@ new Vue({
     methods: {
         inc() {
             counterStore.commit('increment');
-            console.log('Store state: ' + counterStore.state.count);
         },
         dec() {
             counterStore.commit('decrement');
-            console.log('Store state: ' + counterStore.state.count);
         }
     }
 });

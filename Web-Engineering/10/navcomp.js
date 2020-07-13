@@ -1,30 +1,27 @@
 export default {
-    template: `<div>
-    <ul style="list-style-type: none;">
-    <li v-bind:style="horizontal ? 'float: left;' : 'float: center'"><a href="default.asp">Home</a></li>
-    <li><a href="news.asp">News</a></li>
-    </ul> 
+    template: `
+    <div>
+        <ul style="list-style-type: none;">
+            <li v-bind:style="horizontal ? 'float: left; margin-left: 1rem;' : 'float: center'">
+                <span href='#'>{{name}}</span>
+            </li>
+        </ul> 
     </div>
     `,
     props: {
-        prop: {
+        horizontal: {
             type: Boolean,
             default: true
+        },
+        name: {
+            type: String,
+            default: 'Hello World'
         }
-      },
+    },
     data() {
         return {
             horizontal: this.prop,
-            av: 'float: left'
-        }
-    },
-    methods: {
-        setFloatLeft() {
-            if (horizontal) {
-                return 'red';
-            } else {
-                return 'green';
-            }
+            name: this.name
         }
     }
 }
