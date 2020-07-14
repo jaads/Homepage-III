@@ -158,41 +158,43 @@ new Vue({
             </div>
 
             <div class="contentbox">
-                <h2>A dynamic navigation item component.</h2>
+                <h2>A flexible navigation item component</h2>
                 <p>As in previous demonstrations, here is how one can implement a navigation item which can be placed 
                     either in a horizontal or in a vertical fashion. This can easily archived by using props and e.g. inline styling. In the end, this is how one would use it.</p>
-                    <pre><code class="line-numbers lang-html">&lt;navcomp horizontal="true" name="Home">&lt;/navcomp>
-&lt;navcomp horizontal="true" name="About">&lt;/navcomp></code></pre>
+                    <pre><code class="line-numbers lang-html">&lt;navcomp alignment="horizontal" name="Home">&lt;/navcomp>
+&lt;navcomp alignment="horizontal" name="About">&lt;/navcomp></code></pre>
                 <p>The result is rather simple:</p>
-                <div id="vueapp2" class="border" style="padding-bottom: 3rem;">
-                    <navcomp horizontal="true" name="Home"></navcomp>
-                    <navcomp horizontal="true" name="About"></navcomp>
+                <div id="hornav" class="border" style="padding-bottom: 3rem;">
+                    <navcomp alignment="horizontal" name="Home"></navcomp>
+                    <navcomp alignment="horizontal" name="About"></navcomp>
                 </div>
+                <p>Or one can use the default vertical alignment by don't setting the <code>alignment</code> attribute.</p>
+                <pre><code class="line-numbers lang-html">&lt;navcomp name="Home">&lt;/navcomp>
+&lt;navcomp name="About">&lt;/navcomp></code></pre>
+                                    <p>The result:</p>
+                                    <div id="vertnav" class="border">
+                                        <navcomp name="Home"></navcomp>
+                                        <navcomp name="About"></navcomp>
+                                    </div>
                 <p>Here is the component:</p>
                 <pre><code class="line-numbers lang-javascript">export default {
     template: `
     &lt;div>
         &lt;ul style="list-style-type: none;">
-            &lt;li v-bind:style="horizontal ? 'float: left; margin-left: 1rem;' : 'float: center'">
+            &lt;li v-bind:style="alignment==='horizontal' ? 'float: left; margin-left: 1rem;' : 'float: center'">
                 &lt;span href='#'>{{name}}&lt;/span>
             &lt;/li>
         &lt;/ul> 
     &lt;/div>
     `,
     props: {
-        horizontal: {
-            type: Boolean,
-            default: true
+        alignment: {
+            type: String,
+            default: 'vertical'
         },
         name: {
             type: String,
             default: 'Hello World'
-        }
-    },
-    data() {
-        return {
-            horizontal: this.prop,
-            name: this.name
         }
     }
 }</code></pre>
@@ -202,12 +204,12 @@ new Vue({
                 <div id="vuejsnav">
                     <h2>The good old navigation example</h2>
                     <p>... now with VueX for state management in place. Click on an item from the navigation.</p>
-
+                    <p><b id="currstate">Current state: 0</b></p>
                     <div id="nav-example">
                         <ul id="example-topnav-list">
-                            <li id="htmlactionbtn" v-on:click="getHTMLStuff">HMTL</li>
-                            <li id="cssactionbtn" v-on:click="getCSSStuff">CSS</li>
-                            <li id="jsactionbtn" v-on:click="getJSStuff">JS</li>
+                            <li v-on:click="getHTMLStuff">HMTL</li>
+                            <li v-on:click="getCSSStuff">CSS</li>
+                            <li v-on:click="getJSStuff">JS</li>
                         </ul>
                         <div id="exmaple-nav-content">
                             <nav>

@@ -26,20 +26,18 @@ new Vue({
         getHTMLStuff() {
             navStore.commit('setHTML');
             this.render();
-            console.log('Store state: ' + navStore.state.index);
         },
         getCSSStuff() {
             navStore.commit('setCSS');
             this.render();
-            console.log('Store state: ' + navStore.state.index);
         },
         getJSStuff() {
             navStore.commit('setJS');
             this.render();
-            console.log('Store state: ' + navStore.state.index);
         },
         render() {
             const index = navStore.state.index;
+            document.querySelector('#currstate').innerText = 'Current state: ' + index;
             fetch('../06/data.json')
                 .then(res => res.json())
                 .then(data => {

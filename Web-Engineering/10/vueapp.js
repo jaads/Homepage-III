@@ -39,6 +39,11 @@ new Vue({
 
 
 new Vue({
-    el: '#vueapp2',
+    el: '#hornav',
+    components: { Navcomp }
+});
+
+new Vue({
+    el: '#vertnav',
     components: { Navcomp }
 });
