@@ -1,6 +1,8 @@
 import Counter from './counter.js';
 import Navcomp from './navcomp.js';
 
+// import Vue from 'vue';
+
 new Vue({
     el: '#vuecounterdiv',
     components: { Counter }

@@ -119,7 +119,7 @@ class MyNavbar extends LitElement {
 
     render() {
         return html`
-        <link rel="stylesheet" href="/vendor/fontawesome-free-5.13.1-web/css/all.min.css">
+        <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
         <header class="headerbg">
             <div class="topnav" id="myTopnav">
             <a href="/index.html"><img src="/Logo/path4569.svg"></a>
