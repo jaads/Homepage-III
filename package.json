@@ -1,0 +1,14 @@
+{
+  "name": "jarends.net",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "https://github.com/jaads/Homepage-III.git",
+  "author": "Jan Arends <jan.arends@mailbox.org>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "vue": "^2.6.11",
+    "vuex": "^3.5.1"
+  }
+}
