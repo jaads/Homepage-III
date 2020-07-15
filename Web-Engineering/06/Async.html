@@ -33,37 +33,7 @@
 
     <span id="sidenav-burger">&#9776;</span>
     <div class="nav-container-vh">
-       <nav id="sidenav">
-            <span id="sidenav-close">X</span>
-            <h2>JavaScript</h2>
-            <h3>Advances</h3>
-            <a href="/Web-Engineering/react/react.html">React</a>
-            <a href="/Web-Engineering/10/vue.html">Vue JS</a>
-            <a href="/Web-Engineering/07/webcomponents.html">Web Components, Lit Element</a>
-            <a href="/Web-Engineering/09/reduxpage.html">State Management, Redux</a>
-            <a href="/Web-Engineering/08/vectorgraphics.html">Scalable Vector Graphics</a>
-
-            <h3>Fundamentals</h3>
-            <a href="/Web-Engineering/04/JsAufgaben.html">Functions</a>
-            <a href="/Web-Engineering/05/DOMExamples.html">DOM Manipulation</a>
-            <a href="/Web-Engineering/ParamsAndArgs/params.html">Arbitrary arguments</a>
-            <a href="/Web-Engineering/06/Async.html">Asynchronous Javascript</a>
-
-            <h2>Layouting with CSS</h2>
-            <h3>Flexboxes</h3>
-            <a href="/Web-Engineering/03/3.1-mobile-first.html">Mobile first</a>
-            <a href="/Web-Engineering/03/3.1-desktop-first.html">Desktop first</a>
-
-            <h3>Grid System</h3>
-            <a href="/Web-Engineering/03/3.2-mobile-first.html">Mobile first</a>
-            <a href="/Web-Engineering/03/3.2-desktop-first.html">Desktop first</a>
-            <h3>Some wireframes</h3>
-            <a href="/Web-Engineering/02/Aufgabe1.html">Tribute Page</a>
-            <a href="/Web-Engineering/02/Aufgabe2.html">Survey Form</a>
-            <a href="/Web-Engineering/02/Aufgabe3.html">Product Landing Page</a>
-            <a href="/Web-Engineering/02/Aufgabe4.html">Basic Layout</a>
-        </nav>
-
+       <nav id="we-sidenav"></nav>
         <main>
             <h1>Asynchronous JavaScript</h1>
             <div class="contentbox">
@@ -163,7 +133,7 @@ loadBtn2.onclick = async () => {
 generateBtn.onclick = function () {
     randomNumbers1 = [];
     randomNumbers2 = [];
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i &lt; 100000; i++) {
         let randomNumber = Math.random()
         randomNumbers1.push(randomNumber);
         randomNumbers2.push(randomNumber);
@@ -300,6 +270,7 @@ let updateContent = function (data, idx, innerIdx) {
         <script src="Async.js"></script>
         <script src="navigation.js"></script>
         <script src="../../vendor/prism.js"></script>
+        <script src="../webEngSidenav.js"></script>
         <script src="../../responsive.js"></script>
 </body>
 

@@ -10,7 +10,7 @@ class NavItem extends LitElement {
 
     constructor() {
         super();
-        this.name = "moin";
+        this.name = "Hello";
     };
 
     static get styles() {
@@ -26,11 +26,11 @@ class NavItem extends LitElement {
             color: yellow;
             background-color: darkgray;
         }`;
-    }
+    };
 
     render() {
         return html`<li>${this.name}</li>`;
-    }
+    };
 }
 
 customElements.define('topnav-item', NavItem);

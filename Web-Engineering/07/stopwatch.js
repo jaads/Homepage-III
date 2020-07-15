@@ -8,13 +8,7 @@ class MyStopWatch extends LitElement {
             minutes: { type: Number },
             hours: { type: Number }
         };
-    }
-
-    static get styles() {
-        return css`
-          div { border: 0.5rem solid lightgrey; }
-        `;
-    }
+    };
 
     constructor() {
         super();
@@ -23,7 +17,7 @@ class MyStopWatch extends LitElement {
         this.hours = 0;
         this.formattedTime = "00:00:00";
         this.timerID = 0;
-    }
+    };
 
     addSec = () => {
         this.seconds += 1;
@@ -44,7 +38,7 @@ class MyStopWatch extends LitElement {
         this.formattedTime = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":"
             + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":"
             + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
-    }
+    };
 
     start = () => {
         clearInterval(this.timerID)
@@ -62,12 +56,12 @@ class MyStopWatch extends LitElement {
         this.shadowRoot.getElementById('start-btn').disabled = false;
         this.shadowRoot.getElementById('continue-btn').disabled = false;
 
-    }
+    };
 
     continue = () => {
         this.timerID = setInterval(this.addSec, 1000);
         this.shadowRoot.getElementById('continue-btn').disabled = true;
-    }
+    };
 
     render() {
         return html`
@@ -78,7 +72,7 @@ class MyStopWatch extends LitElement {
           <button @click="${this.continue}" id="continue-btn">Continue</button>
         </div>
         `;
-    }
+    };
 }
 
 customElements.define('my-stopwatch', MyStopWatch);

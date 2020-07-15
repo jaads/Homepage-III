@@ -4,14 +4,12 @@ const mainArea = document.getElementById('mainarea');
 const linksList = document.getElementById('linksList');
 let currentSideNav = [];
 
-window.onload = function () {
-    // Get data from the server 
-    fetch('data.json')
-        .then(res => res.json())
-        .then(data => {
-            makeMainMenu(data);
-        })
-};
+// Get data from the server 
+fetch('data.json')
+    .then(res => res.json())
+    .then(data => {
+        makeMainMenu(data);
+    });
 
 let makeMainMenu = function (jsonData) {
     // Create list item for menu for each object from the JSON file

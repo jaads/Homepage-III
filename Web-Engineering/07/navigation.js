@@ -5,16 +5,11 @@ const linksList = document.getElementById('linksList');
 
 let currentSideNav = [];
 
-window.onload = function () {
-    // Get data from the server 
-    fetch('../06/data.json')
-        .then(res => res.json())
-        .then(data => {
-            makeMainMenu(data);
-            console.log(data);
-
-        })
-};
+fetch('../06/data.json')
+    .then(res => res.json())
+    .then(data => {
+        makeMainMenu(data);
+    });
 
 let makeMainMenu = function (jsonObj) {
     // Create list item for menu for each object from the JSON file
@@ -39,7 +34,7 @@ let updateSideNav = function (data, idx) {
     dataArr.forEach((item) => currentSideNav.push(item.navitem));
     sideNavList.innerHTML = '';
     currentSideNav.forEach((elem, innerIdx) => {
-        let sideNavListItem = document.createElement('sidenav-item');        
+        let sideNavListItem = document.createElement('sidenav-item');
         sideNavListItem.setAttribute("name", elem);
         sideNavList.appendChild(sideNavListItem);
         sideNavListItem.onclick = () => updateContent(data, idx, innerIdx);
