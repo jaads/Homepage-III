@@ -14,8 +14,6 @@
 	--mylightgrey: #f3f3f3;
 }
 
-/* ----------- HTML tag stylings ---------- */
-
 html,
 body {
 	margin: 0;
@@ -34,7 +32,7 @@ header {
 }
 
 .headerbg {
-	background-image: linear-gradient(#1659A7, var(--second-color));
+	background-image: linear-gradient(#1659a7, var(--second-color));
 }
 
 .topnav {
@@ -62,7 +60,7 @@ header {
 	float: right;
 	font-size: xx-large;
 	cursor: pointer;
-} 
+}
 
 main {
 	max-width: 60rem;
@@ -75,7 +73,9 @@ h1 {
 	font-size: 3rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	color: var(--mygrey);
 }
 
@@ -127,7 +127,7 @@ hr {
 }
 
 .contentbox a {
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 .arrow {
@@ -149,7 +149,7 @@ hr {
 .border {
 	border: solid 3px var(--second-color);
 	border-radius: 0.4rem;
-	padding: 0.5rem
+	padding: 0.5rem;
 }
 
 .svglogo {
@@ -227,7 +227,6 @@ hr {
 }
 
 @media screen and (max-width: 2020px) {
-
 	.landing-bg {
 		background-size: cover;
 	}
@@ -235,12 +234,10 @@ hr {
 	#landingimg {
 		width: 60%;
 	}
-
 }
 
 /* Extra large devices (large desktops, 1200px and down) */
 @media (max-width: 1200px) {
-
 	#landingimg {
 		width: 80%;
 	}
@@ -248,7 +245,6 @@ hr {
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
-
 	#landingimg {
 		width: 100%;
 	}
@@ -263,7 +259,6 @@ hr {
 
 /* Medium devices (tablets, 768px and down) */
 @media (max-width: 768px) {
-
 	main h1 {
 		font-size: 2.5rem;
 	}
@@ -292,13 +287,15 @@ hr {
 		width: 6rem;
 	}
 
+	/* inspired by w3schools:  */
+	/* https://www.w3schools.com/howto/howto_js_topnav_responsive.asp */
 	.topnav.responsive {
 		position: relative;
 		flex-direction: column;
-		align-items: stretch;	
+		align-items: stretch;
 	}
 
-	.topnav.responsive .activenavitem{
+	.topnav.responsive .activenavitem {
 		background-color: var(--main-color);
 		color: var(--mydarkerblue);
 	}
@@ -314,16 +311,13 @@ hr {
 		display: block;
 		flex-grow: 0;
 	}
-
 }
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
-
 	main h1 {
 		font-size: 2rem;
 	}
-
 
 	.landing-bg {
 		background-size: cover;
@@ -354,11 +348,9 @@ hr {
 		font-size: 1rem;
 		padding-top: 0;
 	}
-
 }
 
-@media screen and (max-height: 700px) { 
-
+@media screen and (max-height: 700px) {
 	#landingimg {
 		margin-top: 3rem;
 	}
