@@ -19,7 +19,7 @@ function createListItem() {
     let li = document.createElement('li');
     speakerList.appendChild(li);
     li.innerHTML = `${speakerInput.value} <time>00:00:00</time> <button>Stop</button>`;
-    li.querySelector('button').onclick = toggleTime.bind(li, addSecond);
+    li.querySelector('button').onclick = toggleTime.bind(li);
     const allListItems = Array.from(li.parentNode.children);
     allListItems.forEach((item, idx) => {
         if (idx != allListItems.length - 1) {
@@ -34,7 +34,7 @@ function resetInput() {
     speakerInput.focus();
 };
 
-function toggleTime(addSecond) {
+function toggleTime() {
     clearInterval(currentTimerId);
     if (this.lastChild.innerText === 'Stop') {
         this.lastChild.innerText = 'Start';
