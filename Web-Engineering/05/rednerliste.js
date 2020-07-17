@@ -44,7 +44,7 @@ function toggleTime() {
         timerID = setInterval(addSecond, 1000, this);
         currentTimerId = timerID;
         const allListItems = Array.from(this.parentNode.children);
-        allListItems.forEach((item) => item.lastChild.innerText = 'Start');
+        allListItems.forEach((child) => child.lastChild.innerText = 'Start');
         this.lastChild.innerText = 'Stop';
     }
 };
