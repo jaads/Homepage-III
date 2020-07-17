@@ -35,13 +35,12 @@ function resetInput() {
 };
 
 function toggleTime(addSecond) {
+    clearInterval(currentTimerId);
     if (this.lastChild.innerText === 'Stop') {
-        clearInterval(currentTimerId);
         this.lastChild.innerText = 'Start';
         return;
     }
     if (this.lastChild.innerText === 'Start') {
-        clearInterval(currentTimerId);
         timerID = setInterval(addSecond, 1000, this);
         currentTimerId = timerID;
         const allListItems = Array.from(this.parentNode.children);
