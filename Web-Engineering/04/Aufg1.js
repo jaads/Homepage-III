@@ -1,4 +1,4 @@
-let identity_function = (param) => () => param;
+let identity_function = param => () => param;
 
 function exec_identity_function() {
     let param = document.getElementById("param").value;
@@ -8,7 +8,7 @@ function exec_identity_function() {
 
 // Schreiben Sie eine Addier-Funktion addf(), so dass addf(x)(y) genau x + y zurück gibt.
 // (Es haben also zwei Funktionsaufrufe zu erfolgen. addf(x) liefert eine Funktion, die auf y angewandt wird.)
-let addf = (x) => (y) => x + y;
+let addf = x => y => x + y;
 
 function exec_2() {
     let x = parseInt(document.querySelector("#xforaddf").value);

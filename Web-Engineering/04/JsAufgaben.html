@@ -34,14 +34,15 @@
         <nav id="we-sidenav"></nav>
         <main>
             <h1>First-Class Functions in JavaScript</h1>
-            <h3>1.1</h3>
+            <p>The abstract expression syntaxt in the headlines are Lamda-Calculus expressions.  </p>
+            <h3>1.1: &lambda;a.&lambda;b.a</h3>
             <p>A function that gets a parameter and returns a function which again returns the given parameter.</p>
             <input type="number" id="param">
             <button onclick="exec_identity_function()">Submit</button>
             Return value: <span id="ret"></span>
             <pre><code class="line-numbers lang-javascript">let identity_function = (param) => () => param;</pre></code>
 
-            <h3>1.2</h3>
+            <h3>1.2 A <i>curried</i> addition function: &gammad; a b</h3>
             <p>A function that get an parameter x and calls an inner function with paramter y to that the addition of x and y is returnd; </p>
             <input type="number" id="xforaddf">
             <input type="number" id="yforaddf">
@@ -50,7 +51,7 @@
             <pre><code class="line-numbers lang-javascript">let addf = (x) => (y) => x + y;</pre></code>
 
 
-            <h3>1.3</h3>
+            <h3>1.3 A genereic currying function.</h3>
             <input type="number" id="xforapplyf">
             <input type="number" id="yforapplyf">
             <button onclick="applyf_wrapper()">Submit</button>
