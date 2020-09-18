@@ -1,30 +1,20 @@
-function identity_function_wrapper() {
-    function identity_function(param) {
-        function inner_function(x) {
-            return x;
-        }
+let identity_function = (param) => () => param;
 
-        return inner_function(param)
-    }
-
+function exec_identity_function() {
     let param = document.getElementById("param").value;
-    document.getElementById("ret").innerHTML = identity_function(param);
-}
+    let retfunc = identity_function(param);
+    document.getElementById("ret").innerHTML = retfunc();
+};
 
 // Schreiben Sie eine Addier-Funktion addf(), so dass addf(x)(y) genau x + y zurück gibt.
 // (Es haben also zwei Funktionsaufrufe zu erfolgen. addf(x) liefert eine Funktion, die auf y angewandt wird.)
-function addf_wrapper() {
-    function addf(x) {
-        return function (y) {
-            return x + y;
-        }
-    }
+let addf = (x) => (y) => x + y;
 
-    let x = document.getElementById("xforaddf").value;
-    let y = document.getElementById("yforaddf").value;
-    console.log('Applying ' + x + ' and ' + y + 'on addf function');
-    document.getElementById("retAddf").innerHTML = addf(parseInt(x))(parseInt(y));
-}
+function exec_2() {
+    let x = parseInt(document.querySelector("#xforaddf").value);
+    let y = parseInt(document.querySelector("#yforaddf").value);
+    document.getElementById("retAddf").innerHTML = addf(x)(y);
+};
 
 // Schreiben Sie eine Funktion applyf(), die aus einer binären Funktion wie add(x,y) eine Funktion addfberechnet,
 // die mit zwei Aufrufen das gleiche Ergebnis liefert, z.B. addf = applyf(add); addf(x)(y) soll add(x,y) liefern.
@@ -124,7 +114,7 @@ function pusub() {
     return {
         subscribe: function (func) {
             subcribers.push();
-        }, publish :function (x) {
+        }, publish: function (x) {
             subcribers.forEach(element => {
 
             })
@@ -161,7 +151,7 @@ function generateSymbol() {
 
 // Write a function m that takes a value and an optional source string and returns them in an object.
 function m(value, source = 0) {
-    return {value, source}
+    return { value, source }
 }
 
 function m_trigger() {

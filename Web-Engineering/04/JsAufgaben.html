@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../mystyle.css">
     <link rel="stylesheet" type="text/css" href="/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/prism.css">
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 
@@ -30,23 +31,24 @@
 
     <span id="sidenav-burger">&#9776;</span>
     <div class="nav-container-vh">
-       <nav id="we-sidenav"></nav>
+        <nav id="we-sidenav"></nav>
         <main>
             <h1>First-Class Functions in JavaScript</h1>
-            <p>Followind code is written in ES5 for a good understanding of JavaScript, since ES6+ uses a lot of
-                abstraction
-                which
-                hides the actual workflow.</p>
-            <h3>A function that get a parameter and returns a function which again returns the given parameter.</h3>
+            <h3>1.1</h3>
+            <p>A function that gets a parameter and returns a function which again returns the given parameter.</p>
             <input type="number" id="param">
-            <button onclick="identity_function_wrapper()">Submit</button>
+            <button onclick="exec_identity_function()">Submit</button>
             Return value: <span id="ret"></span>
+            <pre><code class="line-numbers lang-javascript">let identity_function = (param) => () => param;</pre></code>
 
             <h3>1.2</h3>
+            <p>A function that get an parameter x and calls an inner function with paramter y to that the addition of x and y is returnd; </p>
             <input type="number" id="xforaddf">
             <input type="number" id="yforaddf">
-            <button onclick="addf_wrapper()">Submit</button>
+            <button onclick="exec_2()">Submit</button>
             Return value: <span id="retAddf"></span>
+            <pre><code class="line-numbers lang-javascript">let addf = (x) => (y) => x + y;</pre></code>
+
 
             <h3>1.3</h3>
             <input type="number" id="xforapplyf">
@@ -74,6 +76,7 @@
     </div>
     <script src="../webEngSidenav.js"></script>
     <script src="Aufg1.js"></script>
+    <script src="../../vendor/prism.js"></script>
 </body>
 
 </html>
