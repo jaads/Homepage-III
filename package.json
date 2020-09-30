@@ -4,7 +4,7 @@
   "main": "index.html",
   "repository": "https://github.com/jaads/Homepage-III.git",
   "author": "Jan Arends <jan.arends@mailbox.org>",
-  "license": "MIT",
+  "license": "GPLv3",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
