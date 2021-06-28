@@ -120,7 +120,9 @@
 .heading4 {
 	margin-left: 2.3rem;
 }
-
+.paper-pic img {
+	height: 11rem;
+}
 
 /* Medium devices (tablets, 768px and down) */
 
