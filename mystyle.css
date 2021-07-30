@@ -196,19 +196,6 @@ hr {
 	margin: 0 3rem 0;
 }
 
-/* ----------- Summaries  ------------ */
-
-.summary {
-	margin: auto auto;
-	margin-bottom: 4rem;
-}
-
-.note {
-	text-align: center;
-	color: grey;
-	margin-bottom: 4rem;
-}
-
 /* ----------- Buttons  -------------- */
 
 .fancy-button {
