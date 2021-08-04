@@ -47,6 +47,7 @@ header {
 	text-decoration: none;
 	text-transform: uppercase;
 	flex-grow: 1;
+	border-radius: 0.2rem;
 }
 
 .topnav .topnav-right a:hover {
@@ -200,8 +201,9 @@ hr {
 
 .fancy-button {
 	border: 2px solid #999999;
+	border-radius: 0.2rem;
 	min-width: 10rem;
-	height: 4rem;
+	height: 3rem;
 	text-transform: uppercase;
 	background-color: transparent;
 	cursor: pointer;
