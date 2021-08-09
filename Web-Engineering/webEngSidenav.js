@@ -19,6 +19,7 @@ function makeMenu(data) {
     data.forEach(headlineElem => {
         let h3 = document.createElement('h3');
         h3.innerText = headlineElem.headline;
+        h3.classList.add('sidenavHeader');
         nav.appendChild(h3);
         headlineElem.topics.forEach(elem => {
             let link = document.createElement('a');

@@ -48,6 +48,10 @@
 	padding: 0.5rem;
 }
 
+.sidenavHeader {
+	margin-bottom: 0;
+}
+
 /* Medium devices (tablets, 768px and down) */
 
 @media (max-width: 768px) {
